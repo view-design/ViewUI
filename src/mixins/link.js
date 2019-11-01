@@ -54,10 +54,10 @@ export default {
                 }
                 window.open(to);
             } else {
-                if (router && !to.includes('//')) {
+                if (router && !(typeof to === 'string' && to.includes('//'))) {
                     this.replace ? this.$router.replace(this.to, () => {}) : this.$router.push(this.to, () => {});
                 } else {
-                    window.location.href = this.to;
+                    this.replace ? window.location.replace(this.to) : window.location.href = this.to;
                 }
             }
         },

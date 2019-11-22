@@ -32,7 +32,7 @@
 <script>
     import Icon from '../icon/icon.vue';
     import Render from '../base/render';
-    import { oneOf, MutationObserver, findComponentsDownward } from '../../utils/assist';
+    import { oneOf, MutationObserver } from '../../utils/assist';
     import Emitter from '../../mixins/emitter';
     import elementResizeDetectorMaker from 'element-resize-detector';
 
@@ -208,19 +208,7 @@
         },
         methods: {
             getTabs () {
-                // return this.$children.filter(item => item.$options.name === 'TabPane');
-                const AllTabPanes = findComponentsDownward(this, 'TabPane');
-                const TabPanes = [];
-
-                AllTabPanes.forEach(item => {
-                    if (item.tab && this.name) {
-                        if (item.tab === this.name) {
-                            TabPanes.push(item);
-                        }
-                    } else {
-                        TabPanes.push(item);
-                    }
-                });
+                const TabPanes = this.$children.filter(item => item.$options.name === 'TabPane');
 
                 // 在 TabPane 使用 v-if 时，并不会按照预先的顺序渲染，这时可设置 index，并从小到大排序
                 TabPanes.sort((a, b) => {

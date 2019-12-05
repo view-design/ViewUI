@@ -219,7 +219,9 @@
                     this.buttonLoading = false;
                     this.timer = setTimeout(() => {
                         this.wrapShow = false;
-                        this.removeScrollEffect();
+                        if (!this.scrollable) {
+                            this.removeScrollEffect();
+                        }
                     }, 300);
                 } else {
                     if (this.timer) clearTimeout(this.timer);

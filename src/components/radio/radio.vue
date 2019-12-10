@@ -148,7 +148,7 @@
             handleClick () {
                 const { group, currentValue, disabled } = this;
                 if (group || disabled) return;
-                this.currentValue = !this.currentValue;
+                this.currentValue = !currentValue;
                 this.$emit('input', this.currentValue);
                 this.dispatch('FormItem', 'on-form-change', this.currentValue);
             },

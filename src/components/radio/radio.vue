@@ -6,6 +6,7 @@
                 type="radio"
                 :class="inputClasses"
                 :disabled="itemDisabled"
+                :readonly="readonly"
                 :checked="currentValue"
                 :name="groupName"
                 @change="change"
@@ -41,6 +42,10 @@
                 type: [String, Number]
             },
             disabled: {
+                type: Boolean,
+                default: false
+            },
+            readonly: {
                 type: Boolean,
                 default: false
             },

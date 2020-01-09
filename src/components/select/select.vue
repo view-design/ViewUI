@@ -485,6 +485,7 @@
                 return {
                     value: value,
                     label: label,
+                    tag: option.componentOptions.propsData.tag,
                 };
             },
             getInitialValue(){

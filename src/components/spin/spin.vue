@@ -1,12 +1,12 @@
 <template>
-    <transition name="fade">
+    <div>
         <div :class="classes" v-if="fullscreenVisible">
             <div :class="mainClasses">
                 <span :class="dotClasses"></span>
                 <div :class="textClasses"><slot></slot></div>
             </div>
         </div>
-    </transition>
+    </div>
 </template>
 <script>
     import { oneOf } from '../../utils/assist';

@@ -29,7 +29,7 @@ export default function upload(option) {
 
     const xhr = new XMLHttpRequest();
     const action = option.action;
-
+    option.xhrObj.xhr = xhr; // 把 xhr 对象引用传递到外部
     if (xhr.upload) {
         xhr.upload.onprogress = function progress(e) {
             if (e.total > 0) {

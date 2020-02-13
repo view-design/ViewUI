@@ -95,6 +95,10 @@ export declare class Table extends Vue {
      */
     "row-key"?: boolean;
     /**
+     * 当列数据为 null 或 undefined 时，设置的全局默认值
+     */
+    "default-value"?: string | number | boolean;
+    /**
      * 开启 highlight-row 后有效，当表格的当前行发生变化的时候会触发
      * currentRow：当前高亮行的数据
      * oldCurrentRow：上一次高亮的数据
@@ -330,6 +334,10 @@ export declare class TableColumn {
      * 表头分组
      */
     children?: object[];
+    /**
+     * 当列数据为 null 或 undefined 时，设置的当列默认值
+     */
+    defaultValue?: string | number | boolean;
 }
 
 export declare class TableRenderCreateElementData {

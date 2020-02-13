@@ -271,6 +271,10 @@
             contextMenu: {
                 type: Boolean,
                 default: false
+            },
+            defaultValue: {
+                type: [String, Boolean, Number],
+                default: undefined
             }
         },
         data () {

@@ -451,7 +451,8 @@
                 return selectOptions;
             },
             flatOptions(){
-                return extractOptions(this.selectOptions);
+                // #317 这里应该是slotOptions 全部的选项，而不应该是 selectOptions
+                return extractOptions(this.slotOptions || []);
             },
             selectTabindex(){
                 return this.itemDisabled || this.filterable ? -1 : 0;
@@ -759,6 +760,10 @@
                 const {getInitialValue, getOptionData, publicValue, values} = this;
 
                 this.checkUpdateStatus();
+
+                // #317 当 OptionsGruop 和 filterable同时为true时，改value出错
+                // 单选时 value 改变 this.query = value确保 过滤 正确
+                if(!this.multiple) this.query = value;
 
                 if (value === '') this.values = [];
                 else if (checkValuesNotEqual(value,publicValue,values)) {

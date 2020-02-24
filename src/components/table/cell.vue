@@ -18,7 +18,7 @@
                     <span ref="content" @mouseenter="handleTooltipIn" @mouseleave="handleTooltipOut" class="ivu-table-cell-tooltip-content">{{ row[column.key] }}</span>
                 </Tooltip>
             </template>
-            <span v-else>{{row[column.key]}}</span>
+            <span v-else>{{row[column.key] == null ?  (column.defaultValue || tableRoot.defaultValue): row[column.key] }} </span>
         </template>
         <template v-if="renderType === 'expand' && !row._disableExpand">
             <div :class="expandCls" @click="toggleExpand">

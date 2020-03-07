@@ -164,7 +164,13 @@ const iview = {
 // 修改所有组件的输出为"c-"开头
 import cViewUI from './index-c';
 import iViewUI from './index-i';
-iview = cViewUI;
+for(var key in iview){
+    delete iview[key];
+}
+for(var key in cViewUI){
+    iview[key] = cViewUI[key];
+}
+
 
 const install = function(Vue, opts = {}) {
     if (install.installed) return;

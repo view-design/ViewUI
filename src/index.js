@@ -161,6 +161,11 @@ const iview = {
     iTime: Time
 };
 
+// 修改所有组件的输出为"c-"开头
+import cViewUI from './index-c';
+import iViewUI from './index-i';
+iview = cViewUI;
+
 const install = function(Vue, opts = {}) {
     if (install.installed) return;
     locale.use(opts.locale);

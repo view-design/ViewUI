@@ -32110,9 +32110,15 @@ var iview = (0, _extends3.default)({}, components, {
 for (var key in iview) {
     delete iview[key];
 }
+
 for (var key in _indexC2.default) {
     iview[key] = _indexC2.default[key];
 }
+
+for (var key in _indexI2.default) {
+    iview[key] = _indexI2.default[key];
+}
+
 
 var install = function install(Vue) {
     var _this = this;
@@ -45815,6 +45821,13 @@ exports.default = components;
 
 "use strict";
 
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var components = {};
+
+exports.default = components;
 
 /***/ })
 /******/ ]);

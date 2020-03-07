@@ -161,15 +161,21 @@ const iview = {
     iTime: Time
 };
 
-// 修改所有组件的输出为"c-"开头
+// easy-iview start
 import cViewUI from './index-c';
 import iViewUI from './index-i';
 for(var key in iview){
     delete iview[key];
 }
+// c层
 for(var key in cViewUI){
     iview[key] = cViewUI[key];
 }
+// i层
+for(var key in iViewUI){
+    iview[key] = iViewUI[key];
+}
+// easy-iview end
 
 
 const install = function(Vue, opts = {}) {

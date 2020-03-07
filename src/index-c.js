@@ -65,6 +65,7 @@ let cSelect = Select;
 let cOption = Option;
 let cOptionGroup = OptionGroup;
 
+// 修改所有组件的输出为"c-"开头
 const components = {
     cCircle,
     cSwitch,

@@ -8,7 +8,7 @@
             filterable
             @on-change="handleChange3">
         <div :style="{float: 'right', margin: '5px'}">
-            <QButton type="ghost" size="small" @click="reloadMockData">Refresh</QButton>
+            <QButton size="small" @click="reloadMockData">Refresh</QButton>
         </div>
     </QTransfer>
 </template>

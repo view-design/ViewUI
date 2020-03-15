@@ -4,7 +4,7 @@
 // Definitions: https://github.com/yangdan8/iview.git
 import Vue from 'vue';
 
-export declare class InputNumber extends Vue {
+export declare class QInputNumber extends Vue {
   /**
    * 最大值，默认值Infinity
    */

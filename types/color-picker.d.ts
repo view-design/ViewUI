@@ -4,7 +4,7 @@
 // Definitions: https://github.com/yangdan8/iview.git
 import Vue, { VNode } from 'vue';
 
-export declare class ColorPicker extends Vue {
+export declare class QColorPicker extends Vue {
   /**
    * 绑定的值，可使用 v-model 双向绑定
    */

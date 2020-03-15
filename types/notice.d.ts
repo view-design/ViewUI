@@ -4,36 +4,36 @@
 // Definitions: https://github.com/yangdan8/iview.git
 import Vue, { VNode, CreateElement } from "vue";
 
-export declare class Notice extends Vue {
+export declare class QNotice extends Vue {
     /**
      * 打开
-     * @param config NoticeConfig为相关配置,string为待显示的内容
+     * @param configQ NoticeConfig为相关配置,string为待显示的内容
      */
-    open(config?: NoticeConfig | string): void;
+    open(config?: QNoticeConfig | string): void;
     /**
      * 信息
-     * @param config NoticeConfig为相关配置,string为待显示的内容
+     * @param config QNoticeConfig为相关配置,string为待显示的内容
      */
-    info(config?: NoticeConfig | string): void;
+    info(config?: QNoticeConfig | string): void;
     /**
      * 成功
-     * @param config NoticeConfig为相关配置,string为待显示的内容
+     * @param config QNoticeConfig为相关配置,string为待显示的内容
      */
-    success(config?: NoticeConfig | string): void;
+    success(config?: QNoticeConfig | string): void;
     /**
      * 警告
-     * @param config NoticeConfig为相关配置,string为待显示的内容
+     * @param config QNoticeConfig为相关配置,string为待显示的内容
      */
-    warning(config?: NoticeConfig | string): void;
+    warning(config?: QNoticeConfig | string): void;
     /**
      * 错误
-     * @param config NoticeConfig为相关配置,string为待显示的内容
+     * @param config QNoticeConfig为相关配置,string为待显示的内容
      */
-    error(config?: NoticeConfig): void;
+    error(config?: QNoticeConfig): void;
     /**
      * 全局配置
      */
-    config(options?: NoticeGlobalConfig): void;
+    config(options?: QNoticeGlobalConfig): void;
     /**
      * 全局关闭某个通知
      */
@@ -44,7 +44,7 @@ export declare class Notice extends Vue {
     destroy(): void;
 }
 
-export declare class NoticeConfig {
+export declare class QNoticeConfig {
     /**
      * 通知提醒的标题
      */
@@ -72,7 +72,7 @@ export declare class NoticeConfig {
     onClose?: Function;
 }
 
-export declare class NoticeGlobalConfig {
+export declare class QNoticeGlobalConfig {
     /**
      * 通知组件距离顶端的距离，单位像素 默认24
      */
@@ -88,6 +88,6 @@ declare module "vue/types/vue" {
         /**
          * 通知提醒
          */
-        $Notice: Notice;
+        $QNotice: QNotice;
     }
 }

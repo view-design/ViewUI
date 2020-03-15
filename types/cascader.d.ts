@@ -4,7 +4,7 @@
 // Definitions: https://github.com/yangdan8/iview.git
 import Vue from 'vue';
 
-export declare class Cascader extends Vue {
+export declare class QCascader extends Vue {
   /**
    * 可选项的数据源，格式参照示例说明
    * @default []
@@ -74,7 +74,7 @@ export declare class Cascader extends Vue {
    */
   'element-id'?: string;
   /**
-   * 选择完成后的回调，返回值 value 即已选值 value，selectedData 为已选项的具体数据	
+   * 选择完成后的回调，返回值 value 即已选值 value，selectedData 为已选项的具体数据
    */
   $emit(eventName: 'on-change', value: object, selectedData: object[]): this;
   /**

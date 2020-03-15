@@ -4,7 +4,7 @@
 // Definitions: https://github.com/yangdan8/iview.git
 import Vue from 'vue';
 
-export declare class Anchor extends Vue {
+export declare class QAnchor extends Vue {
   /**
    * 固定模式
    * @default true
@@ -43,20 +43,20 @@ export declare class Anchor extends Vue {
    */
   $emit(eventName: 'on-select', href: string): this;
   /**
-   * 链接改变时触发，返回新链接和旧链接	
+   * 链接改变时触发，返回新链接和旧链接
    */
   $emit(eventName: 'on-change', []): this;
 }
 
-export declare class AnchorLink extends Vue {
+export declare class QAnchorLink extends Vue {
   /**
    * 锚点链接
-   * @default 
+   * @default
    */
   href?: string;
   /**
    * 文字内容
-   * @default 
+   * @default
    */
   title?: string;
   /**

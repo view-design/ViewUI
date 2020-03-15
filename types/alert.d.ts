@@ -4,7 +4,7 @@
 // Definitions: https://github.com/yangdan8/iview.git
 import Vue, { VNode } from 'vue';
 
-export declare class Alert extends Vue {
+export declare class QAlert extends Vue {
   /**
    * 警告提示样式，可选值为info、success、warning、error
    * @default info

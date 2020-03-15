@@ -4,44 +4,52 @@
 // Definitions: https://github.com/yangdan8/iview.git
 import Vue, { VNode, CreateElement } from "vue";
 
-export declare class Message extends Vue {
+export const QMessage: QMessageClass;
+
+export declare class QMessageClass extends Vue {
     /**
      * 消息
-     * @param config MessageConfig为相关配置,string为待显示的内容
+     * @param config QMessageConfig为相关配置,string为待显示的内容
      */
-    info(config?: MessageConfig | string): void;
+    info(config?: QMessageConfig | string): void;
+
     /**
      * 成功
-     * @param config MessageConfig为相关配置,string为待显示的内容
+     * @param config QMessageConfig为相关配置,string为待显示的内容
      */
-    success(config?: MessageConfig | string): void;
+    success(config?: QMessageConfig | string): void;
+
     /**
      * 警告
-     * @param config MessageConfig为相关配置,string为待显示的内容
+     * @param config QMessageConfig为相关配置,string为待显示的内容
      */
-    warning(config?: MessageConfig | string): void;
+    warning(config?: QMessageConfig | string): void;
+
     /**
      * 错误
-     * @param config MessageConfig为相关配置,string为待显示的内容
+     * @param config QMessageConfig为相关配置,string为待显示的内容
      */
-    error(config?: MessageConfig | string): void;
+    error(config?: QMessageConfig | string): void;
+
     /**
      * 配置
-     * @param config MessageConfig为相关配置,string为待显示的内容
+     * @param config QMessageConfig为相关配置,string为待显示的内容
      */
-    loading(options?: MessageConfig | string): void;
+    loading(options?: QMessageConfig | string): void;
+
     /**
      * 配置
-     * @param config MessageConfig为相关配置,string为待显示的内容
+     * @param config QMessageConfig为相关配置,string为待显示的内容
      */
-    config(options?: MessageConfig): void;
+    config(options?: QMessageConfig): void;
+
     /**
      * 销毁
      */
     destroy(): void;
 }
 
-export declare class MessageConfig {
+export declare class QMessageConfig {
     /**
      * 提示内容
      */
@@ -77,6 +85,6 @@ declare module "vue/types/vue" {
         /**
          * 全局提示
          */
-        $Message: Message;
+        $QMessage: QMessageClass;
     }
 }

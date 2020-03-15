@@ -4,7 +4,7 @@
 // Definitions: https://github.com/yangdan8/iview.git
 import Vue, { VNode } from 'vue';
 
-export declare class Transfer extends Vue {
+export declare class QTransfer extends Vue {
   /**
    * 数据源，其中的数据将会被渲染到左边一栏中，targetKeys 中指定的除外。
    * @default []
@@ -16,7 +16,7 @@ export declare class Transfer extends Vue {
    */
   targetKeys?: string[];
   /**
-   * 每行数据渲染函数，该函数的入参为 data 中的项	
+   * 每行数据渲染函数，该函数的入参为 data 中的项
    * value?: 默认显示label，没有时显示key
    */
   'render-format'?: (value?: string) => void;
@@ -31,7 +31,7 @@ export declare class Transfer extends Vue {
    */
   'list-style'?: object;
   /**
-   * 标题集合，顺序从左至右	Array	
+   * 标题集合，顺序从左至右	Array
    * @default ['源列表', '目的列表']
    */
   titles?: string[];

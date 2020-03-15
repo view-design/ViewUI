@@ -4,5 +4,5 @@
 // Definitions: https://github.com/yangdan8/iview.git
 import Vue from 'vue';
 
-export declare class Header extends Vue {
+export declare class QHeader extends Vue {
 }

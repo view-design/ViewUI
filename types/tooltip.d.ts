@@ -4,7 +4,7 @@
 // Definitions: https://github.com/yangdan8/iview.git
 import Vue, { VNode } from 'vue';
 
-export declare class Tooltip extends Vue {
+export declare class QTooltip extends Vue {
   /**
    * 显示的内容
    * @default 空

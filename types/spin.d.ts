@@ -4,7 +4,7 @@
 // Definitions: https://github.com/yangdan8/iview.git
 import Vue, { VNode } from 'vue';
 
-export declare class Spin extends Vue {
+export declare class QSpin extends Vue {
   /**
    * Spin尺寸，可选值为large和small或者不设置
    */
@@ -23,13 +23,22 @@ export declare class Spin extends Vue {
      */
     '': VNode[];
   };
+  /**
+   * 显示spin
+   * @param config
+   */
+  show(config: any): void;
+  /**
+   * 隐藏spin
+   */
+  hide(): void;
 }
 
 declare module 'vue/types/vue' {
   interface Vue {
     /**
-     * 
+     *
      */
-    $Spin: Spin;
+    $QSpin: QSpin;
   }
 }

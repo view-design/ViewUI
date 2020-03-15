@@ -4,7 +4,7 @@
 // Definitions: https://github.com/yangdan8/iview.git
 import Vue, { VNode } from 'vue';
 
-export declare class Checkbox extends Vue {
+export declare class QCheckbox extends Vue {
   /**
    * 只在单独使用时有效。可以使用 v-model 双向绑定数据
    * @default false

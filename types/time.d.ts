@@ -4,7 +4,7 @@
 // Definitions: https://github.com/yangdan8/iview.git
 import Vue from 'vue';
 
-export declare class Time extends Vue {
+export declare class QTime extends Vue {
   /**
    * 需要对比的时间，可以是时间戳或 Date 类型
    */

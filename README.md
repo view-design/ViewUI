@@ -6,6 +6,7 @@
 
 <h1>
 ViewUI
+<h2>所以组件前面都增加了一个大写的Q字母，增强了typescript的支持</h2>
     <h3>A high quality UI Toolkit built on Vue.js.</h3>
 </h1>
 

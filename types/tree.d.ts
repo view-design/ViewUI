@@ -4,11 +4,11 @@
 // Definitions: https://github.com/yangdan8/iview.git
 import Vue, { VNode, CreateElement } from "vue";
 
-export declare class Tree extends Vue {
+export declare class QTree extends Vue {
     /**
      * 可嵌套的节点属性的数组，生成 tree 的数据
      */
-    data?: TreeChild[];
+    data?: QTreeChild[];
     /**
      * 是否支持多选
      * @default false
@@ -52,17 +52,17 @@ export declare class Tree extends Vue {
      * 点击树节点时触发
      * @default 当前已勾选节点的数组、当前项
      */
-    $emit(eventName: "on-select-change", value: TreeChild[]): this;
+    $emit(eventName: "on-select-change", value: QTreeChild[]): this;
     /**
      * 点击复选框时触发
      * @default  当前已勾选节点的数组、当前项
      */
-    $emit(eventName: "on-check-change", value: TreeChild[]): this;
+    $emit(eventName: "on-check-change", value: QTreeChild[]): this;
     /**
      * 展开和收起子列表时触发
      * @default  当前节点的数据
      */
-    $emit(eventName: "on-toggle-expand", value: TreeChild): this;
+    $emit(eventName: "on-toggle-expand", value: QTreeChild): this;
     /**
      * 获取被勾选的节点
      */
@@ -77,7 +77,7 @@ export declare class Tree extends Vue {
     getCheckedAndIndeterminateNodes(): any[];
 }
 
-export declare class TreeChild extends Vue {
+export declare class QTreeChild extends Vue {
     /**
      * 标题
      */
@@ -110,7 +110,7 @@ export declare class TreeChild extends Vue {
     /**
      * 子节点属性数组
      */
-    children?: TreeChild[];
+    children?: QTreeChild[];
     /**
      * 自定义当前节点渲染内容，见示例
      */

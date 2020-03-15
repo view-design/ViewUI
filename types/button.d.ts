@@ -4,7 +4,7 @@
 // Definitions: https://github.com/yangdan8/iview.git
 import Vue from 'vue';
 
-export declare class Button extends Vue {
+export declare class QButton extends Vue {
   /**
    * 按钮类型，可选值为 default、primary、dashed、text、info、success、warning、error或者不设置
    * @default default

@@ -4,7 +4,7 @@
 // Definitions: https://github.com/yangdan8/iview.git
 import Vue, { VNode, CreateElement } from "vue";
 
-export declare class Table extends Vue {
+export declare class QTable extends Vue {
     /**
      * 显示的结构化数据，其中，字段 cellClassName 用于设置任意单元格的样式名称，
      * 因此数据不能使用该字段，详见示例特定样式。
@@ -182,7 +182,7 @@ export declare class Table extends Vue {
     /**
      * 导出数据
      */
-    exportCsv(params: TableExportCsvParams): void;
+    exportCsv(params: QTableExportCsvParams): void;
     /**
      * 执行改变大小重绘table
      */
@@ -210,7 +210,7 @@ export declare class Table extends Vue {
     };
 }
 
-export declare class TableColumn {
+export declare class QTableColumn {
     /**
      * 列类型，可选值为 index、selection、expand、html
      */
@@ -269,7 +269,7 @@ export declare class TableColumn {
      */
     render?: (
         h?: CreateElement,
-        params?: TableColumnRenderParams
+        params?: QTableColumnRenderParams
     ) => VNode;
     /**
      * 自定义列头显示内容，传入参数有两个，column 和 index，分别为当前列数据和当前列索引，不支持渲染自定义组件
@@ -278,7 +278,7 @@ export declare class TableColumn {
      */
     renderHeader?: (
         h?: CreateElement,
-        params?: TableColumnRenderHeadParams
+        params?: QTableColumnRenderHeadParams
     ) => VNode;
     /**
      * type 为 index 时可用，自定义序号
@@ -332,7 +332,7 @@ export declare class TableColumn {
     children?: object[];
 }
 
-export declare class TableRenderCreateElementData {
+export declare class QTableRenderCreateElementData {
     /**
      * 和`v-bind:class`一样的 API
      */
@@ -382,7 +382,7 @@ export declare class TableRenderCreateElementData {
     ref?: string;
 }
 
-export declare class TableColumnRenderParams {
+export declare class QTableColumnRenderParams {
     /**
      * 当前行数据
      */
@@ -397,7 +397,7 @@ export declare class TableColumnRenderParams {
     index?: number;
 }
 
-export declare class TableColumnRenderHeadParams {
+export declare class QTableColumnRenderHeadParams {
     /**
      * 当前列数据
      */
@@ -408,7 +408,7 @@ export declare class TableColumnRenderHeadParams {
     index?: number;
 }
 
-export declare class TableExportCsvParams {
+export declare class QTableExportCsvParams {
     /**
      * 文件名，默认为 table.csv
      */

@@ -4,7 +4,7 @@
 // Definitions: https://github.com/yangdan8/iview.git
 import Vue from 'vue';
 
-export declare class Avatar extends Vue {
+export declare class QAvatar extends Vue {
   /**
    * 指定头像的形状，可选值为 circle、square
    * @default circle

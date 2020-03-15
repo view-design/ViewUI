@@ -4,7 +4,7 @@
 // Definitions: https://github.com/yangdan8/iview.git
 import Vue, { VNode } from 'vue';
 
-export declare class DatePicker extends Vue {
+export declare class QDatePicker extends Vue {
   /**
    * 显示类型，可选值为 date、daterange、datetime、datetimerange、year、month'|'默认值date
    */
@@ -40,7 +40,7 @@ export declare class DatePicker extends Vue {
   /**
    * 选择器额外配置，比如不可选日期与快捷选项，具体项详见下表
    */
-  options?: DatePickerOptions;
+  options?: QDatePickerOptions;
   /**
    * 开启后，左右面板不联动，仅在 daterange 和 datetimerange 下可用。
    * @default false
@@ -146,7 +146,7 @@ export declare class DatePicker extends Vue {
   };
 }
 
-export declare class DatePickerOptions {
+export declare class QDatePickerOptions {
   /**
    * 设置快捷选项，每项内容：
    * text：显示的文案

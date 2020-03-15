@@ -4,7 +4,7 @@
 // Definitions: https://github.com/yangdan8/iview.git
 import Vue, { VNode } from 'vue';
 
-export declare class Breadcrumb extends Vue {
+export declare class QBreadcrumb extends Vue {
   /**
    * 自定义分隔符
    * @default /
@@ -12,7 +12,7 @@ export declare class Breadcrumb extends Vue {
   separator?: string;
 }
 
-export declare class BreadcrumbItem extends Vue {
+export declare class QBreadcrumbItem extends Vue {
   /**
    * 链接，不传则没有链接
    */

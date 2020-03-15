@@ -4,7 +4,7 @@
 // Definitions: https://github.com/yangdan8/iview.git
 import Vue, { VNode } from 'vue';
 
-export declare class Poptip extends Vue {
+export declare class QPoptip extends Vue {
   /**
    * 触发方式，可选值为hover（悬停）click（点击）focus（聚焦）,
    * 在 confirm 模式下，只有 click 有效
@@ -92,6 +92,7 @@ export declare class Poptip extends Vue {
       }
    */
   options?: object;
+  visible?: boolean;
   /**
    * 在提示框显示时触发
    */

@@ -4,7 +4,7 @@
 // Definitions: https://github.com/yangdan8/iview.git
 import Vue, { VNode } from 'vue';
 
-export declare class Progress extends Vue {
+export declare class QProgress extends Vue {
   /**
    * 百分比
    * @default 0

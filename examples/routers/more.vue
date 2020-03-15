@@ -15,26 +15,26 @@
     }
 </style>
 <template>
-    <i-button @click="modal9 = true">距离顶部 20px</i-button>
-    <Modal
+    <q-button @click="modal9 = true">距离顶部 20px</q-button>
+    <QModal
             title="对话框标题"
             :visible.sync="modal9"
             :style="{top: '20px'}">
         <p>对话框内容</p>
         <p>对话框内容</p>
         <p>对话框内容</p>
-    </Modal>
-    <i-button @click="modal10 = true">垂直居中</i-button>
-    <Modal
+    </QModal>
+    <q-button @click="modal10 = true">垂直居中</q-button>
+    <QModal
             title="对话框标题"
             :visible.sync="modal10"
             class-name="vertical-center-modal">
         <p>对话框内容</p>
         <p>对话框内容</p>
         <p>对话框内容</p>
-    </Modal>
-    <i-button @click="instance(true)">Create Instance Scrollable</i-button>
-    <i-button @click="instance(false)">Create Instance Non-scrollable</i-button>
+    </QModal>
+    <q-button @click="instance(true)">Create Instance Scrollable</q-button>
+    <q-button @click="instance(false)">Create Instance Non-scrollable</q-button>
     <div class="placeholder"></div>
 </template>
 <script>

@@ -1,25 +1,25 @@
 <template>
     <div style="height: 300px;">
-        <Progress vertical :percent="25"></Progress>
-        <Progress vertical :percent="45" status="active"></Progress>
-        <Progress vertical :percent="65" status="wrong"></Progress>
-        <Progress vertical :percent="100"></Progress>
-        <Progress vertical :percent="25" hide-info></Progress>
+        <QProgress vertical :percent="25"></QProgress>
+        <QProgress vertical :percent="45" status="active"></QProgress>
+        <QProgress vertical :percent="65" status="wrong"></QProgress>
+        <QProgress vertical :percent="100"></QProgress>
+        <QProgress vertical :percent="25" hide-info></QProgress>
 
-        <Progress  :percent="25"></Progress>
-        <Progress  :percent="45" status="active"></Progress>
-        <Progress  :percent="65" status="wrong"></Progress>
-        <Progress  :percent="100"></Progress>
-        <Progress  :percent="25" hide-info></Progress>
+        <QProgress  :percent="25"></QProgress>
+        <QProgress  :percent="45" status="active"></QProgress>
+        <QProgress  :percent="65" status="wrong"></QProgress>
+        <QProgress  :percent="100"></QProgress>
+        <QProgress  :percent="25" hide-info></QProgress>
 
-        <Divider></Divider>
+        <QDivider></QDivider>
 
-        <Progress :percent="10" :stroke-width="20" text-inside></Progress>
+        <QProgress :percent="10" :stroke-width="20" text-inside></QProgress>
 
-        <Divider></Divider>
+        <QDivider></QDivider>
 
-        <Progress :percent="90" :stroke-color="color1"></Progress>
-        <Progress :percent="90" :stroke-color="color2" status="active"></Progress>
+        <QProgress :percent="90" :stroke-color="color1"></QProgress>
+        <QProgress :percent="90" :stroke-color="color2" status="active"></QProgress>
     </div>
 </template>
 <script>

@@ -1,11 +1,11 @@
 <template>
-    <Scroll :on-reach-edge="loadData">
+    <QScroll :on-reach-edge="loadData">
         <section v-for="item in list">
             <div class="city">
                 <p>{{ item }}</p>
             </div>
         </section>
-    </Scroll>
+    </QScroll>
 </template>
 <script>
     export default {

@@ -11,9 +11,9 @@
 </style>
 <template>
 <div>
-    <Affix>
+    <QAffix>
         <div class="demo-affix">固定在最顶部</div>
-    </Affix>
+    </QAffix>
     <div v-for="(item,index) in arr">{{item}}</div>
 </div>
 </template>

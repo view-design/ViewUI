@@ -1,5 +1,5 @@
 <template>
-  <Submenu :name="`${parentName}`">
+  <QSubmenu :name="`${parentName}`">
     <template slot="title">
       <span>{{ parentItem.name }}</span>
     </template>
@@ -7,7 +7,7 @@
       <custem-menu-item v-if="item.children && item.children.length !== 0" :key="`menu-${item.name}`" :parent-item="item"></custem-menu-item>
       <menu-item v-else :name="`${item.name}`" :key="`menu-${item.name}`">{{ item.name }}</menu-item>
     </template>
-  </Submenu>
+  </QSubmenu>
 </template>
 <script>
 export default {

@@ -1,19 +1,15 @@
 <template>
     <div>
-        <Button @click="visible = true">show1</Button>
-        <Button @click="visible2 = true">show2</Button>
-        <Button @click="visible3 = true">show3</Button>
+        <QButton @click="visible = true">show1</QButton>
+        <QButton @click="visible2 = true">show2</QButton>
+        <QButton @click="visible3 = true">show3</QButton>
 
         <div style="width: 500px;height:500px;background: green;position: relative;">
-            <Drawer v-model="visible" placement="left" :before-close="handleBeforeClose" draggable inner :transfer="false" width="50" @on-resize-width="hrw" title="抽屉标题" :styles="styles" @on-close="handleClose">
+            <QDrawer v-model="visible" placement="left" :before-close="handleBeforeClose" draggable inner :transfer="false" width="50" @on-resize-width="hrw" title="抽屉标题" :styles="styles" @on-close="handleClose">
                 <p>一些内容</p>
                 <p>一些内容</p>
                 <p>一些内容</p>
-                <Button @click="visible2 = true">show2</Button>
-                <p>一些内容</p>
-                <p>一些内容</p>
-                <p>一些内容</p>
-                <p>一些内容</p>
+                <QButton @click="visible2 = true">show2</QButton>
                 <p>一些内容</p>
                 <p>一些内容</p>
                 <p>一些内容</p>
@@ -61,12 +57,16 @@
                 <p>一些内容</p>
                 <p>一些内容</p>
                 <p>一些内容</p>
-            </Drawer>
+                <p>一些内容</p>
+                <p>一些内容</p>
+                <p>一些内容</p>
+                <p>一些内容</p>
+            </QDrawer>
         </div>
 
 
 
-        <Drawer v-model="visible2" draggable title="抽屉标题" placement="right">
+        <QDrawer v-model="visible2" draggable title="抽屉标题" placement="right">
             <p>一些内容</p>
             <p>一些内容</p>
             <p>一些内容</p>
@@ -124,8 +124,8 @@
             <p>一些内容</p>
             <p>一些内容</p>
             <p>一些内容22</p>
-        </Drawer>
-        <Drawer v-model="visible3" draggable placement="left">
+        </QDrawer>
+        <QDrawer v-model="visible3" draggable placement="left">
             <p>一些内容</p>
             <p>一些内容</p>
             <p>一些内容</p>
@@ -183,7 +183,7 @@
             <p>一些内容</p>
             <p>一些内容</p>
             <p>一些内容22</p>
-        </Drawer>
+        </QDrawer>
     </div>
 </template>
 

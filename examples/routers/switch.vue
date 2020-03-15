@@ -1,39 +1,39 @@
 <template>
     <div>
-        <i-switch v-model="m1" :loading="loading" @on-change="change" :before-change="beforeChange">
+        <q-switch v-model="m1" :loading="loading" @on-change="change" :before-change="beforeChange">
             <span slot="open">开</span>
             <span slot="close">关</span>
-        </i-switch>
+        </q-switch>
         {{ m1 }}
         <div @click="m1 = !m1">toggle</div>
         <div @click="loading = !loading">loading</div>
         <br><br>
-        <i-switch size="large" loading></i-switch>
-        <i-switch></i-switch>
-        <i-switch size="small" v-model="m1" :loading="loading"></i-switch>
+        <q-switch size="large" loading></q-switch>
+        <q-switch></q-switch>
+        <q-switch size="small" v-model="m1" :loading="loading"></q-switch>
         <br><br>
-        <i-switch>
+        <q-switch>
             <span slot="open">开</span>
             <span slot="close">关</span>
-        </i-switch>
-        <i-switch>
-            <Icon type="md-checkmark" slot="open"></Icon>
-            <Icon type="md-close" slot="close"></Icon>
-        </i-switch>
+        </q-switch>
+        <q-switch>
+            <QIcon type="md-checkmark" slot="open"></QIcon>
+            <QIcon type="md-close" slot="close"></QIcon>
+        </q-switch>
         <br><br>
-        <i-switch size="large">
+        <q-switch size="large">
             <span slot="open">开启</span>
             <span slot="close">关闭</span>
-        </i-switch>
-        <i-switch size="large" v-model="m1" :loading="loading">
+        </q-switch>
+        <q-switch size="large" v-model="m1" :loading="loading">
             <span slot="open">ON</span>
             <span slot="close">OFF</span>
-        </i-switch>
+        </q-switch>
         <br><br>
-        <i-switch :disabled="disabled"></i-switch>
-        <Button type="primary" @click="disabled = !disabled">Toggle Disabled</Button>
-        <Divider></Divider>
-        <i-switch v-model="switch1" true-color="#13ce66" false-color="#ff4949" />
+        <q-switch :disabled="disabled"></q-switch>
+        <QButton type="primary" @click="disabled = !disabled">Toggle Disabled</QButton>
+        <QDivider></QDivider>
+        <q-switch v-model="switch1" true-color="#13ce66" false-color="#ff4949" />
     </div>
 </template>
 <script>

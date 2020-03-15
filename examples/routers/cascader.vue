@@ -1,6 +1,6 @@
 <template>
     <div style="margin: 100px;width: 200px;">
-        <Cascader :data="data" v-model="value1"></Cascader>
+        <QCascader :data="data" v-model="value1"></QCascader>
     </div>
 </template>
 <script>

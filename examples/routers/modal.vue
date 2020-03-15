@@ -1,7 +1,7 @@
 <template>
     <div>
-        <Button type="primary" @click="modal1 = true">Display dialog box</Button>
-        <Modal
+        <QButton type="primary" @click="modal1 = true">Display dialog box</QButton>
+        <QModal
                 v-model="modal1"
                 title="Common Modal dialog box title"
                 @on-ok="ok"
@@ -9,42 +9,42 @@
             <p>Content of dialog</p>
             <p>Content of dialog</p>
             <p>Content of dialog</p>
-            <Button @click="openMessage">Message</Button>
-            <Select v-model="model1" style="width:200px" :transfer="false">
-                <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
-            </Select>
-            <Select v-model="model1" style="width:200px" :transfer="true">
-                <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
-            </Select>
-            <Dropdown transfer>
+            <QButton @click="openMessage">Message</QButton>
+            <QSelect v-model="model1" style="width:200px" :transfer="false">
+                <QOption v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</QOption>
+            </QSelect>
+            <QSelect v-model="model1" style="width:200px" :transfer="true">
+                <QOption v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</QOption>
+            </QSelect>
+            <QDropdown transfer>
                 <a href="javascript:void(0)">
                     下拉菜单
-                    <Icon type="ios-arrow-down"></Icon>
+                    <QIcon type="ios-arrow-down"></QIcon>
                 </a>
-                <DropdownMenu slot="list">
-                    <DropdownItem>驴打滚</DropdownItem>
-                    <DropdownItem>炸酱面</DropdownItem>
-                    <DropdownItem disabled>豆汁儿</DropdownItem>
-                    <DropdownItem>冰糖葫芦</DropdownItem>
-                    <DropdownItem divided>北京烤鸭</DropdownItem>
-                </DropdownMenu>
-            </Dropdown>
-            <DatePicker type="date" placeholder="Select date" style="width: 200px" transfer></DatePicker>
-            <Cascader :data="data" v-model="value1" transfer></Cascader>
-            <Tooltip content="Here is the prompt text" transfer>
+                <QDropdownMenu slot="list">
+                    <QDropdownItem>驴打滚</QDropdownItem>
+                    <QDropdownItem>炸酱面</QDropdownItem>
+                    <QDropdownItem disabled>豆汁儿</QDropdownItem>
+                    <QDropdownItem>冰糖葫芦</QDropdownItem>
+                    <QDropdownItem divided>北京烤鸭</QDropdownItem>
+                </QDropdownMenu>
+            </QDropdown>
+            <QDatePicker type="date" placeholder="Select date" style="width: 200px" transfer></QDatePicker>
+            <QCascader :data="data" v-model="value1" transfer></QCascader>
+            <QTooltip content="Here is the prompt text" transfer>
                 A balloon appears when the mouse passes over this text
-            </Tooltip>
-            <Poptip trigger="hover" title="Title" content="content" transfer>
-                <Button>Hover</Button>
-            </Poptip>
-            <Button type="primary" @click="handleSpinShow">整页显示，3秒后关闭</Button>
-        </Modal>
-        <Select v-model="model1" style="width:200px" :transfer="false">
-            <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
-        </Select>
-        <Select v-model="model1" style="width:200px" :transfer="true">
-            <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
-        </Select>
+            </QTooltip>
+            <QPoptip trigger="hover" title="Title" content="content" transfer>
+                <QButton>Hover</QButton>
+            </QPoptip>
+            <QButton type="primary" @click="handleSpinShow">整页显示，3秒后关闭</QButton>
+        </QModal>
+        <QSelect v-model="model1" style="width:200px" :transfer="false">
+            <QOption v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</QOption>
+        </QSelect>
+        <QSelect v-model="model1" style="width:200px" :transfer="true">
+            <QOption v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</QOption>
+        </QSelect>
     </div>
 </template>
 <script>
@@ -137,13 +137,13 @@
 //                this.$Message.info('Clicked cancel');
             },
             openMessage () {
-                this.$Message.info({
+                this.$QMessage.info({
                     content: 'hello world',
                     duration: 2
                 });
             },
             handleSpinShow () {
-                this.$Spin.show();
+                this.$QSpin.show();
             },
         }
     }

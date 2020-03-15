@@ -1,20 +1,20 @@
 <template>
     <div>
-        <Rate v-model="value"></Rate>
-        <Rate allow-half v-model="valueHalf"></Rate>
-        <Rate clearable v-model="valueClear"></Rate>
-        <Rate clearable allow-half  v-model="valueClearHalf"></Rate>
-        <Rate 
-            allow-half 
+        <QRate v-model="value"></QRate>
+        <QRate allow-half v-model="valueHalf"></QRate>
+        <QRate clearable v-model="valueClear"></QRate>
+        <QRate clearable allow-half  v-model="valueClearHalf"></QRate>
+        <QRate
+            allow-half
             show-text
             v-model="characterValue"
             character="好"/>
-        <Rate allow-half v-model="cv" icon="ios-heart" />
-        <!--<Rate show-text v-model="valueText"></Rate>-->
-        <!--<Rate show-text allow-half v-model="valueCustomText">-->
+        <QRate allow-half v-model="cv" icon="ios-heart" />
+        <!--<QRate show-text v-model="valueText"></QRate>-->
+        <!--<QRate show-text allow-half v-model="valueCustomText">-->
             <!--<span style="color: #f5a623">{{ valueCustomText }}</span>-->
-        <!--</Rate>-->
-        <!--<Rate disabled  allow-half v-model="valueDisabled"></Rate>-->
+        <!--</QRate>-->
+        <!--<QRate disabled  allow-half v-model="valueDisabled"></QRate>-->
     </div>
 </template>
 <script>

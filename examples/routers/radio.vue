@@ -1,87 +1,87 @@
 <template>
     <div>
-        <Radio size="large" v-model="single">Radio</Radio>
-        <Radio size="default" v-model="single">Radio</Radio>
-        <Radio size="small" v-model="single">Radio</Radio>
+        <QRadio size="large" v-model="single">Radio</QRadio>
+        <QRadio size="default" v-model="single">Radio</QRadio>
+        <QRadio size="small" v-model="single">Radio</QRadio>
         <br>
-        <Radio size="large" v-model="single" border>Radio</Radio>
-        <Radio size="default" v-model="single" border disabled>Radio</Radio>
-        <Radio size="small" v-model="single" border>Radio</Radio>
+        <QRadio size="large" v-model="single" border>Radio</QRadio>
+        <QRadio size="default" v-model="single" border disabled>Radio</QRadio>
+        <QRadio size="small" v-model="single" border>Radio</QRadio>
         <br><br>
-        <Radio-group v-model="phone">
-            <Radio label="apple">
-                <Icon type="logo-apple"></Icon>
+        <QRadio-group v-model="phone">
+            <QRadio label="apple">
+                <QIcon type="logo-apple"></QIcon>
                 <span>Apple</span>
-            </Radio>
-            <Radio label="android">
-                <Icon type="social-android"></Icon>
+            </QRadio>
+            <QRadio label="android">
+                <QIcon type="social-android"></QIcon>
                 <span>Android</span>
-            </Radio>
-            <Radio label="windows">
-                <Icon type="social-windows"></Icon>
+            </QRadio>
+            <QRadio label="windows">
+                <QIcon type="social-windows"></QIcon>
                 <span>Windows</span>
-            </Radio>
-        </Radio-group>
-        <Radio-group v-model="button2" type="button" size="large">
-            <Radio label="北京"></Radio>
-            <Radio label="上海" disabled></Radio>
-            <Radio label="深圳"></Radio>
-            <Radio label="杭州"></Radio>
-        </Radio-group>
-        <Radio-group v-model="button2" type="button" size="default">
-            <Radio label="北京"></Radio>
-            <Radio label="上海" disabled></Radio>
-            <Radio label="深圳"></Radio>
-            <Radio label="杭州"></Radio>
-        </Radio-group>
-        <Radio-group v-model="button2" type="button" size="small">
-            <Radio label="北京"></Radio>
-            <Radio label="上海" disabled></Radio>
-            <Radio label="深圳"></Radio>
-            <Radio label="杭州"></Radio>
-        </Radio-group>
-        <Divider></Divider>
-        <Radio-group v-model="phone" size="small">
-            <Radio label="apple" border>
-                <Icon type="logo-apple"></Icon>
+            </QRadio>
+        </QRadio-group>
+        <QRadio-group v-model="button2" type="button" size="large">
+            <QRadio label="北京"></QRadio>
+            <QRadio label="上海" disabled></QRadio>
+            <QRadio label="深圳"></QRadio>
+            <QRadio label="杭州"></QRadio>
+        </QRadio-group>
+        <QRadio-group v-model="button2" type="button" size="default">
+            <QRadio label="北京"></QRadio>
+            <QRadio label="上海" disabled></QRadio>
+            <QRadio label="深圳"></QRadio>
+            <QRadio label="杭州"></QRadio>
+        </QRadio-group>
+        <QRadio-group v-model="button2" type="button" size="small">
+            <QRadio label="北京"></QRadio>
+            <QRadio label="上海" disabled></QRadio>
+            <QRadio label="深圳"></QRadio>
+            <QRadio label="杭州"></QRadio>
+        </QRadio-group>
+        <QDivider></QDivider>
+        <QRadio-group v-model="phone" size="small">
+            <QRadio label="apple" border>
+                <QIcon type="logo-apple"></QIcon>
                 <span>选项一</span>
-            </Radio>
-            <Radio label="android" border>
-                <Icon type="logo-android"></Icon>
+            </QRadio>
+            <QRadio label="android" border>
+                <QIcon type="logo-android"></QIcon>
                 <span>选项二</span>
-            </Radio>
-            <Radio label="windows" border>
-                <Icon type="logo-windows"></Icon>
+            </QRadio>
+            <QRadio label="windows" border>
+                <QIcon type="logo-windows"></QIcon>
                 <span>选项三</span>
-            </Radio>
-        </Radio-group>
+            </QRadio>
+        </QRadio-group>
         <br><br>
-        <Radio-group v-model="phone" size="default">
-            <Radio label="apple" border>
+        <QRadio-group v-model="phone" size="default">
+            <QRadio label="apple" border>
                 <span>选项一</span>
-            </Radio>
-            <Radio label="android" border disabled>
+            </QRadio>
+            <QRadio label="android" border disabled>
                 <span>选项二</span>
-            </Radio>
-            <Radio label="windows" border>
+            </QRadio>
+            <QRadio label="windows" border>
                 <span>选项三</span>
-            </Radio>
-        </Radio-group>
+            </QRadio>
+        </QRadio-group>
         <br><br>
-        <Radio-group v-model="phone" size="large">
-            <Radio label="apple" border>
-                <Icon type="logo-apple"></Icon>
+        <QRadio-group v-model="phone" size="large">
+            <QRadio label="apple" border>
+                <QIcon type="logo-apple"></QIcon>
                 <span>选项一</span>
-            </Radio>
-            <Radio label="android" border>
-                <Icon type="logo-android"></Icon>
+            </QRadio>
+            <QRadio label="android" border>
+                <QIcon type="logo-android"></QIcon>
                 <span>选项二</span>
-            </Radio>
-            <Radio label="windows" border>
-                <Icon type="logo-windows"></Icon>
+            </QRadio>
+            <QRadio label="windows" border>
+                <QIcon type="logo-windows"></QIcon>
                 <span>选项三</span>
-            </Radio>
-        </Radio-group>
+            </QRadio>
+        </QRadio-group>
     </div>
 </template>
 <script>

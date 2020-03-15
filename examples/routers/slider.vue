@@ -1,8 +1,8 @@
 <template>
     <div style="margin: 200px;">
-        <Slider v-model="value6" :step="10" show-stops></Slider>
+        <QSlider v-model="value6" :step="10" show-stops></QSlider>
         <br><br>
-        <Slider v-model="value7" range :marks="marks"></Slider>
+        <QSlider v-model="value7" range :marks="marks"></QSlider>
     </div>
 </template>
 <script>

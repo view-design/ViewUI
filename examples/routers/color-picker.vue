@@ -1,5 +1,5 @@
 <template>
-    <ColorPicker v-model="color1" transfer />
+    <QColorPicker v-model="color1" transfer />
 </template>
 <script>
     export default {

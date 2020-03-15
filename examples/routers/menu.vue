@@ -1,33 +1,33 @@
 <template>
-    <Menu mode="horizontal" :theme="theme1" active-name="3-4" @on-select="hs">
-        <MenuItem name="1" to="/button" target="_blank">
-            <Icon type="ios-paper" />
+    <QMenu mode="horizontal" :theme="theme1" active-name="3-4" @on-select="hs">
+        <QMenuItem name="1" to="/button" target="_blank">
+            <QIcon type="ios-paper" />
             内容管理
-        </MenuItem>
-        <MenuItem name="2">
-            <Icon type="ios-people" />
+        </QMenuItem>
+        <QMenuItem name="2">
+            <QIcon type="ios-people" />
             用户管理
-        </MenuItem>
-        <Submenu name="3">
+        </QMenuItem>
+        <QSubmenu name="3">
             <template slot="title">
-                <Icon type="ios-stats" />
+                <QIcon type="ios-stats" />
                 统计分析
             </template>
-            <MenuGroup title="使用">
-                <MenuItem name="3-1">新增和启动</MenuItem>
-                <MenuItem name="3-2">活跃分析</MenuItem>
-                <MenuItem name="3-3">时段分析</MenuItem>
-            </MenuGroup>
-            <MenuGroup title="留存">
-                <MenuItem name="3-4">用户留存</MenuItem>
-                <MenuItem name="3-5">流失用户</MenuItem>
-            </MenuGroup>
-        </Submenu>
-        <MenuItem name="4">
-            <Icon type="ios-construct" />
+            <QMenuGroup title="使用">
+                <QMenuItem name="3-1">新增和启动</QMenuItem>
+                <QMenuItem name="3-2">活跃分析</QMenuItem>
+                <QMenuItem name="3-3">时段分析</QMenuItem>
+            </QMenuGroup>
+            <QMenuGroup title="留存">
+                <QMenuItem name="3-4">用户留存</QMenuItem>
+                <QMenuItem name="3-5">流失用户</QMenuItem>
+            </QMenuGroup>
+        </QSubmenu>
+        <QMenuItem name="4">
+            <QIcon type="ios-construct" />
             综合设置
-        </MenuItem>
-    </Menu>
+        </QMenuItem>
+    </QMenu>
 </template>
 <script>
     export default {

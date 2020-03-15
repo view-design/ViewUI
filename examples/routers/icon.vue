@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Icon v-for="item in icons" :key="item" :type="item" />
+    <QIcon v-for="item in icons" :key="item" :type="item" />
   </div>
 </template>
 

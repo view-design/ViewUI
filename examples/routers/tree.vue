@@ -1,5 +1,5 @@
 <template>
-    <Tree :data="data4" show-checkbox multiple></Tree>
+    <QTree :data="data4" show-checkbox multiple></QTree>
 </template>
 <script>
     export default {

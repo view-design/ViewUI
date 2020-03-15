@@ -6,8 +6,8 @@
         <!--&lt;!&ndash;<div @click="changeMax">change max</div>&ndash;&gt;-->
         <!--&lt;!&ndash;<Input-number disabled :max="10" :min="1" :step="1.2" v-model="v2"></Input-number>&ndash;&gt;-->
         <!--&lt;!&ndash;<Input-number :max="10" :min="1" v-model="obj.v"></Input-number>&ndash;&gt;-->
-        <!--<InputNumber :editable="false" :max="10" :min="1" :step="1.2" v-model="value2"></InputNumber>-->
-        <!--<InputNumber :precision="1" :max="10" :min="1" :step="0.1" v-model="value1"></InputNumber>-->
+        <!--<QInputNumber :editable="false" :max="10" :min="1" :step="1.2" v-model="value2"></QInputNumber>-->
+        <!--<QInputNumber :precision="1" :max="10" :min="1" :step="0.1" v-model="value1"></QInputNumber>-->
     <!--</div>-->
 <!--</template>-->
 <!--<script>-->
@@ -41,36 +41,36 @@
 
 <template>
     <div>
-        <!-- <InputNumber :max="1000000000" :min="1" v-model="value1" :formatter="formatter" :parser="parser" @on-change="change" style="width: 200px"></InputNumber>
-        <InputNumber :max="1000000000" :min="1" v-model="value2" :formatter="formatter2" :parser="parser2" @on-change="change" style="width: 200px"></InputNumber>
-        
-        <InputNumber @on-change="change" style="width: 200px"></InputNumber>
-        
-        <InputNumber v-model="valueNull" @on-change="change" style="width: 200px"></InputNumber>
-        <InputNumber v-model="valueNull" @on-change="change" :formatter="formatter" :parser="parser" style="width: 200px"></InputNumber>
-                
-        <InputNumber v-model="value2" @on-focus="focus" style="width: 200px"></InputNumber>
+        <!-- <QInputNumber :max="1000000000" :min="1" v-model="value1" :formatter="formatter" :parser="parser" @on-change="change" style="width: 200px"></QInputNumber>
+        <QInputNumber :max="1000000000" :min="1" v-model="value2" :formatter="formatter2" :parser="parser2" @on-change="change" style="width: 200px"></QInputNumber>
 
-        <InputNumber v-model="value3" style="width: 200px" placeholder="Enter something..."></InputNumber> -->
+        <QInputNumber @on-change="change" style="width: 200px"></QInputNumber>
 
-        
-        <InputNumber v-model="valueNull" style="width: 200px" :min='1' :max='10000'  :precision='2' ></InputNumber>
-        <InputNumber v-model="valueNull" style="width: 200px" ></InputNumber>
+        <QInputNumber v-model="valueNull" @on-change="change" style="width: 200px"></QInputNumber>
+        <QInputNumber v-model="valueNull" @on-change="change" :formatter="formatter" :parser="parser" style="width: 200px"></QInputNumber>
+
+        <QInputNumber v-model="value2" @on-focus="focus" style="width: 200px"></QInputNumber>
+
+        <QInputNumber v-model="value3" style="width: 200px" placeholder="Enter something..."></QInputNumber> -->
+
+
+        <QInputNumber v-model="valueNull" style="width: 200px" :min='1' :max='10000'  :precision='2' ></QInputNumber>
+        <QInputNumber v-model="valueNull" style="width: 200px" ></QInputNumber>
         <div style="margin:10px 0px">
-            <InputNumber :activeChange="false" v-model="valueNull" style="width: 200px" :min='1' :max='10000'  :precision='2' ></InputNumber>
-            <InputNumber :activeChange="false" v-model="valueNull" style="width: 200px" ></InputNumber>
+            <QInputNumber :activeChange="false" v-model="valueNull" style="width: 200px" :min='1' :max='10000'  :precision='2' ></QInputNumber>
+            <QInputNumber :activeChange="false" v-model="valueNull" style="width: 200px" ></QInputNumber>
         </div>
         <div style="margin:10px 0px">
-            <InputNumber
+            <QInputNumber
                 :max="10000"
                 v-model="value9"
                 :formatter="value => `$ ${value}`.replace(/B(?=(d{3})+(?!d))/g, ',')"
-                :parser="value => value.replace(/\$s?|(,*)/g, '')"></InputNumber>
-            <InputNumber
+                :parser="value => value.replace(/\$s?|(,*)/g, '')"></QInputNumber>
+            <QInputNumber
                 :max="100"
                 v-model="value10"
                 :formatter="value => `${value}%`"
-                :parser="value => value.replace('%', '')"></InputNumber>
+                :parser="value => value.replace('%', '')"></QInputNumber>
         </div>
     </div>
 </template>

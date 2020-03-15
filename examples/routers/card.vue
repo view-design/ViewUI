@@ -1,11 +1,11 @@
 <template>
-    <Card style="width:350px" to="/button">
+    <QCard style="width:350px" to="/button">
         <p slot="title">
-            <Icon type="ios-film-outline"></Icon>
+            <QIcon type="ios-film-outline"></QIcon>
             <span>经典电影</span>
         </p>
         <a href="#" slot="extra" @click.prevent="changeLimit">
-            <Icon type="ios-loop-strong"></Icon>
+            <QIcon type="ios-loop-strong"></QIcon>
             换一换
         </a>
         <ul>
@@ -17,7 +17,7 @@
                 </span>
             </li>
         </ul>
-    </Card>
+    </QCard>
 </template>
 <script>
     export default {

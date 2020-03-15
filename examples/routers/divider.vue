@@ -1,7 +1,7 @@
 <template>
-    <Row :gutter="16">
-        <i-col span="12">
-            <Card title="horizontal divider">
+    <QRow :gutter="16">
+        <q-col span="12">
+            <QCard title="horizontal divider">
                 <div>
                     <p>
                         iView is a set of UI components and widgets built on Vue.js.
@@ -9,7 +9,7 @@
                         iView is a set of UI components and widgets built on Vue.js.
                     </p>
 
-                    <Divider/>
+                    <QDivider/>
 
                     <p>
                         iView is a set of UI components and widgets built on Vue.js.
@@ -17,7 +17,7 @@
                         iView is a set of UI components and widgets built on Vue.js.
                     </p>
 
-                    <Divider size="small">iView</Divider>
+                    <QDivider size="small">iView</QDivider>
 
                     <p>
                         iView is a set of UI components and widgets built on Vue.js.
@@ -25,34 +25,26 @@
                         iView is a set of UI components and widgets built on Vue.js.
                     </p>
 
-                    <Divider dashed>iView Developer</Divider>
+                    <QDivider dashed>iView Developer</QDivider>
                     <p>
                         iView is a set of UI components and widgets built on Vue.js.
                         iView is a set of UI components and widgets built on Vue.js.
                         iView is a set of UI components and widgets built on Vue.js.
                     </p>
-                    <Divider dashed orientation="left" size="small">iView Developer</Divider>
+                    <QDivider dashed orientation="left" size="small">iView Developer</QDivider>
                     <p>
                         iView is a set of UI components and widgets built on Vue.js.
                         iView is a set of UI components and widgets built on Vue.js.
                         iView is a set of UI components and widgets built on Vue.js.
                     </p>
-                    <Divider dashed orientation="right">iView Developer</Divider>
-                    <p>
-                        iView is a set of UI components and widgets built on Vue.js.
-                        iView is a set of UI components and widgets built on Vue.js.
-                        iView is a set of UI components and widgets built on Vue.js.
-                    </p>
-
-                    <Divider dashed/>
-
+                    <QDivider dashed orientation="right">iView Developer</QDivider>
                     <p>
                         iView is a set of UI components and widgets built on Vue.js.
                         iView is a set of UI components and widgets built on Vue.js.
                         iView is a set of UI components and widgets built on Vue.js.
                     </p>
 
-                    <Divider orientation="left">iView</Divider>
+                    <QDivider dashed/>
 
                     <p>
                         iView is a set of UI components and widgets built on Vue.js.
@@ -60,7 +52,15 @@
                         iView is a set of UI components and widgets built on Vue.js.
                     </p>
 
-                    <Divider orientation="right">iView</Divider>
+                    <QDivider orientation="left">iView</QDivider>
+
+                    <p>
+                        iView is a set of UI components and widgets built on Vue.js.
+                        iView is a set of UI components and widgets built on Vue.js.
+                        iView is a set of UI components and widgets built on Vue.js.
+                    </p>
+
+                    <QDivider orientation="right">iView</QDivider>
 
                     <p>
                         iView is a set of UI components and widgets built on Vue.js.
@@ -69,22 +69,22 @@
                     </p>
 
                 </div>
-            </Card>
-        </i-col>
-        <i-col span="12">
-            <Card title="vertical divider">
+            </QCard>
+        </q-col>
+        <q-col span="12">
+            <QCard title="vertical divider">
                 <div>
                     iView
-                    <Divider type="vertical" />
+                    <QDivider type="vertical" />
                     <a href="#">Components</a>
-                    <Divider type="vertical" />
+                    <QDivider type="vertical" />
                     <a href="#">Divider</a>
-                    <Divider type="vertical" dashed />
+                    <QDivider type="vertical" dashed />
                     <a href="#">ABCDE</a>
                 </div>
-            </Card>
-        </i-col>
-    </Row>
+            </QCard>
+        </q-col>
+    </QRow>
 </template>
 
 <script>

@@ -1,83 +1,83 @@
 <template>
     <div style="margin: 200px 0;">
         <div>
-            <Tag color="default">default</Tag>
-            <Tag color="primary">primary</Tag>
-            <Tag color="success">success</Tag>
-            <Tag color="error">error</Tag>
-            <Tag color="warning">warning</Tag>
-            <Tag color="magenta">magenta</Tag>
-            <Tag color="red">red</Tag>
-            <Tag color="volcano">volcano</Tag>
-            <Tag color="orange">orange</Tag>
-            <Tag color="gold">gold</Tag>
-            <Tag color="gold">不错</Tag>
-            <Tag color="lime">lime</Tag>
-            <Tag color="green">green</Tag>
-            <Tag color="cyan">cyan</Tag>
-            <Tag color="blue">blue</Tag>
-            <Tag color="geekblue">geekblue</Tag>
-            <Tag color="purple">purple</Tag>
-            <Tag color="white">purple</Tag>
+            <QTag color="default">default</QTag>
+            <QTag color="primary">primary</QTag>
+            <QTag color="success">success</QTag>
+            <QTag color="error">error</QTag>
+            <QTag color="warning">warning</QTag>
+            <QTag color="magenta">magenta</QTag>
+            <QTag color="red">red</QTag>
+            <QTag color="volcano">volcano</QTag>
+            <QTag color="orange">orange</QTag>
+            <QTag color="gold">gold</QTag>
+            <QTag color="gold">不错</QTag>
+            <QTag color="lime">lime</QTag>
+            <QTag color="green">green</QTag>
+            <QTag color="cyan">cyan</QTag>
+            <QTag color="blue">blue</QTag>
+            <QTag color="geekblue">geekblue</QTag>
+            <QTag color="purple">purple</QTag>
+            <QTag color="white">purple</QTag>
         </div>
-        <Tag checkable>标签一</Tag>
-        <Tag>标签二</Tag>
-        <Tag v-if="show" closable @on-close="handleClose">标签三</Tag>
+        <QTag checkable>标签一</QTag>
+        <QTag>标签二</QTag>
+        <QTag v-if="show" closable @on-close="handleClose">标签三</QTag>
         <br><br>
-        <Tag type="border" checkable>标签三</Tag>
-        <Tag type="border" closable>标签四</Tag>
-        <Tag type="dot">标签一</Tag>
-        <Tag type="dot" closable>标签二</Tag>
+        <QTag type="border" checkable>标签三</QTag>
+        <QTag type="border" closable>标签四</QTag>
+        <QTag type="dot">标签一</QTag>
+        <QTag type="dot" closable>标签二</QTag>
         <br><br>
-        <Tag closable color="primary" checkable>标签一</Tag>
-        <Tag closable color="success" checkable>标签二</Tag>
-        <Tag closable color="error" checkable>标签三</Tag>
-        <Tag closable color="warning" checkable>标签四</Tag>
+        <QTag closable color="primary" checkable>标签一</QTag>
+        <QTag closable color="success" checkable>标签二</QTag>
+        <QTag closable color="error" checkable>标签三</QTag>
+        <QTag closable color="warning" checkable>标签四</QTag>
         <br><br>
-        <Tag color="primary" checkable>标签一</Tag>
-        <Tag color="success" checkable>标签二</Tag>
-        <Tag color="error" checkable>标签三</Tag>
-        <Tag color="warning" checkable>标签四</Tag>
+        <QTag color="primary" checkable>标签一</QTag>
+        <QTag color="success" checkable>标签二</QTag>
+        <QTag color="error" checkable>标签三</QTag>
+        <QTag color="warning" checkable>标签四</QTag>
         <br><br>
-        <Tag closable color="#EF6AFF" checkable>标签一</Tag>
-        <Tag color="#EF6AFF" checkable>标签一</Tag>
-        <Tag type="border" closable color="#EF6AFF" checkable>标签二</Tag>
-        <Tag type="dot" closable color="#EF6AFF" checkable>标签三</Tag>
-        <Tag closable color="default" checkable>标签四</Tag>
+        <QTag closable color="#EF6AFF" checkable>标签一</QTag>
+        <QTag color="#EF6AFF" checkable>标签一</QTag>
+        <QTag type="border" closable color="#EF6AFF" checkable>标签二</QTag>
+        <QTag type="dot" closable color="#EF6AFF" checkable>标签三</QTag>
+        <QTag closable color="default" checkable>标签四</QTag>
         <br><br>
-        <Tag closable color="#EF6AFF">标签一</Tag>
-        <Tag type="border" closable color="#EF6AFF">标签二</Tag>
-        <Tag type="dot" closable color="#EF6AFF">标签三</Tag>
-        <Tag closable color="default">标签四</Tag>
+        <QTag closable color="#EF6AFF">标签一</QTag>
+        <QTag type="border" closable color="#EF6AFF">标签二</QTag>
+        <QTag type="dot" closable color="#EF6AFF">标签三</QTag>
+        <QTag closable color="default">标签四</QTag>
         <br><br>
-        <Tag type="border" closable color="primary" checkable>标签一</Tag>
-        <Tag type="border" closable color="success">标签二</Tag>
-        <Tag type="border" closable color="error">标签三</Tag>
-        <Tag type="border" closable color="warning">标签四</Tag>
+        <QTag type="border" closable color="primary" checkable>标签一</QTag>
+        <QTag type="border" closable color="success">标签二</QTag>
+        <QTag type="border" closable color="error">标签三</QTag>
+        <QTag type="border" closable color="warning">标签四</QTag>
         <br><br>
-        <Tag type="dot" closable color="primary" checkable>标签一</Tag>
-        <Tag type="dot" closable color="success">标签二</Tag>
-        <Tag type="dot" closable color="error">标签三</Tag>
-        <Tag type="dot" closable color="warning">标签四</Tag>
+        <QTag type="dot" closable color="primary" checkable>标签一</QTag>
+        <QTag type="dot" closable color="success">标签二</QTag>
+        <QTag type="dot" closable color="error">标签三</QTag>
+        <QTag type="dot" closable color="warning">标签四</QTag>
         <br><br>
-        <Tag v-for="item in count" :key="item" :name="item" closable @on-close="handleClose2">标签{{ item + 1 }}</Tag>
-        <Button icon="ios-plus-empty" type="dashed" size="small" @click="handleAdd">添加标签</Button>
+        <QTag v-for="item in count" :key="item" :name="item" closable @on-close="handleClose2">标签{{ item + 1 }}</QTag>
+        <QButton icon="ios-plus-empty" type="dashed" size="small" @click="handleAdd">添加标签</QButton>
 
         <br><br><hr><br>
-        <Tag :checked="checked" checkable>test</Tag>
-        <Button @click="toggle">
+        <QTag :checked="checked" checkable>test</QTag>
+        <QButton @click="toggle">
             Toggle
-          </Button>
+          </QButton>
         <span>{{ checked }}</span>
         <br><br>
-        <Tag type="dot" color="gold">标签四</Tag>
-        <Divider>Size</Divider>
-        <Tag color="primary" size="large">大号标签</Tag>
-        <Tag color="primary" size="medium">中号标签</Tag>
-        <Tag color="primary">默认尺寸</Tag>
-        <Tag color="blue" size="large">大号标签</Tag>
-        <Tag color="blue" size="medium">中号标签</Tag>
-        <Tag color="blue">默认尺寸</Tag>
+        <QTag type="dot" color="gold">标签四</QTag>
+        <QDivider>Size</QDivider>
+        <QTag color="primary" size="large">大号标签</QTag>
+        <QTag color="primary" size="medium">中号标签</QTag>
+        <QTag color="primary">默认尺寸</QTag>
+        <QTag color="blue" size="large">大号标签</QTag>
+        <QTag color="blue" size="medium">中号标签</QTag>
+        <QTag color="blue">默认尺寸</QTag>
     </div>
 </template>
 <script>

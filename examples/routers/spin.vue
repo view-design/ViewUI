@@ -174,15 +174,15 @@
                 <p>三山半落青天外，二水中分白鹭洲。</p>
                 <p>总为浮云能蔽日，长安不见使人愁。</p>
             </article>
-            <Spin size="large" fix v-if="spinShow">
+            <QSpin size="large" fix v-if="spinShow">
                 <!--<Icon type="load-c" size=18 class="demo-spin-icon-load"></Icon>-->
                 <!--<div>Loading</div>-->
-            </Spin>
+            </QSpin>
         </div>
         <br>
-        切换显示状态：<i-switch @on-change="spinShow = !spinShow"></i-switch>
-        <Button @click="show">show</Button>
-        <Button @click="hide">hide</Button>
+        切换显示状态：<q-switch @on-change="spinShow = !spinShow"></q-switch>
+        <QButton @click="show">show</QButton>
+        <QButton @click="hide">hide</QButton>
     </div>
 </template>
 <script>
@@ -194,13 +194,13 @@
         },
         methods: {
             show () {
-                this.$Spin.show();
+                this.$QSpin.show();
                 setTimeout(() => {
-                    this.$Spin.hide();
+                    this.$QSpin.hide();
                 }, 3000)
             },
             hide () {
-                this.$Spin.hide();
+                this.$QSpin.hide();
             }
         }
     }

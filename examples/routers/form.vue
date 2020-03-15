@@ -1,263 +1,263 @@
 <template>
     <div style="margin: 100px;">
-        <row :gutter="64">
-            <i-col span="12">
-                <Form ref="formValidate1" :model="formValidate" :rules="ruleValidate" :label-width="80">
-                    <FormItem label="Name" prop="name">
-                        <Input v-model="formValidate.name" placeholder="Enter your name"></Input>
-                    </FormItem>
-                    <FormItem label="E-mail" prop="mail">
-                        <Input v-model="formValidate.mail" placeholder="Enter your e-mail"></Input>
-                    </FormItem>
-                    <FormItem label="City" prop="city">
-                        <Select v-model="formValidate.city" placeholder="Select your city">
-                            <Option value="beijing">New York</Option>
-                            <Option value="shanghai">London</Option>
-                            <Option value="shenzhen">Sydney</Option>
-                        </Select>
-                    </FormItem>
-                    <FormItem label="Date">
-                        <Row>
-                            <Col span="11">
-                                <FormItem prop="date">
-                                    <DatePicker type="date" placeholder="Select date" v-model="formValidate.date"></DatePicker>
-                                </FormItem>
-                            </Col>
-                            <Col span="2" style="text-align: center">-</Col>
-                            <Col span="11">
-                                <FormItem prop="time">
-                                    <TimePicker type="time" placeholder="Select time" v-model="formValidate.time"></TimePicker>
-                                </FormItem>
-                            </Col>
-                        </Row>
-                    </FormItem>
-                    <FormItem label="Gender" prop="gender">
-                        <RadioGroup v-model="formValidate.gender">
-                            <Radio label="male">Male</Radio>
-                            <Radio label="female">Female</Radio>
-                        </RadioGroup>
-                    </FormItem>
-                    <FormItem label="Hobby" prop="interest">
-                        <CheckboxGroup v-model="formValidate.interest">
-                            <Checkbox label="Eat"></Checkbox>
-                            <Checkbox label="Sleep"></Checkbox>
-                            <Checkbox label="Run"></Checkbox>
-                            <Checkbox label="Movie"></Checkbox>
-                        </CheckboxGroup>
-                    </FormItem>
-                    <FormItem label="Desc" prop="desc">
-                        <Input v-model="formValidate.desc" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter something..."></Input>
-                    </FormItem>
-                    <FormItem label="Switch" prop="switch">
-                        <i-switch v-model="formValidate.switch"></i-switch>
-                    </FormItem>
-                    <FormItem label="Slider" prop="slider">
-                        <Slider v-model="formValidate.slider"></Slider>
-                    </FormItem>
-                    <FormItem label="AutoComplete" prop="autoComplete">
-                        <AutoComplete
+        <q-row :gutter="64">
+            <q-col span="12">
+                <QForm ref="formValidate1" :model="formValidate" :rules="ruleValidate" :label-width="80">
+                    <QFormItem label="Name" prop="name">
+                        <QInput v-model="formValidate.name" placeholder="Enter your name"></QInput>
+                    </QFormItem>
+                    <QFormItem label="E-mail" prop="mail">
+                        <QInput v-model="formValidate.mail" placeholder="Enter your e-mail"></QInput>
+                    </QFormItem>
+                    <QFormItem label="City" prop="city">
+                        <QSelect v-model="formValidate.city" placeholder="Select your city">
+                            <QOption value="beijing">New York</QOption>
+                            <QOption value="shanghai">London</QOption>
+                            <QOption value="shenzhen">Sydney</QOption>
+                        </QSelect>
+                    </QFormItem>
+                    <QFormItem label="Date">
+                        <QRow>
+                            <QCol span="11">
+                                <QFormItem prop="date">
+                                    <QDatePicker type="date" placeholder="Select date" v-model="formValidate.date"></QDatePicker>
+                                </QFormItem>
+                            </QCol>
+                            <QCol span="2" style="text-align: center">-</QCol>
+                            <QCol span="11">
+                                <QFormItem prop="time">
+                                    <QTimePicker type="time" placeholder="Select time" v-model="formValidate.time"></QTimePicker>
+                                </QFormItem>
+                            </QCol>
+                        </QRow>
+                    </QFormItem>
+                    <QFormItem label="Gender" prop="gender">
+                        <QRadioGroup v-model="formValidate.gender">
+                            <QRadio label="male">Male</QRadio>
+                            <QRadio label="female">Female</QRadio>
+                        </QRadioGroup>
+                    </QFormItem>
+                    <QFormItem label="Hobby" prop="interest">
+                        <QCheckboxGroup v-model="formValidate.interest">
+                            <QCheckbox label="Eat"></QCheckbox>
+                            <QCheckbox label="Sleep"></QCheckbox>
+                            <QCheckbox label="Run"></QCheckbox>
+                            <QCheckbox label="Movie"></QCheckbox>
+                        </QCheckboxGroup>
+                    </QFormItem>
+                    <QFormItem label="Desc" prop="desc">
+                        <QInput v-model="formValidate.desc" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter something..."></QInput>
+                    </QFormItem>
+                    <QFormItem label="Switch" prop="switch">
+                        <q-switch v-model="formValidate.switch"></q-switch>
+                    </QFormItem>
+                    <QFormItem label="Slider" prop="slider">
+                        <QSlider v-model="formValidate.slider"></QSlider>
+                    </QFormItem>
+                    <QFormItem label="AutoComplete" prop="autoComplete">
+                        <QAutoComplete
                                 v-model="formValidate.autoComplete"
                                 :data="data1"
                                 @on-search="handleSearch1"
                                 placeholder="input here"
-                                style="width:200px"></AutoComplete>
-                    </FormItem>
-                    <FormItem label="cascader" prop="cascader">
-                        <Cascader v-model="formValidate.cascader" :data="data2"></Cascader>
-                    </FormItem>
-                    <FormItem label="inputNumber" prop="inputNumber">
-                        <InputNumber :max="10" :min="1" v-model="formValidate.inputNumber"></InputNumber>
-                    </FormItem>
-                    <FormItem label="rate" prop="rate">
-                        <Rate v-model="formValidate.rate" />
-                    </FormItem>
-                    <FormItem label="colorPicker" prop="colorPicker">
-                        <ColorPicker v-model="formValidate.colorPicker" />
-                    </FormItem>
-                    <FormItem label="upload" prop="upload">
-                        <Upload action="//jsonplaceholder.typicode.com/posts/">
-                            <Button icon="ios-cloud-upload-outline">Upload files</Button>
-                        </Upload>
-                    </FormItem>
-                    <FormItem>
-                        <Button type="primary" @click="handleSubmit('formValidate1')">Submit</Button>
-                        <Button @click="handleReset('formValidate1')" style="margin-left: 8px">Reset</Button>
-                    </FormItem>
-                </Form>
-            </i-col>
-            <i-col span="12">
-                <Form disabled ref="formValidate2" :model="formValidate" :rules="ruleValidate" :label-width="80">
-                    <FormItem label="Name" prop="name">
-                        <Input v-model="formValidate.name" placeholder="Enter your name"></Input>
-                    </FormItem>
-                    <FormItem label="E-mail" prop="mail">
-                        <Input v-model="formValidate.mail" placeholder="Enter your e-mail"></Input>
-                    </FormItem>
-                    <FormItem label="City" prop="city">
-                        <Select v-model="formValidate.city" placeholder="Select your city">
-                            <Option value="beijing">New York</Option>
-                            <Option value="shanghai">London</Option>
-                            <Option value="shenzhen">Sydney</Option>
-                        </Select>
-                    </FormItem>
-                    <FormItem label="Date">
-                        <Row>
-                            <Col span="11">
-                                <FormItem prop="date">
-                                    <DatePicker type="date" placeholder="Select date" v-model="formValidate.date"></DatePicker>
-                                </FormItem>
-                            </Col>
-                            <Col span="2" style="text-align: center">-</Col>
-                            <Col span="11">
-                                <FormItem prop="time">
-                                    <TimePicker type="time" placeholder="Select time" v-model="formValidate.time"></TimePicker>
-                                </FormItem>
-                            </Col>
-                        </Row>
-                    </FormItem>
-                    <FormItem label="Gender" prop="gender">
-                        <RadioGroup v-model="formValidate.gender">
-                            <Radio label="male">Male</Radio>
-                            <Radio label="female">Female</Radio>
-                        </RadioGroup>
-                    </FormItem>
-                    <FormItem label="Hobby" prop="interest">
-                        <CheckboxGroup v-model="formValidate.interest">
-                            <Checkbox label="Eat"></Checkbox>
-                            <Checkbox label="Sleep"></Checkbox>
-                            <Checkbox label="Run"></Checkbox>
-                            <Checkbox label="Movie"></Checkbox>
-                        </CheckboxGroup>
-                    </FormItem>
-                    <FormItem label="Desc" prop="desc">
-                        <Input v-model="formValidate.desc" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter something..."></Input>
-                    </FormItem>
-                    <FormItem label="Switch" prop="switch">
-                        <i-switch v-model="formValidate.switch"></i-switch>
-                    </FormItem>
-                    <FormItem label="Slider" prop="slider">
-                        <Slider v-model="formValidate.slider"></Slider>
-                    </FormItem>
-                    <FormItem label="AutoComplete" prop="autoComplete">
-                        <AutoComplete
+                                style="width:200px"></QAutoComplete>
+                    </QFormItem>
+                    <QFormItem label="cascader" prop="cascader">
+                        <QCascader v-model="formValidate.cascader" :data="data2"></QCascader>
+                    </QFormItem>
+                    <QFormItem label="inputNumber" prop="inputNumber">
+                        <QInputNumber :max="10" :min="1" v-model="formValidate.inputNumber"></QInputNumber>
+                    </QFormItem>
+                    <QFormItem label="rate" prop="rate">
+                        <QRate v-model="formValidate.rate" />
+                    </QFormItem>
+                    <QFormItem label="colorPicker" prop="colorPicker">
+                        <QColorPicker v-model="formValidate.colorPicker" />
+                    </QFormItem>
+                    <QFormItem label="upload" prop="upload">
+                        <QUpload action="//jsonplaceholder.typicode.com/posts/">
+                            <QButton icon="ios-cloud-upload-outline">Upload files</QButton>
+                        </QUpload>
+                    </QFormItem>
+                    <QFormItem>
+                        <QButton type="primary" @click="handleSubmit('formValidate1')">Submit</QButton>
+                        <QButton @click="handleReset('formValidate1')" style="margin-left: 8px">Reset</QButton>
+                    </QFormItem>
+                </QForm>
+            </q-col>
+            <q-col span="12">
+                <QForm disabled ref="formValidate2" :model="formValidate" :rules="ruleValidate" :label-width="80">
+                    <QFormItem label="Name" prop="name">
+                        <QInput v-model="formValidate.name" placeholder="Enter your name"></QInput>
+                    </QFormItem>
+                    <QFormItem label="E-mail" prop="mail">
+                        <QInput v-model="formValidate.mail" placeholder="Enter your e-mail"></QInput>
+                    </QFormItem>
+                    <QFormItem label="City" prop="city">
+                        <QSelect v-model="formValidate.city" placeholder="Select your city">
+                            <QOption value="beijing">New York</QOption>
+                            <QOption value="shanghai">London</QOption>
+                            <QOption value="shenzhen">Sydney</QOption>
+                        </QSelect>
+                    </QFormItem>
+                    <QFormItem label="Date">
+                        <QRow>
+                            <QCol span="11">
+                                <QFormItem prop="date">
+                                    <QDatePicker type="date" placeholder="Select date" v-model="formValidate.date"></QDatePicker>
+                                </QFormItem>
+                            </QCol>
+                            <QCol span="2" style="text-align: center">-</QCol>
+                            <QCol span="11">
+                                <QFormItem prop="time">
+                                    <QTimePicker type="time" placeholder="Select time" v-model="formValidate.time"></QTimePicker>
+                                </QFormItem>
+                            </QCol>
+                        </QRow>
+                    </QFormItem>
+                    <QFormItem label="Gender" prop="gender">
+                        <QRadioGroup v-model="formValidate.gender">
+                            <QRadio label="male">Male</QRadio>
+                            <QRadio label="female">Female</QRadio>
+                        </QRadioGroup>
+                    </QFormItem>
+                    <QFormItem label="Hobby" prop="interest">
+                        <QCheckboxGroup v-model="formValidate.interest">
+                            <QCheckbox label="Eat"></QCheckbox>
+                            <QCheckbox label="Sleep"></QCheckbox>
+                            <QCheckbox label="Run"></QCheckbox>
+                            <QCheckbox label="Movie"></QCheckbox>
+                        </QCheckboxGroup>
+                    </QFormItem>
+                    <QFormItem label="Desc" prop="desc">
+                        <QInput v-model="formValidate.desc" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter something..."></QInput>
+                    </QFormItem>
+                    <QFormItem label="Switch" prop="switch">
+                        <q-switch v-model="formValidate.switch"></q-switch>
+                    </QFormItem>
+                    <QFormItem label="Slider" prop="slider">
+                        <QSlider v-model="formValidate.slider"></QSlider>
+                    </QFormItem>
+                    <QFormItem label="AutoComplete" prop="autoComplete">
+                        QAutoComplete
                                 v-model="formValidate.autoComplete"
                                 :data="data1"
                                 @on-search="handleSearch1"
                                 placeholder="input here"
-                                style="width:200px"></AutoComplete>
-                    </FormItem>
-                    <FormItem label="cascader" prop="cascader">
-                        <Cascader v-model="formValidate.cascader" :data="data2"></Cascader>
-                    </FormItem>
-                    <FormItem label="inputNumber" prop="inputNumber">
-                        <InputNumber :max="10" :min="1" v-model="formValidate.inputNumber"></InputNumber>
-                    </FormItem>
-                    <FormItem label="rate" prop="rate">
-                        <Rate v-model="formValidate.rate" />
-                    </FormItem>
-                    <FormItem label="colorPicker" prop="colorPicker">
-                        <ColorPicker v-model="formValidate.colorPicker" />
-                    </FormItem>
-                    <FormItem label="upload" prop="upload">
-                        <Upload action="//jsonplaceholder.typicode.com/posts/">
-                            <Button icon="ios-cloud-upload-outline">Upload files</Button>
-                        </Upload>
-                    </FormItem>
-                    <FormItem>
-                        <Button type="primary" @click="handleSubmit('formValidate2')">Submit</Button>
-                        <Button @click="handleReset('formValidate2')" style="margin-left: 8px">Reset</Button>
-                    </FormItem>
-                </Form>
-            </i-col>
-        </row>
+                                style="width:200px"></QAutoComplete>
+                    </QFormItem>
+                    <QFormItem label="cascader" prop="cascader">
+                        <QCascader v-model="formValidate.cascader" :data="data2"></QCascader>
+                    </QFormItem>
+                    <QFormItem label="inputNumber" prop="inputNumber">
+                        <QInputNumber :max="10" :min="1" v-model="formValidate.inputNumber"></QInputNumber>
+                    </QFormItem>
+                    <QFormItem label="rate" prop="rate">
+                        <QRate v-model="formValidate.rate" />
+                    </QFormItem>
+                    <QFormItem label="colorPicker" prop="colorPicker">
+                        <QColorPicker v-model="formValidate.colorPicker" />
+                    </QFormItem>
+                    <QFormItem label="upload" prop="upload">
+                        <QUpload action="//jsonplaceholder.typicode.com/posts/">
+                            <QButton icon="ios-cloud-upload-outline">Upload files</QButton>
+                        </QUpload>
+                    </QFormItem>
+                    <QFormItem>
+                        <QButton type="primary" @click="handleSubmit('formValidate2')">Submit</QButton>
+                        <QButton @click="handleReset('formValidate2')" style="margin-left: 8px">Reset</QButton>
+                    </QFormItem>
+                </QForm>
+            </q-col>
+        </q-row>
         <div style="margin: 100px;width: 200px;">
-            <Divider>普通组件</Divider>
-            <Button>123</Button>
-            <Button disabled>123</Button>
+            <QDivider>普通组件</QDivider>
+            <QButton>123</QButton>
+            <QButton disabled>123</QButton>
             <br>
-            <Input value="" />
-            <Input value="" disabled />
+            <QInput value="" />
+            <QInput value="" disabled />
             <br>
-            <Radio :value="false">Radio</Radio>
-            <Radio :value="false" disabled>Radio</Radio>
-            <RadioGroup value="爪哇犀牛">
-                <Radio label="金斑蝶"></Radio>
-                <Radio label="爪哇犀牛"></Radio>
-                <Radio label="印度黑羚"></Radio>
-            </RadioGroup>
-            <RadioGroup value="爪哇犀牛">
-                <Radio label="金斑蝶" disabled></Radio>
-                <Radio label="爪哇犀牛"></Radio>
-                <Radio label="印度黑羚"></Radio>
-            </RadioGroup>
+            <QRadio :value="false">Radio</QRadio>
+            <QRadio :value="false" disabled>Radio</QRadio>
+            <QRadioGroup value="爪哇犀牛">
+                <QRadio label="金斑蝶"></QRadio>
+                <QRadio label="爪哇犀牛"></QRadio>
+                <QRadio label="印度黑羚"></QRadio>
+            </QRadioGroup>
+            <QRadioGroup value="爪哇犀牛">
+                <QRadio label="金斑蝶" disabled></QRadio>
+                <QRadio label="爪哇犀牛"></QRadio>
+                <QRadio label="印度黑羚"></QRadio>
+            </QRadioGroup>
             <br>
-            <Checkbox :value="false">Checkbox</Checkbox>
-            <Checkbox :value="false" disabled>Checkbox</Checkbox>
-            <CheckboxGroup :value="['香蕉']">
-                <Checkbox label="香蕉"></Checkbox>
-                <Checkbox label="苹果" disabled></Checkbox>
-                <Checkbox label="西瓜"></Checkbox>
-            </CheckboxGroup>
+            <QCheckbox :value="false">Checkbox</QCheckbox>
+            <QCheckbox :value="false" disabled>Checkbox</QCheckbox>
+            <QCheckboxGroup :value="['香蕉']">
+                <QCheckbox label="香蕉"></QCheckbox>
+                <QCheckbox label="苹果" disabled></QCheckbox>
+                <QCheckbox label="西瓜"></QCheckbox>
+            </QCheckboxGroup>
             <br>
-            <i-switch :value="false" />
-            <i-switch :value="false" disabled />
+            <q-switch :value="false" />
+            <q-switch :value="false" disabled />
             <br>
-            <Select value="London" disabled style="width:200px">
-                <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
-            </Select>
-            <Select value="London" style="width:200px">
-                <Option value="beijing">New York</Option>
-                <Option value="shanghai" disabled>London</Option>
-                <Option value="shenzhen">Sydney</Option>
-            </Select>
-            <Select value="" filterable>
-                <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
-            </Select>
-            <Select value="" filterable disabled>
-                <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
-            </Select>
+            <QSelect value="London" disabled style="width:200px">
+                <QOption v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</QOption>
+            </QSelect>
+            <QSelect value="London" style="width:200px">
+                <QOption value="beijing">New York</QOption>
+                <QOption value="shanghai" disabled>London</QOption>
+                <QOption value="shenzhen">Sydney</QOption>
+            </QSelect>
+            <QSelect value="" filterable>
+                <QOption v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</QOption>
+            </QSelect>
+            <QSelect value="" filterable disabled>
+                <QOption v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</QOption>
+            </QSelect>
             <br>
-            <Slider :value="20"></Slider>
-            <Slider :value="20" disabled></Slider>
+            <QSlider :value="20"></QSlider>
+            <QSlider :value="20" disabled></QSlider>
             <br>
-            <AutoComplete
+            <QAutoComplete
                     v-model="value1"
                     :data="data1"
                     @on-search="handleSearch1"
                     placeholder="input here"
-                    style="width:200px"></AutoComplete>
-            <AutoComplete
+                    style="width:200px"></QAutoComplete>
+            <QAutoComplete
                     v-model="value1"
                     :data="data1"
                     @on-search="handleSearch1"
                     placeholder="input here"
                     disabled
-                    style="width:200px"></AutoComplete>
+                    style="width:200px"></QAutoComplete>
             <br>
-            <DatePicker type="date" placeholder="Select date" style="width: 200px"></DatePicker>
-            <DatePicker type="date" placeholder="Select date" style="width: 200px" disabled></DatePicker>
+            <QDatePicker type="date" placeholder="Select date" style="width: 200px"></QDatePicker>
+            <QDatePicker type="date" placeholder="Select date" style="width: 200px" disabled></QDatePicker>
             <br>
-            <TimePicker type="time" placeholder="Select time" style="width: 168px"></TimePicker>
-            <TimePicker type="time" placeholder="Select time" style="width: 168px" disabled></TimePicker>
+            <QTimePicker type="time" placeholder="Select time" style="width: 168px"></QTimePicker>
+            <QTimePicker type="time" placeholder="Select time" style="width: 168px" disabled></QTimePicker>
             <br>
-            <Cascader :data="data2"></Cascader>
-            <Cascader :data="data2" disabled></Cascader>
+            <QCascader :data="data2"></QCascader>
+            <QCascader :data="data2" disabled></QCascader>
             <br>
-            <InputNumber :max="10" :min="1" :value="2"></InputNumber>
-            <InputNumber :max="10" :min="1" :value="2" disabled></InputNumber>
+            <QInputNumber :max="10" :min="1" :value="2"></QInputNumber>
+            <QInputNumber :max="10" :min="1" :value="2" disabled></QInputNumber>
             <br>
-            <Rate :value="3" />
-            <Rate :value="3" disabled />
+            <QRate :value="3" />
+            <QRate :value="3" disabled />
             <br>
-            <ColorPicker value="#19be6b" />
-            <ColorPicker value="#19be6b" disabled />
+            <QColorPicker value="#19be6b" />
+            <QColorPicker value="#19be6b" disabled />
             <br>
-            <Upload action="//jsonplaceholder.typicode.com/posts/">
-                <Button icon="ios-cloud-upload-outline">Upload files</Button>
-            </Upload>
-            <Upload action="//jsonplaceholder.typicode.com/posts/" disabled>
-                <Button icon="ios-cloud-upload-outline">Upload files</Button>
-            </Upload>
+            <QUpload action="//jsonplaceholder.typicode.com/posts/">
+                <QButton icon="ios-cloud-upload-outline">Upload files</QButton>
+            </QUpload>
+            <QUpload action="//jsonplaceholder.typicode.com/posts/" disabled>
+                <QButton icon="ios-cloud-upload-outline">Upload files</QButton>
+            </QUpload>
         </div>
     </div>
 </template>

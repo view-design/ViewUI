@@ -1,41 +1,41 @@
 <template>
     <div>
         <h2>small size</h2>
-        <List header="Header" footer="Footer" size="small" :split="false">
-            <ListItem v-for="item in data1" :key="item">
+        <QList header="Header" footer="Footer" size="small" :split="false">
+            <QListItem v-for="item in data1" :key="item">
                 {{ item }}
-            </ListItem>
-        </List>
+            </QListItem>
+        </QList>
         <h2>default size</h2>
-        <List header="Header" footer="Footer">
-            <ListItem v-for="item in data1" :key="item">
+        <QList header="Header" footer="Footer">
+            <QListItem v-for="item in data1" :key="item">
                 {{ item }}
-            </ListItem>
-        </List>
+            </QListItem>
+        </QList>
         <h2>large size</h2>
-        <List header="Header" footer="Footer" border size="large">
-            <ListItem v-for="item in data1" :key="item">
+        <QList header="Header" footer="Footer" border size="large">
+            <QListItem v-for="item in data1" :key="item">
                 {{ item }}
-            </ListItem>
-        </List>
+            </QListItem>
+        </QList>
 
-        <Divider>没有 </Divider>
+        <QDivider>没有 </QDivider>
 
-        <List>
-            <ListItem v-for="item in data2" :key="item.title">
-                <ListItemMeta :avatar="item.avatar" :title="item.title" :description="item.description">
-                </ListItemMeta>
+        <QList>
+            <QListItem v-for="item in data2" :key="item.title">
+                <QListItemMeta :avatar="item.avatar" :title="item.title" :description="item.description">
+                </QListItemMeta>
                 一段内容
-            </ListItem>
-        </List>
+            </QListItem>
+        </QList>
 
-        <Divider>带有 Action</Divider>
+        <QDivider>带有 Action</QDivider>
 
-        <List>
-            <ListItem v-for="item in data2" :key="item.title">
-                <ListItemMeta :avatar="item.avatar" :title="item.title" :description="item.description">
+        <QList>
+            <QListItem v-for="item in data2" :key="item.title">
+                <QListItemMeta :avatar="item.avatar" :title="item.title" :description="item.description">
 
-                </ListItemMeta>
+                </QListItemMeta>
                 一段内容
                 <template slot="action">
                     <li>
@@ -47,32 +47,32 @@
 <!--                        <Button>删除</Button>-->
                     </li>
                 </template>
-            </ListItem>
-        </List>
+            </QListItem>
+        </QList>
 
-        <Divider>带图片</Divider>
-        <List item-layout="vertical">
-            <ListItem v-for="item in data2" :key="item.title">
-                <ListItemMeta :avatar="item.avatar" :title="item.title" :description="item.description">
+        <QDivider>带图片</QDivider>
+        <QList item-layout="vertical">
+            <QListItem v-for="item in data2" :key="item.title">
+                <QListItemMeta :avatar="item.avatar" :title="item.title" :description="item.description">
 
-                </ListItemMeta>
+                </QListItemMeta>
                 We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
                 <template slot="action">
                     <li>
-                        <Icon type="ios-star-outline" /> 156
+                        <QIcon type="ios-star-outline" /> 156
                     </li>
                     <li>
-                        <Icon type="ios-thumbs-up-outline" /> 156
+                        <QIcon type="ios-thumbs-up-outline" /> 156
                     </li>
                     <li>
-                        <Icon type="ios-chatbubbles-outline" /> 10
+                        <QIcon type="ios-chatbubbles-outline" /> 10
                     </li>
                 </template>
                 <template slot="extra">
                     <img src="https://dev-file.iviewui.com/5wxHCQMUyrauMCGSVEYVxHR5JmvS7DpH/large" style="width: 280px">
                 </template>
-            </ListItem>
-        </List>
+            </QListItem>
+        </QList>
 
     </div>
 </template>

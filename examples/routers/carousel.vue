@@ -10,21 +10,21 @@
 </style>
 <template>
     <div style="width: 400px;">
-        <Carousel v-model="value1" loop arrow="always" @on-change="handleChange">
-            <CarouselItem>
+        <QCarousel v-model="value1" loop arrow="always" @on-change="handleChange">
+            <QCarouselItem>
                 <div class="demo-carousel">1</div>
-            </CarouselItem>
-            <CarouselItem>
+            </QCarouselItem>
+            <QCarouselItem>
                 <div class="demo-carousel">2</div>
-            </CarouselItem>
-            <CarouselItem>
+            </QCarouselItem>
+            <QCarouselItem>
                 <div class="demo-carousel">3</div>
-            </CarouselItem>
-            <CarouselItem>
+            </QCarouselItem>
+            <QCarouselItem>
                 <div class="demo-carousel">4</div>
-            </CarouselItem>
-        </Carousel>
-        <Button @click="value1 = 2">change</Button>
+            </QCarouselItem>
+        </QCarousel>
+        <QButton @click="value1 = 2">change</QButton>
     </div>
 </template>
 <script>

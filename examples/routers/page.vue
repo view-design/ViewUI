@@ -1,36 +1,36 @@
 <template>
     <div>
-        <Page prev-text="上一页" next-text="下一页" :total="total" show-sizer show-elevator show-total  :current.sync="current"></Page>
+        <QPage prev-text="上一页" next-text="下一页" :total="total" show-sizer show-elevator show-total  :current.sync="current"></QPage>
         {{ current }}
-        <Button type="primary" @click="subject">- 1</Button>
-        <Button type="primary" @click="change">Change</Button>
-        <Page :current="2" :total="50" simple></Page>
+        <QButton type="primary" @click="subject">- 1</QButton>
+        <QButton type="primary" @click="change">Change</QButton>
+        <QPage :current="2" :total="50" simple></QPage>
 
         <div style="margin:10px 0px">
-            <Page :total="1000" show-sizer show-elevator show-total  :current="12"></Page>
+            <QPage :total="1000" show-sizer show-elevator show-total  :current="12"></QPage>
         </div>
         <div style="margin:10px 0px">
-            <Page disabled :total="1000" show-sizer show-elevator show-total  :current="12"></Page>
-            <Page :current="2" :total="50" simple disabled />
+            <QPage disabled :total="1000" show-sizer show-elevator show-total  :current="12"></QPage>
+            <QPage :current="2" :total="50" simple disabled />
         </div>
         <div style="margin:100px 0px">
-            <Page :total="500" show-sizer show-elevator show-total  ></Page>
+            <QPage :total="500" show-sizer show-elevator show-total  ></QPage>
         </div>
         <div style="margin:100px 0px">
-            <Page :total="500" show-sizer show-elevator  ></Page>
+            <QPage :total="500" show-sizer show-elevator  ></QPage>
         </div>
         <div style="margin:100px 0px">
-            <Page :total="500" show-sizer show-elevator   ></Page>
+            <QPage :total="500" show-sizer show-elevator   ></QPage>
         </div>
         <div style="margin:10px 0px">
-            <Page :total="500" show-sizer  ></Page>
+            <QPage :total="500" show-sizer  ></QPage>
         </div>
         <div style="margin: 10px 0px">
-            <Page :total="40" size="small"></Page>
+            <QPage :total="40" size="small"></QPage>
             <br><br>
-            <Page :total="40" size="small" show-elevator show-sizer></Page>
+            <QPage :total="40" size="small" show-elevator show-sizer></QPage>
             <br><br>
-            <Page :total="40" size="small" show-total></Page>
+            <QPage :total="40" size="small" show-total></QPage>
             <br><br>
         </div>
     </div>

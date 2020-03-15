@@ -1,53 +1,53 @@
 <template>
     <div style="border: 1px solid #ccc;">
-        <Steps :current="1">
-            <Step title="已完成">
+        <QSteps :current="1">
+            <QStep title="已完成">
                 <div slot="content">
                     这里是该步骤的描述信息
                 </div>
-            </Step>
-            <Step title="进行中" content="这里是该步骤的描述信息"></Step>
-            <Step title="待进行" content="这里是该步骤的描述信息"></Step>
-            <Step title="待进行" content="这里是该步骤的描述信息"></Step>
-        </Steps>
-        <Divider></Divider>
-        <Steps :current="2" size="small">
-            <Step title="已完成"></Step>
-            <Step title="进行中"></Step>
-            <Step title="待进行"></Step>
-            <Step title="待进行"></Step>
-        </Steps>
-        <Divider></Divider>
-        <Steps :current="1">
-            <Step title="注册">
-                <Icon type="md-alarm" slot="icon" />
-            </Step>
-            <Step title="上传头像" icon="ios-camera"></Step>
-            <Step title="验证邮箱" icon="ios-mail"></Step>
-        </Steps>
-        <Divider></Divider>
+            </QStep>
+            <QStep title="进行中" content="这里是该步骤的描述信息"></QStep>
+            <QStep title="待进行" content="这里是该步骤的描述信息"></QStep>
+            <QStep title="待进行" content="这里是该步骤的描述信息"></QStep>
+        </QSteps>
+        <QDivider></QDivider>
+        <QSteps :current="2" size="small">
+            <QStep title="已完成"></QStep>
+            <QStep title="进行中"></QStep>
+            <QStep title="待进行"></QStep>
+            <QStep title="待进行"></QStep>
+        </QSteps>
+        <QDivider></QDivider>
+        <QSteps :current="1">
+            <QStep title="注册">
+                <QIcon type="md-alarm" slot="icon" />
+            </QStep>
+            <QStep title="上传头像" icon="ios-camera"></QStep>
+            <QStep title="验证邮箱" icon="ios-mail"></QStep>
+        </QSteps>
+        <QDivider></QDivider>
         <p>当前正在进行第 {{ current + 1 }} 步</p>
-        <Steps :current="current">
-            <Step title="步骤1"></Step>
-            <Step title="步骤2"></Step>
-            <Step title="步骤3"></Step>
-            <Step title="步骤4"></Step>
-        </Steps>
-        <Button type="primary" @click="next">Next step</Button>
-        <Divider></Divider>
-        <Steps :current="2" direction="vertical">
-            <Step title="已完成" content="这里是该步骤的描述信息"></Step>
-            <Step title="已完成" content="这里是该步骤的描述信息"></Step>
-            <Step title="进行中" content="这里是该步骤的描述信息"></Step>
-            <Step title="待进行" content="这里是该步骤的描述信息"></Step>
-        </Steps>
-        <Divider></Divider>
-        <Steps :current="1" status="error">
-            <Step title="已完成" content="这里是该步骤的描述信息"></Step>
-            <Step title="进行中" content="这里是该步骤的描述信息"></Step>
-            <Step title="待进行" content="这里是该步骤的描述信息"></Step>
-            <Step title="待进行" content="这里是该步骤的描述信息"></Step>
-        </Steps>
+        <QSteps :current="current">
+            <QStep title="步骤1"></QStep>
+            <QStep title="步骤2"></QStep>
+            <QStep title="步骤3"></QStep>
+            <QStep title="步骤4"></QStep>
+        </QSteps>
+        <QButton type="primary" @click="next">Next step</QButton>
+        <QDivider></QDivider>
+        <QSteps :current="2" direction="vertical">
+            <QStep title="已完成" content="这里是该步骤的描述信息"></QStep>
+            <QStep title="已完成" content="这里是该步骤的描述信息"></QStep>
+            <QStep title="进行中" content="这里是该步骤的描述信息"></QStep>
+            <QStep title="待进行" content="这里是该步骤的描述信息"></QStep>
+        </QSteps>
+        <QDivider></QDivider>
+        <QSteps :current="1" status="error">
+            <QStep title="已完成" content="这里是该步骤的描述信息"></QStep>
+            <QStep title="进行中" content="这里是该步骤的描述信息"></QStep>
+            <QStep title="待进行" content="这里是该步骤的描述信息"></QStep>
+            <QStep title="待进行" content="这里是该步骤的描述信息"></QStep>
+        </QSteps>
     </div>
 </template>
 <script>

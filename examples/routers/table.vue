@@ -1,7 +1,7 @@
 <template>
     <div style="margin: 200px">
-        <Divider>TreeTable</Divider>
-        <Table
+        <QDivider>TreeTable</QDivider>
+        <QTable
                 border
                 highlight-row
                 content-menu
@@ -22,64 +22,64 @@
             <template slot-scope="{ row }" slot="age">
                 <strong>{{row.age}}</strong>
             </template>
-        </Table>
+        </QTable>
         <br><br>
-        <Button @click="addData">添加数据</Button>
-        <Button @click="addData2">添加数据2</Button>
-        <Button @click="handleSelectAll(true)">Set all selected</Button>
-        <Button @click="handleSelectAll(false)">Cancel all selected</Button>
-        <Divider>合计</Divider>
-        <Table size="small" border :columns="columns4" :data="data11" show-summary :height="200"></Table>
+        <QButton @click="addData">添加数据</QButton>
+        <QButton @click="addData2">添加数据2</QButton>
+        <QButton @click="handleSelectAll(true)">Set all selected</QButton>
+        <QButton @click="handleSelectAll(false)">Cancel all selected</QButton>
+        <QDivider>合计</QDivider>
+        <QTable size="small" border :columns="columns4" :data="data11" show-summary :height="200"></QTable>
         <br>
-        <Table border :columns="columns4" :data="data11" show-summary :height="200"></Table>
+        <QTable border :columns="columns4" :data="data11" show-summary :height="200"></QTable>
         <br>
-        <Table size="large" border :columns="columns4" :data="data11" show-summary :height="200"></Table>
+        <QTable size="large" border :columns="columns4" :data="data11" show-summary :height="200"></QTable>
         <br>
-        <Table border :columns="columns4" :data="data11" show-summary></Table>
+        <QTable border :columns="columns4" :data="data11" show-summary></QTable>
         <br>
-        <Table border :columns="columns5" :data="data11" show-summary></Table>
+        <QTable border :columns="columns5" :data="data11" show-summary></QTable>
         <br>
-        <Table border :columns="columns8" :data="data11" show-summary></Table>
+        <QTable border :columns="columns8" :data="data11" show-summary></QTable>
         <br>
-        <Table border :columns="columns5" :data="data11" show-summary :height="200"></Table>
-        <Divider>合并单元格</Divider>
-        <Table border :columns="columns1" :data="data1" :span-method="handleSpan"></Table>
+        <QTable border :columns="columns5" :data="data11" show-summary :height="200"></QTable>
+        <QDivider>合并单元格</QDivider>
+        <QTable border :columns="columns1" :data="data1" :span-method="handleSpan"></QTable>
         <br>
-        <Table border :columns="columns1" :data="data1" :span-method="handleSpan2"></Table>
-        <Divider>拖拽调整列宽</Divider>
-        <Table border :columns="columns1" :data="data1"></Table>
-        <Divider>排序筛选</Divider>
+        <QTable border :columns="columns1" :data="data1" :span-method="handleSpan2"></QTable>
+        <QDivider>拖拽调整列宽</QDivider>
+        <QTable border :columns="columns1" :data="data1"></QTable>
+        <QDivider>排序筛选</QDivider>
         <div style="margin: 0 0px;">
-            <Table @on-column-width-resize="handleResize" border :columns="columns6" :data="data5"></Table>
+            <QTable @on-column-width-resize="handleResize" border :columns="columns6" :data="data5"></QTable>
         </div>
-        <Divider>普通表格</Divider>
-        <Table size="small" :columns="columns1" :data="data1"></Table>
+        <QDivider>普通表格</QDivider>
+        <QTable size="small" :columns="columns1" :data="data1"></QTable>
         <br>
-        <Table :columns="columns1" :data="data1"></Table>
+        <QTable :columns="columns1" :data="data1"></QTable>
         <br>
-        <Table size="large" :columns="columns1" :data="data1"></Table>
-        <Divider>斑马纹</Divider>
-        <Table stripe :columns="columns1" :data="data1"></Table>
-        <Divider>带边框</Divider>
-        <Table border :columns="columns1" :data="data1"></Table>
-        <Divider>头固定（普通）</Divider>
-        <Table height="200" :columns="columns1" :data="data2"></Table>
-        <Divider>头固定（边框）</Divider>
-        <Table height="200" border :columns="columns1" :data="data2"></Table>
-        <Divider>列固定（普通）</Divider>
-        <Table width="550" :columns="columns2" :data="data3"></Table>
-        <Divider>列固定（边框）</Divider>
-        <Table width="550" border :columns="columns2" :data="data3"></Table>
-        <Divider>都固定（普通）</Divider>
-        <Table width="550" height="200" :columns="columns2" :data="data4"></Table>
-        <Divider>都固定（边框）</Divider>
-        <Table width="550" height="200" border :columns="columns2" :data="data4"></Table>
-        <Divider>表头分组（普通）</Divider>
-        <Table :columns="columns11" :data="data10" height="500"></Table>
-        <Divider>表头分组（边框）</Divider>
-        <Table border :columns="columns11" :data="data10" height="500"></Table>
-        <Divider>筛选</Divider>
-        <Table border :columns="columns6" :data="data5"></Table>
+        <QTable size="large" :columns="columns1" :data="data1"></QTable>
+        <QDivider>斑马纹</QDivider>
+        <QTable stripe :columns="columns1" :data="data1"></QTable>
+        <QDivider>带边框</QDivider>
+        <QTable border :columns="columns1" :data="data1"></QTable>
+        <QDivider>头固定（普通）</QDivider>
+        <QTable height="200" :columns="columns1" :data="data2"></QTable>
+        <QDivider>头固定（边框）</QDivider>
+        <QTable height="200" border :columns="columns1" :data="data2"></QTable>
+        <QDivider>列固定（普通）</QDivider>
+        <QTable width="550" :columns="columns2" :data="data3"></QTable>
+        <QDivider>列固定（边框）</QDivider>
+        <QTable width="550" border :columns="columns2" :data="data3"></QTable>
+        <QDivider>都固定（普通）</QDivider>
+        <QTable width="550" height="200" :columns="columns2" :data="data4"></QTable>
+        <QDivider>都固定（边框）</QDivider>
+        <QTable width="550" height="200" border :columns="columns2" :data="data4"></QTable>
+        <QDivider>表头分组（普通）</QDivider>
+        <QTable :columns="columns11" :data="data10" height="500"></QTable>
+        <QDivider>表头分组（边框）</QDivider>
+        <QTable border :columns="columns11" :data="data10" height="500"></QTable>
+        <QDivider>筛选</QDivider>
+        <QTable border :columns="columns6" :data="data5"></QTable>
     </div>
 </template>
 <script>
@@ -430,13 +430,13 @@
                         width: 120,
                         render: (h, params) => {
                             return h('div', [
-                                h('Button', {
+                                h('QButton', {
                                     props: {
                                         type: 'text',
                                         size: 'small'
                                     }
                                 }, 'View'),
-                                h('Button', {
+                                h('QButton', {
                                     props: {
                                         type: 'text',
                                         size: 'small'

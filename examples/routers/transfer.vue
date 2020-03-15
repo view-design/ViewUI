@@ -1,5 +1,5 @@
 <template>
-    <Transfer
+    <QTransfer
             :data="data3"
             :target-keys="targetKeys3"
             :list-style="listStyle"
@@ -8,9 +8,9 @@
             filterable
             @on-change="handleChange3">
         <div :style="{float: 'right', margin: '5px'}">
-            <Button type="ghost" size="small" @click="reloadMockData">Refresh</Button>
+            <QButton type="ghost" size="small" @click="reloadMockData">Refresh</QButton>
         </div>
-    </Transfer>
+    </QTransfer>
 </template>
 <script>
     export default {

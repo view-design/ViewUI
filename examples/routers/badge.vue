@@ -1,5 +1,5 @@
 <style scoped>
-    .demo-badge{
+    .demo-QBadge{
         width: 42px;
         height: 42px;
         background: #eee;
@@ -8,115 +8,115 @@
     }
 </style>
 <style>
-    .demo-badge-alone{
+    .demo-QBadge-alone{
         background: #5cb85c !important;
     }
 </style>
 <template>
     <div>
-        <Badge :count="count">
-            <a href="#" class="demo-badge"></a>
-        </Badge>
-        <Badge :count="0" showZero>
-            <a href="#" class="demo-badge"></a>
-        </Badge>
-        <Badge>
-            <Icon type="md-time" slot="count" size="16" color="#ff6600" />
-            <a href="#" class="demo-badge"></a>
-        </Badge>
-        <Button @click="setCount">set count</Button>
-        <Divider></Divider>
-        <Badge :count="count" text="new">
-            <a href="#" class="demo-badge"></a>
-        </Badge>
-        <Badge :count="count">
-            <a href="#" class="demo-badge"></a>
+        <QBadge :count="count">
+            <a href="#" class="demo-QBadge"></a>
+        </QBadge>
+        <QBadge :count="0" showZero>
+            <a href="#" class="demo-QBadge"></a>
+        </QBadge>
+        <QBadge>
+            <QIcon type="md-time" slot="count" size="16" color="#ff6600" />
+            <a href="#" class="demo-QBadge"></a>
+        </QBadge>
+        <QButton @click="setCount">set count</QButton>
+        <QDivider></QDivider>
+        <QBadge :count="count" text="new">
+            <a href="#" class="demo-QBadge"></a>
+        </QBadge>
+        <QBadge :count="count">
+            <a href="#" class="demo-QBadge"></a>
             <span slot="text">hhh</span>
-        </Badge>
+        </QBadge>
         <br><br>
-        <Badge text="hot">
-            <Button type="primary" ghost>Hello</Button>
-        </Badge>
+        <QBadge text="hot">
+            <QButton type="primary" ghost>Hello</QButton>
+        </QBadge>
         <br><br>
         <div>
-            <Badge status="success" />
-            <Badge status="error" />
-            <Badge status="default" />
-            <Badge status="processing" />
-            <Badge status="warning" />
+            <QBadge status="success" />
+            <QBadge status="error" />
+            <QBadge status="default" />
+            <QBadge status="processing" />
+            <QBadge status="warning" />
             <br />
-            <Badge status="success" text="Success" />
-            <Badge status="success">
+            <QBadge status="success" text="Success" />
+            <QBadge status="success">
                 <strong slot="text">Success</strong>
-            </Badge>
+            </QBadge>
             <br />
-            <Badge status="error" text="Error" />
+            <QBadge status="error" text="Error" />
             <br />
-            <Badge status="default" text="Default" />
+            <QBadge status="default" text="Default" />
             <br />
-            <Badge status="processing" text="Processing" />
+            <QBadge status="processing" text="Processing" />
             <br />
-            <Badge status="warning" text="Warning" />
+            <QBadge status="warning" text="Warning" />
         </div>
         <div style="margin: 50px">
-            <Badge dot>
+            <QBadge dot>
                 <a href="//iviewui.com">我是一个链接</a>
-            </Badge>
+            </QBadge>
             <br><br>
-            <Badge :count="10" :offset="[-5, -5]">
+            <QBadge :count="10" :offset="[-5, -5]">
                 <a href="//iviewui.com">我是一个链接</a>
-            </Badge>
+            </QBadge>
         </div>
         <div>
-            <Badge :count="count" type="primary">
-                <a href="#" class="demo-badge"></a>
-            </Badge>
-            <Badge :count="count" type="success">
-                <a href="#" class="demo-badge"></a>
-            </Badge>
-            <Badge :count="count" type="normal">
-                <a href="#" class="demo-badge"></a>
-            </Badge>
-            <Badge :count="count" type="info">
-                <a href="#" class="demo-badge"></a>
-            </Badge>
-            <Badge :count="count" type="error">
-                <a href="#" class="demo-badge"></a>
-            </Badge>
-            <Badge :count="count" type="warning">
-                <a href="#" class="demo-badge"></a>
-            </Badge>
-            <Badge :count="count">
-                <a href="#" class="demo-badge"></a>
-            </Badge>
+            <QBadge :count="count" type="primary">
+                <a href="#" class="demo-QBadge"></a>
+            </QBadge>
+            <QBadge :count="count" type="success">
+                <a href="#" class="demo-QBadge"></a>
+            </QBadge>
+            <QBadge :count="count" type="normal">
+                <a href="#" class="demo-QBadge"></a>
+            </QBadge>
+            <QBadge :count="count" type="info">
+                <a href="#" class="demo-QBadge"></a>
+            </QBadge>
+            <QBadge :count="count" type="error">
+                <a href="#" class="demo-QBadge"></a>
+            </QBadge>
+            <QBadge :count="count" type="warning">
+                <a href="#" class="demo-QBadge"></a>
+            </QBadge>
+            <QBadge :count="count">
+                <a href="#" class="demo-QBadge"></a>
+            </QBadge>
         </div>
-        <Divider></Divider>
-        <Badge status="success" text="Success" />
+        <QDivider></QDivider>
+        <QBadge status="success" text="Success" />
         <br />
-        <Badge status="error" text="Error" />
+        <QBadge status="error" text="Error" />
         <br />
-        <Badge status="default" text="Default" />
+        <QBadge status="default" text="Default" />
         <br />
-        <Badge status="processing" text="Processing" />
+        <QBadge status="processing" text="Processing" />
         <br />
-        <Badge status="warning" text="Warning" />
+        <QBadge status="warning" text="Warning" />
         <br />
-        <Badge color="blue" text="blue" />
-        <Badge color="green" text="green" />
-        <Badge color="red" text="red" />
-        <Badge color="yellow" text="yellow" />
-        <Badge color="pink" text="pink" />
-        <Badge color="magenta" text="magenta" />
-        <Badge color="volcano" text="volcano" />
-        <Badge color="orange" text="orange" />
-        <Badge color="gold" text="gold" />
-        <Badge color="lime" text="lime" />
-        <Badge color="cyan" text="cyan" />
-        <Badge color="geekblue" text="geekblue" />
-        <Badge color="purple" text="purple" />
+        <QBadge color="blue" text="blue" />
+        <QBadge color="green" text="green" />
+        <QBadge color="red" text="red" />
+        <QBadge color="yellow" text="yellow" />
+        <QBadge color="pink" text="pink" />
+        <QBadge color="magenta" text="magenta" />
+        <QBadge color="volcano" text="volcano" />
+        <QBadge color="orange" text="orange" />
+        <QBadge color="gold" text="gold" />
+        <QBadge color="lime" text="lime" />
+        <QBadge color="cyan" text="cyan" />
+        <QBadge color="geekblue" text="geekblue" />
+        <QBadge color="purple" text="purple" />
         <br />
-        <Badge color="#2db7f5" text="#2db7f5" />
-        <Badge color="#f50" text="#f50" />
+        <QBadge color="#2db7f5" text="#2db7f5" />
+        <QBadge color="#f50" text="#f50" />
     </div>
 </template>
 <script>

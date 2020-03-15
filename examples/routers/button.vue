@@ -1,314 +1,314 @@
 <template>
     <div>
-        <Divider>vue-router 3.1 bug</Divider>
-        <Button to="/button">跳转到 Button（当前路径）</Button>
-        <Button to="/button" replace>跳转到 Button（当前路径, replace）</Button>
-        <Divider></Divider>
-        <Button icon="logo-github" size="small" shape="circle"></Button>
-        <Button icon="logo-github" shape="circle"></Button>
-        <Button icon="logo-github" size="large" shape="circle"></Button>
+        <QDivider>vue-router 3.1 bug</QDivider>
+        <QButton to="/QButton">跳转到 QButton（当前路径）</QButton>
+        <QButton to="/QButton" replace>跳转到 QButton（当前路径, replace）</QButton>
+        <QDivider></QDivider>
+        <QButton icon="logo-github" size="small" shape="circle"></QButton>
+        <QButton icon="logo-github" shape="circle"></QButton>
+        <QButton icon="logo-github" size="large" shape="circle"></QButton>
 
-        <Button icon="logo-github" size="small"></Button>
-        <Button size="small">EN</Button>
+        <QButton icon="logo-github" size="small"></QButton>
+        <QButton size="small">EN</QButton>
 
-        <Button icon="logo-github"></Button>
-        <Button>EN</Button>
+        <QButton icon="logo-github"></QButton>
+        <QButton>EN</QButton>
 
-        <Button icon="logo-github" size="large"></Button>
-        <Button size="large">EN</Button>
+        <QButton icon="logo-github" size="large"></QButton>
+        <QButton size="large">EN</QButton>
 
-        <ButtonGroup size="small">
-            <Button icon="logo-github"></Button>
-            <Button icon="logo-twitter"></Button>
-            <Button>
+        <QButtonGroup size="small">
+            <QButton icon="logo-github"></QButton>
+            <QButton icon="logo-twitter"></QButton>
+            <QButton>
                 EN
-            </Button>
-        </ButtonGroup>
+            </QButton>
+        </QButtonGroup>
 
-        <ButtonGroup>
-            <Button icon="logo-github"></Button>
-            <Button icon="logo-twitter"></Button>
-            <Button>
+        <QButtonGroup>
+            <QButton icon="logo-github"></QButton>
+            <QButton icon="logo-twitter"></QButton>
+            <QButton>
                 ENs
-            </Button>
-        </ButtonGroup>
+            </QButton>
+        </QButtonGroup>
 
-        <ButtonGroup size="large">
-            <Button icon="logo-github"></Button>
-            <Button icon="logo-twitter"></Button>
-            <Button >
+        <QButtonGroup size="large">
+            <QButton icon="logo-github"></QButton>
+            <QButton icon="logo-twitter"></QButton>
+            <QButton >
                 EN
-            </Button>
-        </ButtonGroup>
+            </QButton>
+        </QButtonGroup>
         <br><br><br>
-        <Button type="default">Default</Button>
-        <Button type="primary">Primary</Button>
-        <Button type="dashed">Dashed</Button>
-        <Button type="info">Info</Button>
-        <Button type="success">Success</Button>
-        <Button type="warning">Warning</Button>
-        <Button type="error">Error</Button>
-        <Button type="text">Text</Button>
+        <QButton type="default">Default</QButton>
+        <QButton type="primary">Primary</QButton>
+        <QButton type="dashed">Dashed</QButton>
+        <QButton type="info">Info</QButton>
+        <QButton type="success">Success</QButton>
+        <QButton type="warning">Warning</QButton>
+        <QButton type="error">Error</QButton>
+        <QButton type="text">Text</QButton>
         <br><br><br>
-        <Button type="default" disabled>Default</Button>
-        <Button type="primary" disabled>Primary</Button>
-        <Button type="dashed" disabled>Dashed</Button>
-        <Button type="info" disabled>Info</Button>
-        <Button type="success" disabled>Success</Button>
-        <Button type="warning" disabled>Warning</Button>
-        <Button type="error" disabled>Error</Button>
-        <Button type="text" disabled>Text</Button>
+        <QButton type="default" disabled>Default</QButton>
+        <QButton type="primary" disabled>Primary</QButton>
+        <QButton type="dashed" disabled>Dashed</QButton>
+        <QButton type="info" disabled>Info</QButton>
+        <QButton type="success" disabled>Success</QButton>
+        <QButton type="warning" disabled>Warning</QButton>
+        <QButton type="error" disabled>Error</QButton>
+        <QButton type="text" disabled>Text</QButton>
         <br><br><br>
         <div style="padding: 20px;background: rgb(190, 200, 200)">
-            <Button type="default" ghost>Default</Button>
-            <Button type="primary" ghost>Primary</Button>
-            <Button type="dashed" ghost>Dashed</Button>
-            <Button type="info" ghost>Info</Button>
-            <Button type="success" ghost>Success</Button>
-            <Button type="warning" ghost>Warning</Button>
-            <Button type="error" ghost>Error</Button>
-            <Button type="text" ghost>Text</Button>
+            <QButton type="default" ghost>Default</QButton>
+            <QButton type="primary" ghost>Primary</QButton>
+            <QButton type="dashed" ghost>Dashed</QButton>
+            <QButton type="info" ghost>Info</QButton>
+            <QButton type="success" ghost>Success</QButton>
+            <QButton type="warning" ghost>Warning</QButton>
+            <QButton type="error" ghost>Error</QButton>
+            <QButton type="text" ghost>Text</QButton>
             <br><br><br>
-            <Button type="default" ghost disabled>Default</Button>
-            <Button type="primary" ghost disabled>Primary</Button>
-            <Button type="dashed" ghost disabled>Dashed</Button>
-            <Button type="info" ghost disabled>Info</Button>
-            <Button type="success" ghost disabled>Success</Button>
-            <Button type="warning" ghost disabled>Warning</Button>
-            <Button type="error" ghost disabled>Error</Button>
-            <Button type="text" ghost disabled>Text</Button>
+            <QButton type="default" ghost disabled>Default</QButton>
+            <QButton type="primary" ghost disabled>Primary</QButton>
+            <QButton type="dashed" ghost disabled>Dashed</QButton>
+            <QButton type="info" ghost disabled>Info</QButton>
+            <QButton type="success" ghost disabled>Success</QButton>
+            <QButton type="warning" ghost disabled>Warning</QButton>
+            <QButton type="error" ghost disabled>Error</QButton>
+            <QButton type="text" ghost disabled>Text</QButton>
         </div>
-        <Divider></Divider>
-        <Button type="primary">普通按钮</Button>
-        <Button type="primary" to="/">普通按钮</Button>
-        <Button type="primary" size="small">普通按钮</Button>
-        <Button type="primary" to="/" size="small">普通按钮</Button>
-        <Button type="primary" size="large">普通按钮</Button>
-        <Button type="primary" to="/" size="large">普通按钮</Button>
-        <Button type="primary" size="large" shape="circle">普通按钮</Button>
-        <Button type="primary" to="/" size="large" shape="circle">普通按钮</Button>
+        <QDivider></QDivider>
+        <QButton type="primary">普通按钮</QButton>
+        <QButton type="primary" to="/">普通按钮</QButton>
+        <QButton type="primary" size="small">普通按钮</QButton>
+        <QButton type="primary" to="/" size="small">普通按钮</QButton>
+        <QButton type="primary" size="large">普通按钮</QButton>
+        <QButton type="primary" to="/" size="large">普通按钮</QButton>
+        <QButton type="primary" size="large" shape="circle">普通按钮</QButton>
+        <QButton type="primary" to="/" size="large" shape="circle">普通按钮</QButton>
         <br><br><br>
-        <Button type="primary" icon="ios-information-circle" size="small">Search</Button>
-        <Button type="primary" icon="ios-information-circle" size="default">Search</Button>
-        <Button type="primary" icon="ios-information-circle" size="large">Search</Button>
+        <QButton type="primary" icon="ios-information-circle" size="small">Search</QButton>
+        <QButton type="primary" icon="ios-information-circle" size="default">Search</QButton>
+        <QButton type="primary" icon="ios-information-circle" size="large">Search</QButton>
         <br><br><br>
-        <Button @click="hc">Open Menu2</Button>
-        <Button to="/menu" @click="hc">Open Menu2</Button>
-        <Button to="/menu" replace>Open Menu Replace</Button>
-        <Button to="//iviewui.com" target="_blank">Open iView</Button>
+        <QButton @click="hc">Open Menu2</QButton>
+        <QButton to="/menu" @click="hc">Open Menu2</QButton>
+        <QButton to="/menu" replace>Open Menu Replace</QButton>
+        <QButton to="//iviewui.com" target="_blank">Open iView</QButton>
         <hr>
-        <Button @click="hc">链接按钮</Button>
-        <Button to="/menu" @click="hc">链接按钮</Button>
+        <QButton @click="hc">链接按钮</QButton>
+        <QButton to="/menu" @click="hc">链接按钮</QButton>
         <hr>
-        <Icon custom="i-icon i-icon-search" />
-        <Icon custom="i-icon i-icon-video" size="24" color="#ff6600" />
-        <Icon custom="i-icon i-icon-time" />
-        <Icon type="ionic" />
-        <Button icon="ionic">Default</Button>
-        <Button custom-icon="i-icon i-icon-search">Default</Button>
-        <Button icon="ionic" shape="circle"></Button>
-        <Button custom-icon="i-icon i-icon-video" shape="circle"></Button>
+        <QIcon custom="i-icon i-icon-search" />
+        <QIcon custom="i-icon i-icon-video" size="24" color="#ff6600" />
+        <QIcon custom="i-icon i-icon-time" />
+        <QIcon type="ionic" />
+        <QButton icon="ionic">Default</QButton>
+        <QButton custom-icon="i-icon i-icon-search">Default</QButton>
+        <QButton icon="ionic" shape="circle"></QButton>
+        <QButton custom-icon="i-icon i-icon-video" shape="circle"></QButton>
         <hr>
-        <Button>Default</Button>
-        <Button type="primary">Primary</Button>
-        <Button type="default">Ghost</Button>
-        <Button type="dashed">Dashed</Button>
-        <Button type="text">Text</Button>
+        <QButton>Default</QButton>
+        <QButton type="primary">Primary</QButton>
+        <QButton type="default">Ghost</QButton>
+        <QButton type="dashed">Dashed</QButton>
+        <QButton type="text">Text</QButton>
         <br><br>
-        <Button type="info">Info</Button>
-        <Button type="success">Success</Button>
-        <Button type="warning">Warning</Button>
-        <Button type="error">Error</Button>
+        <QButton type="info">Info</QButton>
+        <QButton type="success">Success</QButton>
+        <QButton type="warning">Warning</QButton>
+        <QButton type="error">Error</QButton>
         <br><br>
-        <Button type="primary" shape="circle" icon="ios-search"></Button>
-        <Button type="primary" icon="ios-search">Search</Button>
-        <Button type="primary" shape="circle" icon="ios-search">Search</Button>
-        <Button type="primary" shape="circle">Circle</Button>
+        <QButton type="primary" shape="circle" icon="ios-search"></QButton>
+        <QButton type="primary" icon="ios-search">Search</QButton>
+        <QButton type="primary" shape="circle" icon="ios-search">Search</QButton>
+        <QButton type="primary" shape="circle">Circle</QButton>
         <br><br>
-        <Button type="default" shape="circle" icon="ios-search"></Button>
-        <Button type="default" icon="ios-search">Search</Button>
-        <Button type="default" shape="circle" icon="ios-search">Search</Button>
-        <Button type="default" shape="circle">Circle</Button>
+        <QButton type="default" shape="circle" icon="ios-search"></QButton>
+        <QButton type="default" icon="ios-search">Search</QButton>
+        <QButton type="default" shape="circle" icon="ios-search">Search</QButton>
+        <QButton type="default" shape="circle">Circle</QButton>
         <br><br>
-        <Button>Default</Button>
-        <Button disabled>Default(Disabled)</Button>
+        <QButton>Default</QButton>
+        <QButton disabled>Default(Disabled)</QButton>
         <br>
-        <Button type="primary">Primary</Button>
-        <Button type="primary" disabled>Primary(Disabled)</Button>
+        <QButton type="primary">Primary</QButton>
+        <QButton type="primary" disabled>Primary(Disabled)</QButton>
         <br>
-        <Button type="default">Ghost</Button>
-        <Button type="default" disabled>Ghost(Disabled)</Button>
+        <QButton type="default">Ghost</QButton>
+        <QButton type="default" disabled>Ghost(Disabled)</QButton>
         <br>
-        <Button type="dashed">Dashed</Button>
-        <Button type="dashed" disabled>Dashed(Disabled)</Button>
+        <QButton type="dashed">Dashed</QButton>
+        <QButton type="dashed" disabled>Dashed(Disabled)</QButton>
         <br>
-        <Button type="text">Text</Button>
-        <Button type="text" disabled>Text(Disabled)</Button>
+        <QButton type="text">Text</QButton>
+        <QButton type="text" disabled>Text(Disabled)</QButton>
         <br><br>
 
         <br><br>
         <h4>基本</h4>
         <br><br>
-        <Button-group>
-            <Button>取消</Button>
-            <Button type="primary">确定</Button>
-        </Button-group>
-        <Button-group>
-            <Button disabled>昨日</Button>
-            <Button disabled>今日</Button>
-            <Button disabled>明日</Button>
-        </Button-group>
-        <Button-group>
-            <Button type="primary">L</Button>
-            <Button>M</Button>
-            <Button type="default">M</Button>
-            <Button type="dashed">R</Button>
-        </Button-group>
+        <QButton-group>
+            <QButton>取消</QButton>
+            <QButton type="primary">确定</QButton>
+        </QButton-group>
+        <QButton-group>
+            <QButton disabled>昨日</QButton>
+            <QButton disabled>今日</QButton>
+            <QButton disabled>明日</QButton>
+        </QButton-group>
+        <QButton-group>
+            <QButton type="primary">L</QButton>
+            <QButton>M</QButton>
+            <QButton type="default">M</QButton>
+            <QButton type="dashed">R</QButton>
+        </QButton-group>
         <br><br>
         <h4>配合图标</h4>
         <br><br>
-        <Button-group>
-            <Button type="primary">
-                <Icon type="chevron-left"></Icon>
+        <QButton-group>
+            <QButton type="primary">
+                <QIcon type="chevron-left"></QIcon>
                 前进
-            </Button>
-            <Button type="primary">
+            </QButton>
+            <QButton type="primary">
                 后退
-                <Icon type="chevron-right"></Icon>
-            </Button>
-        </Button-group>
-        <Button-group>
-            <Button type="primary" icon="ios-skip-backward"></Button>
-            <Button type="primary" icon="ios-skip-forward"></Button>
-        </Button-group>
-        <Button-group>
-            <Button type="default" icon="ios-color-wand-outline"></Button>
-            <Button type="default" icon="ios-sunny-outline"></Button>
-            <Button type="default" icon="ios-crop"></Button>
-            <Button type="default" icon="ios-color-filter-outline"></Button>
-        </Button-group>
+                <QIcon type="chevron-right"></QIcon>
+            </QButton>
+        </QButton-group>
+        <QButton-group>
+            <QButton type="primary" icon="ios-skip-backward"></QButton>
+            <QButton type="primary" icon="ios-skip-forward"></QButton>
+        </QButton-group>
+        <QButton-group>
+            <QButton type="default" icon="ios-color-wand-outline"></QButton>
+            <QButton type="default" icon="ios-sunny-outline"></QButton>
+            <QButton type="default" icon="ios-crop"></QButton>
+            <QButton type="default" icon="ios-color-filter-outline"></QButton>
+        </QButton-group>
         <br><br>
         <h4>圆角</h4>
         <br><br>
-        <Button-group shape="circle">
-            <Button type="primary">
-                <Icon type="chevron-left"></Icon>
+        <QButton-group shape="circle">
+            <QButton type="primary">
+                <QIcon type="chevron-left"></QIcon>
                 前进
-            </Button>
-            <Button type="primary">
+            </QButton>
+            <QButton type="primary">
                 后退
-                <Icon type="chevron-right"></Icon>
-            </Button>
-        </Button-group>
-        <Button-group shape="circle">
-            <Button type="primary" icon="ios-skip-backward"></Button>
-            <Button type="primary" icon="ios-skip-forward"></Button>
-        </Button-group>
-        <Button-group shape="circle">
-            <Button type="default" icon="ios-color-wand-outline"></Button>
-            <Button type="default" icon="ios-sunny-outline"></Button>
-            <Button type="default" icon="ios-crop"></Button>
-            <Button type="default" icon="ios-color-filter-outline"></Button>
-        </Button-group>
+                <QIcon type="chevron-right"></QIcon>
+            </QButton>
+        </QButton-group>
+        <QButton-group shape="circle">
+            <QButton type="primary" icon="ios-skip-backward"></QButton>
+            <QButton type="primary" icon="ios-skip-forward"></QButton>
+        </QButton-group>
+        <QButton-group shape="circle">
+            <QButton type="default" icon="ios-color-wand-outline"></QButton>
+            <QButton type="default" icon="ios-sunny-outline"></QButton>
+            <QButton type="default" icon="ios-crop"></QButton>
+            <QButton type="default" icon="ios-color-filter-outline"></QButton>
+        </QButton-group>
         <br><br>
         <h4>尺寸</h4>
         <br><br>
-        <Button-group size="large">
-            <Button type="default">Large</Button>
-            <Button type="default">Large</Button>
-        </Button-group>
-        <Button-group size="large">
-            <Button type="default">大汉字</Button>
-            <Button type="default">大汉字</Button>
-        </Button-group>
-        <Button-group>
-            <Button type="default">Default</Button>
-            <Button type="default">Default</Button>
-        </Button-group>
-        <Button-group size="small">
-            <Button type="default">Small</Button>
-            <Button type="default">Small</Button>
-        </Button-group>
+        <QButton-group size="large">
+            <QButton type="default">Large</QButton>
+            <QButton type="default">Large</QButton>
+        </QButton-group>
+        <QButton-group size="large">
+            <QButton type="default">大汉字</QButton>
+            <QButton type="default">大汉字</QButton>
+        </QButton-group>
+        <QButton-group>
+            <QButton type="default">Default</QButton>
+            <QButton type="default">Default</QButton>
+        </QButton-group>
+        <QButton-group size="small">
+            <QButton type="default">Small</QButton>
+            <QButton type="default">Small</QButton>
+        </QButton-group>
         <br><br>
-        <Button-group size="large" shape="circle">
-            <Button type="default">Large</Button>
-            <Button type="default">Large</Button>
-        </Button-group>
-        <Button-group shape="circle">
-            <Button type="default">Default</Button>
-            <Button type="default">Default</Button>
-        </Button-group>
-        <Button-group size="small" shape="circle">
-            <Button type="default">Small</Button>
-            <Button type="default">Small</Button>
-        </Button-group>
+        <QButton-group size="large" shape="circle">
+            <QButton type="default">Large</QButton>
+            <QButton type="default">Large</QButton>
+        </QButton-group>
+        <QButton-group shape="circle">
+            <QButton type="default">Default</QButton>
+            <QButton type="default">Default</QButton>
+        </QButton-group>
+        <QButton-group size="small" shape="circle">
+            <QButton type="default">Small</QButton>
+            <QButton type="default">Small</QButton>
+        </QButton-group>
 
         <br><br>
-        <Button to="/icon">Open New Window</Button>
+        <QButton to="/icon">Open New Window</QButton>
         <br><br><br>
-        <ButtonGroup vertical size="small">
-            <Button icon="logo-facebook"></Button>
-            <Button icon="logo-twitter"></Button>
-            <Button icon="logo-googleplus"></Button>
-            <Button icon="logo-tumblr"></Button>
-        </ButtonGroup>
-        <ButtonGroup vertical>
-            <Button icon="logo-facebook"></Button>
-            <Button icon="logo-twitter"></Button>
-            <Button icon="logo-googleplus"></Button>
-            <Button icon="logo-tumblr"></Button>
-        </ButtonGroup>
-        <ButtonGroup vertical size="large">
-            <Button icon="logo-facebook"></Button>
-            <Button icon="logo-twitter"></Button>
-            <Button icon="logo-googleplus"></Button>
-            <Button icon="logo-tumblr"></Button>
-        </ButtonGroup>
+        <QButtonGroup vertical size="small">
+            <QButton icon="logo-facebook"></QButton>
+            <QButton icon="logo-twitter"></QButton>
+            <QButton icon="logo-googleplus"></QButton>
+            <QButton icon="logo-tumblr"></QButton>
+        </QButtonGroup>
+        <QButtonGroup vertical>
+            <QButton icon="logo-facebook"></QButton>
+            <QButton icon="logo-twitter"></QButton>
+            <QButton icon="logo-googleplus"></QButton>
+            <QButton icon="logo-tumblr"></QButton>
+        </QButtonGroup>
+        <QButtonGroup vertical size="large">
+            <QButton icon="logo-facebook"></QButton>
+            <QButton icon="logo-twitter"></QButton>
+            <QButton icon="logo-googleplus"></QButton>
+            <QButton icon="logo-tumblr"></QButton>
+        </QButtonGroup>
         <br><br>
-        <Button>
-            <Icon type="md-alert" />
+        <QButton>
+            <QIcon type="md-alert" />
             左右图标
-            <Icon type="ios-aperture" />
-        </Button>
-        <Button>
+            <QIcon type="ios-aperture" />
+        </QButton>
+        <QButton>
             左右图标
-            <Icon type="ios-aperture" />
-        </Button>
-        <Button>
-            <Icon type="md-alert" />
+            <QIcon type="ios-aperture" />
+        </QButton>
+        <QButton>
+            <QIcon type="md-alert" />
             左右图标
-        </Button>
-        <Button icon="md-alert">
+        </QButton>
+        <QButton icon="md-alert">
             左右图标
-        </Button>
-        <Divider></Divider>
+        </QButton>
+        <QDivider></QDivider>
         <div>
-            <RadioGroup v-model="buttonSize" type="button">
-                <Radio label="large">Large</Radio>
-                <Radio label="default">Default</Radio>
-                <Radio label="small">small</Radio>
-            </RadioGroup>
+            <QRadioGroup v-model="buttonSize" type="button">
+                <QRadio label="large">Large</QRadio>
+                <QRadio label="default">Default</QRadio>
+                <QRadio label="small">small</QRadio>
+            </QRadioGroup>
             <br><br>
-            <Button :size="buttonSize" type="primary">Primary</Button>
-            <Button :size="buttonSize" type="default">Default</Button>
-            <Button :size="buttonSize" type="dashed">Dashed</Button>
-            <Button :size="buttonSize" type="text">Text</Button>
+            <QButton :size="buttonSize" type="primary">Primary</QButton>
+            <QButton :size="buttonSize" type="default">Default</QButton>
+            <QButton :size="buttonSize" type="dashed">Dashed</QButton>
+            <QButton :size="buttonSize" type="text">Text</QButton>
             <br><br>
-            <Button :size="buttonSize" icon="md-download" type="primary" shape="circle"></Button>
-            <Button :size="buttonSize" icon="md-download" type="primary">Download</Button>
+            <QButton :size="buttonSize" icon="md-download" type="primary" shape="circle"></QButton>
+            <QButton :size="buttonSize" icon="md-download" type="primary">Download</QButton>
             <br><br>
-            <ButtonGroup :size="buttonSize">
-                <Button :size="buttonSize" type="primary">
-                    <Icon type="ios-arrow-back" />
+            <QButtonGroup :size="buttonSize">
+                <QButton :size="buttonSize" type="primary">
+                    <QIcon type="ios-arrow-back" />
                     Backward
-                </Button>
-                <Button :size="buttonSize" type="primary">
+                </QButton>
+                <QButton :size="buttonSize" type="primary">
                     Forward
-                    <Icon type="ios-arrow-forward" />
-                </Button>
-            </ButtonGroup>
+                    <QIcon type="ios-arrow-forward" />
+                </QButton>
+            </QButtonGroup>
         </div>
-        <Divider></Divider>
+        <QDivider></QDivider>
     </div>
 </template>
 <script>

@@ -4,9 +4,9 @@
     }
 </style>
 <template>
-    <BackTop>
-       
-    </BackTop>
+    <QBackTop>
+
+    </QBackTop>
 </template>
 <script>
     export default {
@@ -16,7 +16,7 @@
             }
         },
         mounted(){
-            
+
         }
     }
 </script>

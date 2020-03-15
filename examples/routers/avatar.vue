@@ -1,44 +1,44 @@
 <template>
     <div class="demo-avatar">
-        <Avatar :style="{background: color}">{{ user }}</Avatar>
-        <Button size="small" @click="handleChange">Change</Button>
+        <QAvatar :style="{background: color}">{{ user }}</QAvatar>
+        <QButton size="small" @click="handleChange">Change</QButton>
         <div>
             <div class="demo-avatar">
-                <Avatar icon="ios-person" size="large" />
-                <Avatar icon="ios-person" />
-                <Avatar icon="ios-person" size="small" />
+                <QAvatar icon="ios-person" size="large" />
+                <QAvatar icon="ios-person" />
+                <QAvatar icon="ios-person" size="small" />
             </div>
             <div class="demo-avatar">
-                <Avatar shape="square" icon="ios-person" size="large" />
-                <Avatar shape="square" icon="ios-person" />
-                <Avatar shape="square" icon="ios-person" size="small" />
+                <QAvatar shape="square" icon="ios-person" size="large" />
+                <QAvatar shape="square" icon="ios-person" />
+                <QAvatar shape="square" icon="ios-person" size="small" />
             </div>
         </div>
         <div class="demo-avatar">
-            <Avatar icon="ios-person" />
-            <Avatar>U</Avatar>
-            <Avatar>USER</Avatar>
-            <Avatar src="https://i.loli.net/2017/08/21/599a521472424.jpg" />
-            <Avatar style="color: #f56a00;background-color: #fde3cf">U</Avatar>
-            <Avatar style="background-color: #87d068" icon="ios-person" />
+            <QAvatar icon="ios-person" />
+            <QAvatar>U</QAvatar>
+            <QAvatar>USER</QAvatar>
+            <QAvatar src="https://i.loli.net/2017/08/21/599a521472424.jpg" />
+            <QAvatar style="color: #f56a00;background-color: #fde3cf">U</QAvatar>
+            <QAvatar style="background-color: #87d068" icon="ios-person" />
         </div>
         <div class="demo-avatar-badge">
-            <Badge :count="1">
-                <Avatar shape="square" icon="ios-person" />
-            </Badge>
-            <Badge dot>
-                <Avatar shape="square" icon="ios-person" />
-            </Badge>
+            <QBadge :count="1">
+                <QAvatar shape="square" icon="ios-person" />
+            </QBadge>
+            <QBadge dot>
+                <QAvatar shape="square" icon="ios-person" />
+            </QBadge>
         </div>
         <br><br><br>
-        <Avatar custom-icon="ivu-icon-ios-person" />
+        <QAvatar custom-icon="ivu-icon-ios-person" />
 
-        <Avatar :src="src" size="large" @on-error="handleError" />
-        <Divider></Divider>
-        <Avatar src="https://i.loli.net/2017/08/21/599a521472424.jpg" size="64" shape="square" />
-        <Avatar src="https://i.loli.net/2017/08/21/599a521472424.jpg" size="64" shape="circle" />
-        <Avatar icon="ios-person" size="64" shape="circle" />
-        <Avatar size="42">U</Avatar>
+        <QAvatar :src="src" size="large" @on-error="handleError" />
+        <QDivider></QDivider>
+        <QAvatar src="https://i.loli.net/2017/08/21/599a521472424.jpg" size="64" shape="square" />
+        <QAvatar src="https://i.loli.net/2017/08/21/599a521472424.jpg" size="64" shape="circle" />
+        <QAvatar icon="ios-person" size="64" shape="circle" />
+        <QAvatar size="42">U</QAvatar>
     </div>
 </template>
 <script>

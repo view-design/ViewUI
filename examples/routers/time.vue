@@ -1,14 +1,14 @@
 <template>
     <div>
-        <Button @click="testUpdate()">Update Test</Button>
+        <QButton @click="testUpdate()">Update Test</QButton>
         <br>
         <Time :time="time1" />
         <br>
         <Time :time="time2" />
         <br>
-        <Time :time="time3" :interval="1" />
+        <QTime :time="time3" :interval="1" />
         <br>
-        <Time :time="time4" />
+        <QTime :time="time4" />
     </div>
 </template>
 <script>

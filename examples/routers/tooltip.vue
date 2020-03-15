@@ -17,50 +17,50 @@
 <template>
     <div>
         <div class="top">
-            <Tooltip content="Top Left text" placement="top-start">
-                <Button>Top Left</Button>
-            </Tooltip>
-            <Tooltip content="Top Center text" placement="top">
-                <Button>Top Center</Button>
-            </Tooltip>
-            <Tooltip content="Top Right text" placement="top-end">
-                <Button>Top Right</Button>
-            </Tooltip>
+            <QTooltip content="Top Left text" placement="top-start">
+                <QButton>Top Left</QButton>
+            </QTooltip>
+            <QTooltip content="Top Center text" placement="top">
+                <QButton>Top Center</QButton>
+            </QTooltip>
+            <QTooltip content="Top Right text" placement="top-end">
+                <QButton>Top Right</QButton>
+            </QTooltip>
         </div>
         <div class="center">
             <div class="center-left">
-                <Tooltip content="Left Top text" placement="left-start">
-                    <Button>Left Top</Button>
-                </Tooltip><br><br>
-                <Tooltip content="Left Center text" placement="left">
-                    <Button>Left Center</Button>
-                </Tooltip><br><br>
-                <Tooltip content="Left Bottom text" placement="left-end">
-                    <Button>Left Bottom</Button>
-                </Tooltip>
+                <QTooltip content="Left Top text" placement="left-start">
+                    <QButton>Left Top</QButton>
+                </QTooltip><br><br>
+                <QTooltip content="Left Center text" placement="left">
+                    <QButton>Left Center</QButton>
+                </QTooltip><br><br>
+                <QTooltip content="Left Bottom text" placement="left-end">
+                    <QButton>Left Bottom</QButton>
+                </QTooltip>
             </div>
             <div class="center-right">
-                <Tooltip content="Right Top text" placement="right-start">
-                    <Button>Right Top</Button>
-                </Tooltip><br><br>
-                <Tooltip content="Right Center text" placement="right">
-                    <Button>Right Center</Button>
-                </Tooltip><br><br>
-                <Tooltip content="Right Bottom text" placement="right-end">
-                    <Button>Right Bottom</Button>
-                </Tooltip>
+                <QTooltip content="Right Top text" placement="right-start">
+                    <QButton>Right Top</QButton>
+                </QTooltip><br><br>
+                <QTooltip content="Right Center text" placement="right">
+                    <QButton>Right Center</QButton>
+                </QTooltip><br><br>
+                <QTooltip content="Right Bottom text" placement="right-end">
+                    <QButton>Right Bottom</QButton>
+                </QTooltip>
             </div>
         </div>
         <div class="bottom">
-            <Tooltip content="Bottom Left text" placement="bottom-start">
-                <Button>Bottom Left</Button>
-            </Tooltip>
-            <Tooltip content="Bottom Center text" placement="bottom">
-                <Button>Bottom Center</Button>
-            </Tooltip>
-            <Tooltip content="Bottom Right text" placement="bottom-end">
-                <Button>Bottom Right</Button>
-            </Tooltip>
+            <QTooltip content="Bottom Left text" placement="bottom-start">
+                <QButton>Bottom Left</QButton>
+            </QTooltip>
+            <QTooltip content="Bottom Center text" placement="bottom">
+                <QButton>Bottom Center</QButton>
+            </QTooltip>
+            <QTooltip content="Bottom Right text" placement="bottom-end">
+                <QButton>Bottom Right</QButton>
+            </QTooltip>
         </div>
     </div>
 </template>

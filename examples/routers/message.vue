@@ -1,56 +1,56 @@
 <template>
     <div>
-        <Button type="primary" @click="info">Display info prompt</Button>
-        <Button @click="success">Display success prompt</Button>
-        <Button @click="warning">Display warning prompt</Button>
-        <Button @click="error">Display error prompt</Button>
-        <Button @click="loading">Display loading...</Button>
-        <Button @click="closable">Display a closable message</Button>
+        <QButton type="primary" @click="info">Display info prompt</QButton>
+        <QButton @click="success">Display success prompt</QButton>
+        <QButton @click="warning">Display warning prompt</QButton>
+        <QButton @click="error">Display error prompt</QButton>
+        <QButton @click="loading">Display loading...</QButton>
+        <QButton @click="closable">Display a closable message</QButton>
     </div>
 </template>
 <script>
     export default {
         methods: {
             info () {
-                this.$Message.info({
+                this.$QMessage.info({
                     content: '这是一条普通的提示',
                     duration: 1000,
                     background: true
                 });
-                this.$Message.success({
+                this.$QMessage.success({
                     content: '这是一条普通的提示',
                     duration: 1000,
                     background: true
                 });
-                this.$Message.warning({
+                this.$QMessage.warning({
                     content: '这是一条普通的提示',
                     duration: 1000,
                     background: true
                 });
-                this.$Message.error({
+                this.$QMessage.error({
                     content: '这是一条普通的提示',
                     duration: 1000,
                     background: true
                 });
             },
             success () {
-                this.$Message.success('This is a success tip');
+                this.$QMessage.success('This is a success tip');
             },
             warning () {
-                this.$Message.warning('This is a warning tip');
+                this.$QMessage.warning('This is a warning tip');
             },
             error () {
-                this.$Message.error('This is an error tip');
+                this.$QMessage.error('This is an error tip');
             },
             loading () {
-                const msg = this.$Message.loading({
+                const msg = this.$QMessage.loading({
                     content: 'Loading...',
                     duration: 0
                 });
                 setTimeout(msg, 3000);
             },
             closable () {
-                this.$Message.info({
+                this.$QMessage.info({
                     content: 'Tips for manual closing',
                     duration: 1000,
                     closable: true

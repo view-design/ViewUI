@@ -302,7 +302,6 @@
         },
         computed: {
             localeNoDataText () {
-                console.log(this.$slots)
                 return this.t('i.table.noDataText');
             },
             localeNoFilteredDataText () {

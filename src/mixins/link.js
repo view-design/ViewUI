@@ -44,9 +44,9 @@ export default {
     methods: {
         handleClick (new_window = false) {
             const router = this.$router;
+            let to = this.to;
 
             if (new_window) {
-                let to = this.to;
                 if (router) {
                     const current = this.$route;
                     const route = router.resolve(this.to, current, this.append);
@@ -54,10 +54,10 @@ export default {
                 }
                 window.open(to);
             } else {
-                if (router) {
+                if (router && !(typeof to === 'string' && to.includes('//'))) {
                     this.replace ? this.$router.replace(this.to, () => {}) : this.$router.push(this.to, () => {});
                 } else {
-                    window.location.href = this.to;
+                    this.replace ? window.location.replace(this.to) : window.location.href = this.to;
                 }
             }
         },

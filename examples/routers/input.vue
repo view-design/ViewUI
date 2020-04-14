@@ -141,6 +141,7 @@
     <!--</div>-->
     <div style="width: 200px">
         <Input v-model="value7" type="textarea" :autosize="true" placeholder="Enter something..."></Input>
+        <Input @input="inputHander" :value="value8" placeholder="对input 输入行为进行完全控制"></Input>
     </div>
 </template>
 <script>
@@ -154,12 +155,18 @@
                 select1: 'http',
                 select2: 'com',
                 select3: 'day',
-                value7: ``
-            }
+                value7: '',
+                value8: '2'
+            };
         },
         methods: {
             hs (val) {
                 console.log(val);
+            },
+            inputHander (v) {
+                // 只能输入int数字
+                this.value8 = String(parseInt(v) || '')
+                // console.log('inputHander', this.value8)
             }
         }
     }

@@ -56,14 +56,9 @@ import cTooltip from './components/tooltip';
 import cTransfer from './components/transfer';
 import cTree from './components/tree';
 import cUpload from './components/upload';
-import {Row, Col} from './components/grid';
-import {Select, Option, OptionGroup} from './components/select';
+import {Row as cRow, Col as cCol} from './components/grid';
+import {Select as cSelect, Option as cOption, OptionGroup as cOptionGroup} from './components/select';
 
-let cRow = Row;
-let cCol = Col;
-let cSelect = Select;
-let cOption = Option;
-let cOptionGroup = OptionGroup;
 
 // 修改所有组件的输出为"c-"开头
 const components = {

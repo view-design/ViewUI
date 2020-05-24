@@ -273,6 +273,12 @@
                 default () {
                     return !this.$IVIEW ? true : this.$IVIEW.capture;
                 }
+            },
+            // 4.2.0
+            // 搜索时，只按 label 进行搜索
+            filterByLabel: {
+                type: Boolean,
+                default: false
             }
         },
         mounted(){
@@ -357,7 +363,7 @@
                     state = true;
                     const $options = findComponentsDownward(this, 'iOption');
                     if ($options && $options.length) {
-                        if ($options.find(item => item.showLabel === this.query)) state = false;
+                        if ($options.find(item => item.optionLabel === this.query)) state = false;
                     }
                 }
                 return  state;
@@ -528,7 +534,7 @@
                     const nodeText = node.elm ? node.elm.textContent : node.text;
                     return `${str} ${nodeText}`;
                 }, '') || '';
-                const stringValues = JSON.stringify([value, label, textContent]);
+                const stringValues = this.filterByLabel ? JSON.stringify([label]) : JSON.stringify([value, label, textContent]);
                 const query = this.query.toLowerCase().trim();
                 return stringValues.toLowerCase().includes(query);
             },

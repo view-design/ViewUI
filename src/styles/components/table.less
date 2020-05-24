@@ -61,7 +61,8 @@
         left: 0;
         bottom: 0;
         background-color: @border-color-base;
-        z-index: 1;
+        //z-index: 1;
+        z-index: 4; // 解决开启 border，同时固定表头和列，fixed 的最底下没有边框
     }
 
     &-border:after{
@@ -289,6 +290,14 @@
                 height: 16px;
             }
         }
+        &-slot{
+            &-inline{
+                display: inline;
+            }
+            &-inline-block{
+                display: inline-block;
+            }
+        }
     }
     &-hidden{
         visibility: hidden;
@@ -513,6 +522,10 @@
 
     &-expanded-hidden{
         visibility: hidden;
+    }
+
+    &-context-menu{
+        position: absolute;
     }
 }
 .ivu-table-popper{

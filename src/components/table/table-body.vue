@@ -46,6 +46,7 @@
     import TableCell from './cell.vue';
     import Expand from './expand.js';
     import Mixin from './mixin';
+    import { deepCopy } from '../../utils/assist';
 
     export default {
         name: 'TableBody',
@@ -302,6 +303,7 @@
                 $cols.push($col);
             });
             const $colgroup = h('colgroup', {}, $cols);
+            const fixed = (this.fixed !== 'left' && this.fixed !== 'right') ? false : this.fixed;
 
             let $tableTrs = [];
             this.data.forEach((row, index) => {
@@ -309,6 +311,14 @@
 
                 this.columns.forEach((column, colIndex) => {
                     if (this.showWithSpan(row, column, index, colIndex)) {
+                        if ((fixed === false && column.fixed !== undefined) || (fixed !== false && column.fixed !== fixed)) {
+                            column = deepCopy(column);
+                            column.type = 'normal';
+                            column.tooltip = false;
+                            delete column.slot
+                            delete column.render
+                        }
+
                         const $tableCell = h(TableCell, {
                             props: {
                                 fixed: this.fixed,

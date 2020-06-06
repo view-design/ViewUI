@@ -150,7 +150,7 @@
                     this.currentStatus = 'normal';
                     this.$emit('on-status-change', 'normal');
                 } else {
-                    if (parseInt(this.percent, 10) === 100) {
+                    if (parseInt(this.percent, 10) == 100) {
                         this.currentStatus = this.status || 'success';
                         this.$emit('on-status-change', 'success');
                     }

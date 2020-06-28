@@ -82,7 +82,7 @@
         computed: {
             showSeconds () {
                 //fix Hour & Minute Picker bug,show seconds when has "ss"
-                return !(this.format || '').match(/ss/);
+                return !!(this.format || '').match(/ss/);
             },
             visibleDate () { // TODO
                 const date = this.date;

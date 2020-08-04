@@ -80,6 +80,8 @@
         <Table border :columns="columns11" :data="data10" height="500"></Table>
         <Divider>筛选</Divider>
         <Table border :columns="columns6" :data="data5"></Table>
+        <Divider>排序表格(移除normal)</Divider>
+        <Table @on-sort-change="handleSortChange" :removeSortNormal="true" border :columns="columns6" :data="data5"></Table>
     </div>
 </template>
 <script>
@@ -947,6 +949,9 @@
                     _disabled: true,
                     level: 0
                 })
+            },
+            handleSortChange({ key, order }) {
+                console.log(key, order);
             }
         }
     }

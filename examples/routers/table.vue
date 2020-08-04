@@ -81,7 +81,7 @@
         <Divider>筛选</Divider>
         <Table border :columns="columns6" :data="data5"></Table>
         <Divider>排序表格(移除normal)</Divider>
-        <Table @on-sort-change="handleSortChange" :removeSortNormal="true" border :columns="columns6" :data="data5"></Table>
+        <Table @on-sort-change="handleSortChange" :remove-sort-normal="true" border :columns="columns6" :data="data5"></Table>
     </div>
 </template>
 <script>

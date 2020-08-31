@@ -215,11 +215,11 @@ export function findComponentDownward (context, componentName) {
 export function findComponentsDownward(
     context,
     componentName,
-    deepEnanbe = true
+    deepEnable = true
 ) {
     return context.$children.reduce((components, child) => {
         if (child.$options.name === componentName) components.push(child);
-        const foundChilds = deepEnanbe
+        const foundChilds = deepEnable
             ? findComponentsDownward(child, componentName)
             : [];
 

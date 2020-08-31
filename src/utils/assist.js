@@ -212,10 +212,17 @@ export function findComponentDownward (context, componentName) {
 }
 
 // Find components downward
-export function findComponentsDownward (context, componentName) {
+export function findComponentsDownward(
+    context,
+    componentName,
+    deepEnanbe = true
+) {
     return context.$children.reduce((components, child) => {
         if (child.$options.name === componentName) components.push(child);
-        const foundChilds = findComponentsDownward(child, componentName);
+        const foundChilds = deepEnanbe
+            ? findComponentsDownward(child, componentName)
+            : [];
+
         return components.concat(foundChilds);
     }, []);
 }

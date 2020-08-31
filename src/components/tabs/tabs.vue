@@ -237,7 +237,7 @@
         methods: {
             getTabs () {
                 // return this.$children.filter(item => item.$options.name === 'TabPane');
-                const AllTabPanes = findComponentsDownward(this, 'TabPane');
+                const AllTabPanes = findComponentsDownward(this, 'TabPane', false);
                 const TabPanes = [];
 
                 AllTabPanes.forEach(item => {

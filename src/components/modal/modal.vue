@@ -123,6 +123,10 @@
                 type: Boolean,
                 default: false
             },
+            inDrawer: {
+                type: Boolean,
+                default: false
+            },
             zIndex: {
                 type: Number,
                 default: 1000
@@ -365,7 +369,9 @@
         },
         beforeDestroy () {
             document.removeEventListener('keydown', this.EscClose);
-            this.removeScrollEffect();
+            if (!this.inDrawer) {
+                this.removeScrollEffect();
+            }
         },
         watch: {
             value (val) {
@@ -376,7 +382,9 @@
                     this.buttonLoading = false;
                     this.timer = setTimeout(() => {
                         this.wrapShow = false;
-                        this.removeScrollEffect();
+                        if (!this.inDrawer) {
+                            this.removeScrollEffect();
+                        }
                     }, 300);
                 } else {
                     this.modalIndex = this.handleGetModalIndex();
@@ -400,7 +408,9 @@
                 if (!val) {
                     this.addScrollEffect();
                 } else {
-                    this.removeScrollEffect();
+                    if (!this.inDrawer) {
+                        this.removeScrollEffect();
+                    }
                 }
             },
             title (val) {

@@ -100,6 +100,7 @@ Modal.newInstance = properties => {
                 props: Object.assign({}, _props, {
                     width: this.width,
                     scrollable: this.scrollable,
+                    inDrawer: this.inDrawer,
                     closable: this.closable
                 }),
                 domProps: {
@@ -259,6 +260,9 @@ Modal.newInstance = properties => {
                 modal.$parent.scrollable = props.scrollable;
             }
 
+            if ('inDrawer' in props) {
+                modal.$parent.inDrawer = props.inDrawer;
+            }
             // notice when component destroy
             modal.$parent.onRemove = props.onRemove;
 

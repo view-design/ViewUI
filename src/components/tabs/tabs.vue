@@ -386,7 +386,7 @@
                         if (result) {   // promise resolved truthy
                             this.handleRemoveTab(index);
                         }
-                    }).catch(() => {}); // promise rejected, don't close tab
+                    });
                 } else { // sync returned truthy
                     this.handleRemoveTab(index);
                 }

@@ -191,7 +191,7 @@
                         if (result) {   // promise resolved truthy
                             this.handleClose();
                         }
-                    }).catch(() => {}); // promise rejected, don't close
+                    });
                 } else { // sync returned truthy
                     this.handleClose();
                 }

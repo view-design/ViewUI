@@ -182,12 +182,17 @@
                 }
 
                 const before = this.beforeClose();
+                if (!before) { // sync function returned falsy, don't close
+                    return;
+                }
 
-                if (before && before.then) {
-                    before.then(() => {
-                        this.handleClose();
-                    });
-                } else {
+                if (before.then) {  // promise
+                    before.then((result) => {
+                        if (result) {   // promise resolved truthy
+                            this.handleClose();
+                        }
+                    }).catch(() => {}); // promise rejected, don't close
+                } else { // sync returned truthy
                     this.handleClose();
                 }
             },

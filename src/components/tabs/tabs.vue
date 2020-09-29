@@ -377,12 +377,17 @@
                 }
 
                 const before = this.beforeRemove(index);
+                if (!before) { // returned falsy, don't close tab
+                    return;
+                }
 
-                if (before && before.then) {
-                    before.then(() => {
-                        this.handleRemoveTab(index);
-                    });
-                } else {
+                if (before.then) {  // promise
+                    before.then((result) => {
+                        if (result) {   // promise resolved truthy
+                            this.handleRemoveTab(index);
+                        }
+                    }).catch(() => {}); // promise rejected, don't close tab
+                } else { // sync returned truthy
                     this.handleRemoveTab(index);
                 }
             },

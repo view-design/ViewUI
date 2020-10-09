@@ -1,10 +1,9 @@
 <template>
-    <component :is="tagName" :class="classes" :disabled="itemDisabled" @click="handleClickLink" v-bind="tagProps">
-        <Icon class="ivu-load-loop" type="ios-loading" v-if="loading"></Icon>
-        <Icon :type="icon" :custom="customIcon" v-if="(icon || customIcon) && !loading"></Icon>
-        <span v-if="showSlot" ref="slot"><slot></slot></span>
+    <component is="button" :class="classes">
+
     </component>
 </template>
+
 <script>
     import Icon from '../icon';
     import { oneOf } from '../../utils/assist';
@@ -34,7 +33,8 @@
                     return oneOf(value, ['small', 'large', 'default']);
                 },
                 default () {
-                    return !this.$IVIEW || this.$IVIEW.size === '' ? 'default' : this.$IVIEW.size;
+                    return 'default';
+// return !this.$IVIEW || this.$IVIEW.size === '' ? 'default' : this.$IVIEW.size;
                 }
             },
             loading: Boolean,
@@ -64,20 +64,21 @@
         },
         computed: {
             showSlot () {
-                return !!this.$slots.default;
+                return false
+                // return !!this.$slots.default();
             },
             classes () {
                 return [
                     `${prefixCls}`,
                     `${prefixCls}-${this.type}`,
-                    {
-                        [`${prefixCls}-long`]: this.long,
-                        [`${prefixCls}-${this.shape}`]: !!this.shape,
-                        [`${prefixCls}-${this.size}`]: this.size !== 'default',
-                        [`${prefixCls}-loading`]: this.loading != null && this.loading,
-                        [`${prefixCls}-icon-only`]: !this.showSlot && (!!this.icon || !!this.customIcon || this.loading),
-                        [`${prefixCls}-ghost`]: this.ghost
-                    }
+                    // {
+                    //     [`${prefixCls}-long`]: this.long,
+                    //     [`${prefixCls}-${this.shape}`]: !!this.shape,
+                    //     [`${prefixCls}-${this.size}`]: this.size !== 'default',
+                    //     [`${prefixCls}-loading`]: this.loading != null && this.loading,
+                    //     [`${prefixCls}-icon-only`]: !this.showSlot && (!!this.icon || !!this.customIcon || this.loading),
+                    //     [`${prefixCls}-ghost`]: this.ghost
+                    // }
                 ];
             },
             // Point out if it should render as <a> tag

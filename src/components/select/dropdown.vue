@@ -2,10 +2,9 @@
     <div class="ivu-select-dropdown" :class="className" :style="styles"><slot></slot></div>
 </template>
 <script>
-    import Vue from 'vue';
-    const isServer = Vue.prototype.$isServer;
+    import { isServer  } from '../utils/assist'
     import { getStyle } from '../../utils/assist';
-    const Popper = isServer ? function() {} : require('popper.js/dist/umd/popper.js');  // eslint-disable-line
+    const Popper = isServer() ? function() {} : require('popper.js/dist/umd/popper.js');  // eslint-disable-line
 
     import { transferIndex, transferIncrease } from '../../utils/transfer-queue';
 
@@ -43,7 +42,7 @@
         },
         methods: {
             update () {
-                if (isServer) return;
+                if (isServer()) return;
                 if (this.popper) {
                     this.$nextTick(() => {
                         this.popper.update();

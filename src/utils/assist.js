@@ -1,5 +1,15 @@
-import Vue from 'vue';
-const isServer = Vue.prototype.$isServer;
+
+// export const inBrowser = typeof window !== 'undefined'
+
+// export function isServer () {
+//     if (!inBrowser && typeof global !== 'undefined') {
+//         return global['process'].env.VUE_ENV === 'server'
+//     } else {
+//        return false
+//     }
+// }
+export const isServer = false
+
 // 判断参数是否是其中之一
 export function oneOf (value, validList) {
     for (let i = 0; i < validList.length; i++) {

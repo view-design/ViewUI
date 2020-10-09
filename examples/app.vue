@@ -5,13 +5,13 @@
     <div class="container">
         <div>
             <div>
-                <span><router-link to="/split">Split</router-link></span>
+                <!-- <span><router-link to="/split">Split</router-link></span>
                 <span><router-link to="/layout">Layout</router-link></span>
                 <span><router-link to="/affix">Affix</router-link></span>
                 <span><router-link to="/anchor">Anchor</router-link></span>
-                <span><router-link to="/grid">Grid</router-link></span>
-                <span><router-link to="/button">Button</router-link></span>
-                <span><router-link to="/input">Input</router-link></span>
+                <span><router-link to="/grid">Grid</router-link></span> -->
+                <span><router-link to="/button-page">Button</router-link></span>
+                <!-- <span><router-link to="/input">Input</router-link></span>
                 <span><router-link to="/radio">Radio</router-link></span>
                 <span><router-link to="/checkbox">Checkbox</router-link></span>
                 <span><router-link to="/steps">Steps</router-link></span>
@@ -58,7 +58,7 @@
                 <span><router-link to="/cell">Cell</router-link></span>
                 <span><router-link to="/drawer">Drawer</router-link></span>
                 <span><router-link to="/icon">Icon</router-link></span>
-                <span><router-link to="/list">List</router-link></span>
+                <span><router-link to="/list">List</router-link></span> -->
             </div>
         </div>
         <div style="margin: 50px">
@@ -76,7 +76,7 @@
         mounted: function() {
 
         },
-        beforeDestroy: function() {
+        beforeUnmount: function() {
 
         },
         methods: {

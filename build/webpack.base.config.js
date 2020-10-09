@@ -4,6 +4,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const pkg = require('../package.json');
+const { VueLoaderPlugin } = require('vue-loader');
 
 function resolve (dir) {
     return path.join(__dirname, '..', dir);
@@ -18,38 +19,6 @@ module.exports = {
                 // https://vue-loader.vuejs.org/en/configurations/extract-css.html
                 test: /\.vue$/,
                 loader: 'vue-loader',
-                options: {
-                    loaders: {
-                        css: [
-                            'vue-style-loader',
-                            {
-                                loader: 'css-loader',
-                                options: {
-                                    sourceMap: true,
-                                },
-                            },
-                        ],
-                        less: [
-                            'vue-style-loader',
-                            {
-                                loader: 'css-loader',
-                                options: {
-                                    sourceMap: true,
-                                },
-                            },
-                            {
-                                loader: 'less-loader',
-                                options: {
-                                    sourceMap: true,
-                                },
-                            },
-                        ],
-                    },
-                    postLoaders: {
-                        html: 'babel-loader?sourceMap'
-                    },
-                    sourceMap: true,
-                }
             },
             {
                 test: /\.js$/,
@@ -75,55 +44,46 @@ module.exports = {
                         },
                     },
                     {
-                        loader: '\'autoprefixer-loader\'',
+                        loader: 'postcss-loader',
                     },
                 ]
             },
             {
                 test: /\.less$/,
-                loaders: [
-                    {
-                        loader: 'style-loader',
-                        options: {
-                            sourceMap: true,
-                        },
-                    },
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            sourceMap: true,
-                        },
-                    },
-                    {
-                        loader: 'less-loader',
-                        options: {
-                            sourceMap: true,
-                        },
-                    },
+                use: [
+                    'vue-style-loader',
+                    'css-loader',
+                    'less-loader'
                 ]
             },
             {
                 test: /\.scss$/,
-                loaders: [
-                    {
-                        loader: 'style-loader',
-                        options: {
-                            sourceMap: true,
-                        },
-                    },
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            sourceMap: true,
-                        },
-                    },
-                    {
-                        loader: 'sass-loader',
-                        options: {
-                            sourceMap: true,
-                        },
-                    },
+                use: [
+                    'vue-style-loader',
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader'
                 ]
+                // loaders: [
+                //     {
+                //         loader: 'style-loader',
+                //         options: {
+                //             sourceMap: true,
+                //         },
+                //     },
+                //     {
+                //         loader: 'css-loader',
+                //         options: {
+                //             sourceMap: true,
+                //         },
+                //     },
+                //     {
+                //         loader: 'sass-loader',
+                //         options: {
+                //             sourceMap: true,
+                //         },
+                //     },
+                // ]
             },
             {
                 test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
@@ -138,12 +98,13 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.vue'],
         alias: {
-            'vue': 'vue/dist/vue.esm.js',
+            vue: 'vue/dist/vue.runtime.esm-bundler.js',
             '@': resolve('src')
         }
     },
     plugins: [
-        new webpack.optimize.ModuleConcatenationPlugin(),
+        new VueLoaderPlugin(),
+        // new webpack.optimize.ModuleConcatenationPlugin(),
         new webpack.DefinePlugin({
             'process.env.VERSION': `'${pkg.version}'`
         }),

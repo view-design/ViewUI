@@ -1,5 +1,5 @@
 import defaultLang from './lang/zh-CN';
-import Vue from 'vue';
+import Vue from 'Vue';
 import deepmerge from 'deepmerge';
 import Format from './format';
 

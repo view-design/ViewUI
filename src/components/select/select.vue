@@ -292,7 +292,7 @@
             // set the initial values if there are any
             if (!this.remote && this.selectOptions.length > 0){
                 this.values = this.getInitialValue().map(value => {
-                    if (typeof value !== 'number' && !value) return null;
+                    if (this.filterValue(value)) return null;
                     return this.getOptionData(value);
                 }).filter(Boolean);
             }
@@ -524,13 +524,13 @@
             getInitialValue(){
                 const {multiple, remote, value} = this;
                 let initialValue = Array.isArray(value) ? value : [value];
-                if (!multiple && (typeof initialValue[0] === 'undefined' || (String(initialValue[0]).trim() === '' && !Number.isFinite(initialValue[0])))) initialValue = [];
+                if (!multiple && (typeof initialValue[0] === 'undefined' || (String(initialValue[0]).trim() === '' && !Number.isFinite(initialValue[0])) && this.filterValue(initialValue[0]))) initialValue = [];
                 if (remote && !multiple && value) {
                     const data = this.getOptionData(value);
                     this.query = data ? data.label : String(value);
                 }
                 return initialValue.filter((item) => {
-                    return Boolean(item) || item === 0;
+                    return !this.filterValue(item);
                 });
             },
             processOption(option, values, isFocused){
@@ -787,6 +787,10 @@
                         this.$nextTick(() => this.onOptionClick(option));
                     }
                 }
+            },
+
+            filterValue(value) {
+                return !value && value !== 0 && value !== '';
             }
         },
         watch: {
@@ -795,9 +799,12 @@
 
                 this.checkUpdateStatus();
 
-                if (value === '') this.values = [];
+                if (value === '' && getInitialValue().every(_value => _value !== value)) this.values = [];
                 else if (checkValuesNotEqual(value,publicValue,values)) {
-                    this.$nextTick(() => this.values = getInitialValue().map(getOptionData).filter(Boolean));
+                    this.$nextTick(() => this.values = getInitialValue().map(value => {
+                        if (this.filterValue(value)) return null;
+                        return getOptionData(value);
+                    }).filter(value => Boolean(value) || value === 0 || value === ''));
                     if (!this.multiple) this.dispatch('FormItem', 'on-form-change', this.publicValue);
                 }
             },

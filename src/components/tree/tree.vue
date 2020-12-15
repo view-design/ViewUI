@@ -116,10 +116,18 @@
             compileFlatState () { // so we have always a relation parent/children of each node
                 let keyCounter = 0;
                 let childrenKey = this.childrenKey;
-                const flatTree = [];
+                let flatTree = [];
+                if(this.flatState.length!==0){
+                    flatTree = this.flatState;
+                }
                 function flattenChildren(node, parent) {
                     node.nodeKey = keyCounter++;
-                    flatTree[node.nodeKey] = { node: node, nodeKey: node.nodeKey };
+                    if(flatTree[node.nodeKey]){
+                        flatTree[node.nodeKey].node = node;
+                        flatTree[node.nodeKey].nodeKey = node.nodeKey;
+                    }else{
+                        flatTree[node.nodeKey] = { node: node, nodeKey: node.nodeKey };
+                    }
                     if (typeof parent != 'undefined') {
                         flatTree[node.nodeKey].parent = parent.nodeKey;
                         flatTree[parent.nodeKey][childrenKey].push(node.nodeKey);

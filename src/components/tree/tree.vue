@@ -1,21 +1,23 @@
 <template>
-    <div :class="prefixCls" ref="treeWrap">
-        <Tree-node
-            v-for="(item, i) in stateTree"
-            :key="i"
-            :data="item"
-            visible
-            :multiple="multiple"
-            :show-checkbox="showCheckbox"
-            :children-key="childrenKey">
-        </Tree-node>
-        <div :class="[prefixCls + '-empty']" v-if="!stateTree.length">{{ localeEmptyText }}</div>
-        <div class="ivu-tree-context-menu" :style="contextMenuStyles">
-            <Dropdown trigger="custom" :visible="contextMenuVisible" transfer @on-clickoutside="handleClickContextMenuOutside">
-                <DropdownMenu slot="list">
-                    <slot name="contextMenu"></slot>
-                </DropdownMenu>
-            </Dropdown>
+    <div>
+        <div :class="prefixCls" ref="treeWrap">
+            <Tree-node
+                v-for="(item, i) in stateTree"
+                :key="i"
+                :data="item"
+                visible
+                :multiple="multiple"
+                :show-checkbox="showCheckbox"
+                :children-key="childrenKey">
+            </Tree-node>
+            <div :class="[prefixCls + '-empty']" v-if="!stateTree.length || isEmpty">{{ localeEmptyText }}</div>
+            <div class="ivu-tree-context-menu" :style="contextMenuStyles">
+                <Dropdown trigger="custom" :visible="contextMenuVisible" transfer @on-clickoutside="handleClickContextMenuOutside">
+                    <DropdownMenu slot="list">
+                        <slot name="contextMenu"></slot>
+                    </DropdownMenu>
+                </Dropdown>
+            </div>
         </div>
     </div>
 </template>
@@ -25,7 +27,6 @@
     import DropdownMenu from '../dropdown/dropdown-menu.vue';
     import Emitter from '../../mixins/emitter';
     import Locale from '../../mixins/locale';
-
     const prefixCls = 'ivu-tree';
 
     export default {
@@ -66,6 +67,11 @@
                 type: String,
                 default: 'children'
             },
+            // 新增titleKey属性, 用于节点过滤匹配逻辑
+            titleKey: {
+                type: String,
+                default: 'title'
+            },
             loadData: {
                 type: Function
             },
@@ -79,10 +85,12 @@
             expandNode: {
                 type: Boolean,
                 default: false
-            }
+            },
+            filterNodeMethod: Function,
         },
         data () {
             return {
+                keyword: '',
                 prefixCls: prefixCls,
                 stateTree: this.data,
                 flatState: [],
@@ -90,7 +98,7 @@
                 contextMenuStyles: {
                     top: 0,
                     left: 0
-                }
+                },
             };
         },
         watch: {
@@ -99,6 +107,7 @@
                 handler () {
                     this.stateTree = this.data;
                     this.flatState = this.compileFlatState();
+                    console.log('rebuild')
                     this.rebuildTree();
                 }
             }
@@ -111,8 +120,32 @@
                     return this.emptyText;
                 }
             },
+            isEmpty() {
+                const nodes = this.data;
+                return !nodes || nodes.length === 0 || nodes.every(({visible}) => !visible);
+            }
         },
         methods: {
+            filter(value) {
+                if (!this.filterNodeMethod) throw new Error('[iView warn]: filterNodeMethod is required when filter');
+                const childrenKey = this.childrenKey
+                const titleKey = this.titleKey
+                const filterNodeMethod = this.filterNodeMethod;
+                const traverse = (node) => {
+                    const nodeVisible =  filterNodeMethod.call(node, value, node) 
+                    let childrenVisible
+                    if (node[childrenKey] && node[childrenKey].length) {
+                        childrenVisible = node[childrenKey].map(child => traverse(child)).some(v => v)
+                    } else {
+                        childrenVisible = false
+                    }
+                    node.visible = nodeVisible || childrenVisible
+                    if (childrenVisible) node.expand = true
+                    else node.expand = false
+                    return childrenVisible || nodeVisible
+                };
+                this.data.forEach(v => traverse(v));
+            },
             compileFlatState () { // so we have always a relation parent/children of each node
                 let keyCounter = 0;
                 let childrenKey = this.childrenKey;
@@ -229,11 +262,27 @@
             },
             handleClickContextMenuOutside () {
                 this.contextMenuVisible = false;
-            }
+            },
+            initVisible () {
+                const childrenKey = this.childrenKey;
+                const _this = this
+                function traverse(list) {
+                    list.forEach(node => {
+                        // node.visible = true;
+                        _this.$set(node, 'visible', true)
+                        if (node[childrenKey] && node[childrenKey].length) {
+                            traverse(node[childrenKey]);
+                        }
+                    })
+                }
+                traverse(this.data);
+            },
         },
         created(){
             this.flatState = this.compileFlatState();
             this.rebuildTree();
+            // 初始化visible属性, 给所有节点加上该属性, 用于节点过滤逻辑
+            this.initVisible();
         },
         mounted () {
             this.$on('on-check', this.handleCheck);

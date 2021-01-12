@@ -1,7 +1,7 @@
 <template>
     <collapse-transition :appear="appear">
-        <ul :class="classes">
-            <li @contextmenu.stop="handleContextmenu(data, $event)" @selectstart.stop="handlePreventSelect(data, $event)">
+        <ul :class="classes" >
+            <li @contextmenu.stop="handleContextmenu(data, $event)" @selectstart.stop="handlePreventSelect(data, $event)" v-if='data.visible'>
                 <span :class="arrowClasses" @click="handleExpand">
                     <Icon v-if="showArrow" :type="arrowType" :custom="customArrowType" :size="arrowSize" />
                     <Icon v-if="showLoading" type="ios-loading" class="ivu-load-loop" />
@@ -68,6 +68,10 @@
             appear: {
                 type: Boolean,
                 default: false
+            },
+            visible: {
+                type: Boolean,
+                default: true
             }
         },
         data () {
@@ -187,6 +191,8 @@
                         this.$set(this.data, 'loading', true);
                         tree.loadData(item, children => {
                             this.$set(this.data, 'loading', false);
+                            children.forEach(child => child.visible = true)
+                            console.log(children)
                             if (children.length) {
                                 this.$set(this.data, this.childrenKey, children);
                                 this.$nextTick(() => this.handleExpand());

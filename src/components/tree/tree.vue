@@ -113,7 +113,7 @@
                 }
             },
             isEmpty() {
-                const nodes = this.data;
+                const nodes = this.stateTree;
                 return !nodes || nodes.length === 0 || nodes.every(({visible}) => !visible);
             }
         },

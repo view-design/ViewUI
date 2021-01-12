@@ -85,7 +85,7 @@
         data () {
             return {
                 prefixCls: prefixCls,
-                stateTree: this.data,
+                stateTree: JSON.parse(JSON.stringify(this.data)),
                 flatState: [],
                 contextMenuVisible: false,
                 contextMenuStyles: {
@@ -98,7 +98,7 @@
             data: {
                 deep: true,
                 handler () {
-                    this.stateTree = this.data;
+                    this.stateTree = JSON.parse(JSON.stringify(this.data));
                     this.flatState = this.compileFlatState();
                     this.rebuildTree();
                 }
@@ -135,7 +135,7 @@
                     else node.expand = false;
                     return childrenVisible || nodeVisible;
                 };
-                this.data.forEach(v => traverse(v));
+                this.stateTree.forEach(v => traverse(v));
             },
             compileFlatState () { // so we have always a relation parent/children of each node
                 let keyCounter = 0;
@@ -265,7 +265,7 @@
                         }
                     });
                 }
-                traverse(this.data);
+                traverse(this.stateTree);
             },
         },
         created(){

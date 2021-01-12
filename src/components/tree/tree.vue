@@ -268,7 +268,6 @@
                 const _this = this
                 function traverse(list) {
                     list.forEach(node => {
-                        // node.visible = true;
                         _this.$set(node, 'visible', true)
                         if (node[childrenKey] && node[childrenKey].length) {
                             traverse(node[childrenKey]);

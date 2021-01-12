@@ -107,7 +107,6 @@
                 handler () {
                     this.stateTree = this.data;
                     this.flatState = this.compileFlatState();
-                    console.log('rebuild')
                     this.rebuildTree();
                 }
             }

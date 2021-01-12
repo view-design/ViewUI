@@ -67,11 +67,6 @@
                 type: String,
                 default: 'children'
             },
-            // 新增titleKey属性, 用于节点过滤匹配逻辑
-            titleKey: {
-                type: String,
-                default: 'title'
-            },
             loadData: {
                 type: Function
             },
@@ -127,21 +122,20 @@
         methods: {
             filter(value) {
                 if (!this.filterNodeMethod) throw new Error('[iView warn]: filterNodeMethod is required when filter');
-                const childrenKey = this.childrenKey
-                const titleKey = this.titleKey
+                const childrenKey = this.childrenKey;
                 const filterNodeMethod = this.filterNodeMethod;
                 const traverse = (node) => {
-                    const nodeVisible =  filterNodeMethod.call(node, value, node) 
-                    let childrenVisible
+                    const nodeVisible =  filterNodeMethod.call(node, value, node); 
+                    let childrenVisible;
                     if (node[childrenKey] && node[childrenKey].length) {
-                        childrenVisible = node[childrenKey].map(child => traverse(child)).some(v => v)
+                        childrenVisible = node[childrenKey].map(child => traverse(child)).some(v => v);
                     } else {
-                        childrenVisible = false
+                        childrenVisible = false;
                     }
-                    node.visible = nodeVisible || childrenVisible
-                    if (childrenVisible) node.expand = true
-                    else node.expand = false
-                    return childrenVisible || nodeVisible
+                    node.visible = nodeVisible || childrenVisible;
+                    if (childrenVisible) node.expand = true;
+                    else node.expand = false;
+                    return childrenVisible || nodeVisible;
                 };
                 this.data.forEach(v => traverse(v));
             },
@@ -264,14 +258,14 @@
             },
             initVisible () {
                 const childrenKey = this.childrenKey;
-                const _this = this
+                const _this = this;
                 function traverse(list) {
                     list.forEach(node => {
-                        _this.$set(node, 'visible', true)
+                        _this.$set(node, 'visible', true);
                         if (node[childrenKey] && node[childrenKey].length) {
                             traverse(node[childrenKey]);
                         }
-                    })
+                    });
                 }
                 traverse(this.data);
             },

@@ -187,7 +187,7 @@
                         this.$set(this.data, 'loading', true);
                         tree.loadData(item, children => {
                             this.$set(this.data, 'loading', false);
-                            children.forEach(child => child.visible = true)
+                            children.forEach(child => child.visible = true);
                             if (children.length) {
                                 this.$set(this.data, this.childrenKey, children);
                                 this.$nextTick(() => this.handleExpand());

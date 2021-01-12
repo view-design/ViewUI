@@ -25,7 +25,6 @@ export default {
             }
             if (parent) {
                 parent.$emit.apply(parent, [eventName].concat(params));
-                console.log([eventName].concat(params))
             }
         },
         broadcast(componentName, eventName, params) {

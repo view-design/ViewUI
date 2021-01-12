@@ -22,10 +22,8 @@
             @keydown.tab="handleKeydown"
             @keydown.delete="handleKeydown"
 
-
             @mouseenter="hasMouseHoverHead = true"
             @mouseleave="hasMouseHoverHead = false"
-
         >
             <slot name="input">
                 <input type="hidden" :name="name" :value="publicValue">
@@ -67,18 +65,26 @@
                 v-transfer-dom
             >
                 <ul v-show="showNotFoundLabel && !allowCreate" :class="[prefixCls + '-not-found']"><li>{{ localeNotFoundText }}</li></ul>
-                <ul :class="prefixCls + '-dropdown-list'">
+
+                <functional-options
+                    v-if="(!remote) || (remote && !loading)"
+                    :options="selectOptions"
+                    :slot-update-hook="updateSlotOptions"
+                    :slot-options="slotOptions"
+                    :class="prefixCls + '-dropdown-list'"
+                >
                     <li :class="prefixCls + '-item'" v-if="showCreateItem" @click="handleCreateItem">
                         {{ query }}
                         <Icon type="md-return-left" :class="prefixCls + '-item-enter'" />
                     </li>
-                    <functional-options
-                        v-if="(!remote) || (remote && !loading)"
-                        :options="selectOptions"
-                        :slot-update-hook="updateSlotOptions"
-                        :slot-options="slotOptions"
-                    ></functional-options>
+                </functional-options>
+                <ul :class="prefixCls + '-dropdown-list'" v-else>
+                    <li :class="prefixCls + '-item'" v-if="showCreateItem" @click="handleCreateItem">
+                        {{ query }}
+                        <Icon type="md-return-left" :class="prefixCls + '-item-enter'" />
+                    </li>
                 </ul>
+
                 <ul v-show="loading" :class="[prefixCls + '-loading']">{{ localeLoadingText }}</ul>
             </Drop>
         </transition>
@@ -317,8 +323,10 @@
                 }
             }
         },
+        beforeDestroy () {
+            this.$off('on-select-selected');
+        },
         data () {
-
             return {
                 prefixCls: prefixCls,
                 values: [],
@@ -334,6 +342,7 @@
                 lastRemoteQuery: '',
                 unchangedQuery: true,
                 hasExpectedValue: false,
+                isTyping: false,  // #728
                 preventRemoteCall: false,
                 filterQueryChange: false,  // #4273
             };
@@ -451,7 +460,7 @@
                         let children = cOptions.children;
 
                         // remove filtered children
-                        if (this.filterable){
+                        if (this.filterable && this.isTyping){  // #728 let option show full when reclick it
                             children = children.filter(
                                 ({componentOptions}) => this.validateOption(componentOptions)
                             );
@@ -580,6 +589,8 @@
             },
             hideMenu () {
                 this.toggleMenu(null, false);
+                // fix #728
+                this.isTyping = false;
                 setTimeout(() => this.unchangedQuery = true, ANIMATION_TIMEOUT);
             },
             onClickOutside(event){
@@ -735,6 +746,7 @@
                 }, ANIMATION_TIMEOUT);
             },
             onQueryChange(query) {
+                this.isTyping = true;
                 if (query.length > 0 && query !== this.query) {
                   // in 'AutoComplete', when set an initial value asynchronously,
                   // the 'dropdown list' should be stay hidden.

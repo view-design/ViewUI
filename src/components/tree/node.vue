@@ -84,6 +84,9 @@
                 handler(val) {
                     if (val) {
                         this.childNodeRendered = true;
+                        this.$nextTick(()=>{
+                            this.appearByClickArrow = true;
+                        })
                     }
                 }
             }

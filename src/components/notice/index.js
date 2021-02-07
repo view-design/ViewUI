@@ -122,5 +122,8 @@ export default {
         let instance = getNoticeInstance();
         noticeInstance = null;
         instance.destroy('ivu-notice');
+    },
+    getNoticeInstance() {
+        return getNoticeInstance();
     }
 };

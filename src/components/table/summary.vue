@@ -5,10 +5,10 @@
                 <col v-for="(column, index) in columns" :width="setCellWidth(column)">
             </colgroup>
             <tbody :class="[prefixCls + '-tbody']">
-                <tr class="ivu-table-row">
+                <tr v-for="(eachData, index) in list" class="ivu-table-row">
                     <td v-for="(column, index) in columns" :class="alignCls(column)">
                         <div class="ivu-table-cell" :class="cellCls(column)">
-                            <span>{{ data[column.key].value }}</span>
+                            <span>{{ eachData[column.key] && eachData[column.key].value }}</span>
                         </div>
                     </td>
                 </tr>
@@ -26,7 +26,7 @@
             prefixCls: String,
             styleObject: Object,
             columns: Array,
-            data: Object,    // rebuildData
+            data: Object | Array,    // rebuildData
             columnsWidth: Object,
             fixed: {
                 type: [Boolean, String],
@@ -40,6 +40,11 @@
                         ['ivu-table-hidden']: (this.fixed === 'left' && column.fixed !== 'left') || (this.fixed === 'right' && column.fixed !== 'right') || (!this.fixed && column.fixed && (column.fixed === 'left' || column.fixed === 'right'))
                     }
                 ];
+            }
+        },
+        computed: {
+            list() { 
+                return (this.data instanceof Array) ? this.data : [this.data];
             }
         }
     };

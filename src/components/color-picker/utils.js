@@ -30,7 +30,7 @@ function getColor(data, colorData) {
 }
 
 export function changeColor(data, oldHue) {
-    const colorData = data === '' ? '#2d8cf0' : data;
+    const colorData = !data ? '#2d8cf0' : data;
     const color = getColor(data, colorData);
     const hsl = color.toHsl();
     const hsv = color.toHsv();

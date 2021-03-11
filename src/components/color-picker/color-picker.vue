@@ -22,7 +22,7 @@
             >
                 <div :class="[prefixCls + '-color']">
                     <div
-                        v-show="value === '' && !visible"
+                        v-show="!value && !visible"
                         :class="[prefixCls + '-color-empty']">
                         <i :class="[iconPrefixCls, iconPrefixCls + '-ios-close']"></i>
                     </div>

@@ -234,13 +234,9 @@
 //                    this.validateDisabled = true;
 //                    prop.o[prop.k] = this.initialValue;
 //                }
-                if (Array.isArray(value)) {
-                    this.validateDisabled = true;
-                    prop.o[prop.k] = [].concat(this.initialValue);
-                } else {
-                    this.validateDisabled = true;
-                    prop.o[prop.k] = this.initialValue;
-                }
+                const initialValue = Array.isArray(value) ? [].concat(this.initialValue) : this.initialValue;
+                this.validateDisabled = true;
+                this.$set(prop.o, prop.k, initialValue);
             },
             onFieldBlur() {
                 this.validate('blur');

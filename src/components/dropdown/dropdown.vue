@@ -108,7 +108,9 @@
             }
         },
         methods: {
-            handleClick () {
+            handleClick (event) {
+                // feat: break change 增加阻止原生事件
+                if(stopNativePropagation) event.stopPropagation();
                 if (this.trigger === 'custom') return false;
                 if (this.trigger !== 'click') {
                     return false;

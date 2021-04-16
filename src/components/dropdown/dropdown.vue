@@ -61,6 +61,11 @@
                 type: Boolean,
                 default: false
             },
+            // feat: #871 无法控制原生事件冒泡
+            stopNativePropagation: {
+                type: Boolean,
+                default: false
+            },
             // 4.0.0
             capture: {
                 type: Boolean,
@@ -108,7 +113,8 @@
             }
         },
         methods: {
-            handleClick () {
+            handleClick (event) {
+                if(this.stopNativePropagation) event.stopPropagation();
                 if (this.trigger === 'custom') return false;
                 if (this.trigger !== 'click') {
                     return false;
@@ -175,6 +181,7 @@
         },
         mounted () {
             this.$on('on-click', (key) => {
+                // feat: #871 无法控制原生事件冒泡
                 if (this.stopPropagation) return;
                 const $parent = this.hasParent();
                 if ($parent) $parent.$emit('on-click', key);

@@ -790,7 +790,8 @@
                     const option = {
                         value: query,
                         label: query,
-                        tag: undefined
+                        tag: undefined,
+                        __create: true
                     };
                     if (this.multiple) {
                         this.onOptionClick(option);

@@ -16,7 +16,7 @@
                 type: Object
             },
             labelWidth: {
-                type: Number
+                type: [Number, String]
             },
             labelPosition: {
                 validator (value) {
@@ -59,7 +59,8 @@
         },
         data () {
             return {
-                fields: []
+                fields: [],
+                potentialLabelWidthArr: []
             };
         },
         computed: {
@@ -79,6 +80,11 @@
                     colon = (typeof this.labelColon === 'boolean') ? ':' : this.labelColon;
                 }
                 return colon;
+            },
+            autoLabelWidth() {
+                if (!this.potentialLabelWidthArr.length) return 0;
+                const max = Math.max(...this.potentialLabelWidthArr);
+                return max ? `${max}px` : '';
             }
         },
         methods: {
@@ -119,6 +125,25 @@
                 if (!field) { throw new Error('[iView warn]: must call validateField with valid prop string!'); }
 
                 field.validate('', cb);
+            },
+            getLabelWidthIndex(width) {
+                const index = this.potentialLabelWidthArr.indexOf(width);
+                if (index === -1) {
+                    throw new Error('[iForm]unpected width ' + width);
+                }
+                return index;
+            },
+            registerLabelWidth(val, oldVal) {
+                if (val && oldVal) {
+                    const index = this.getLabelWidthIndex(oldVal);
+                    this.potentialLabelWidthArr.splice(index, 1, val);
+                } else if (val) {
+                    this.potentialLabelWidthArr.push(val);
+                }
+            },
+            deregisterLabelWidth(val) {
+                const index = this.getLabelWidthIndex(val);
+                this.potentialLabelWidthArr.splice(index, 1);
             }
         },
         watch: {

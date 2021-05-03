@@ -1,6 +1,10 @@
 <template>
     <div :class="classes">
-        <label :class="[prefixCls + '-label']" :for="labelFor" :style="labelStyles" v-if="label || $slots.label"><slot name="label">{{ label }}{{ FormInstance.colon }}</slot></label>
+        <form-label
+            :is-auto-width="labelStyles && labelStyles.width === 'auto'"
+            :update-all="form.labelWidth === 'auto'">
+            <label :class="[prefixCls + '-label']" :for="labelFor" :style="labelStyles" v-if="label || $slots.label"><slot name="label">{{ label }}{{ FormInstance.colon }}</slot></label>
+        </form-label>
         <div :class="[prefixCls + '-content']" :style="contentStyles">
             <slot></slot>
             <transition name="fade">
@@ -12,6 +16,7 @@
 <script>
     import AsyncValidator from 'async-validator';
     import Emitter from '../../mixins/emitter';
+    import FormLabel from './form-label';
 
     const prefixCls = 'ivu-form-item';
 
@@ -40,6 +45,7 @@
 
     export default {
         name: 'FormItem',
+        components: {FormLabel},
         mixins: [ Emitter ],
         props: {
             label: {
@@ -47,7 +53,7 @@
                 default: ''
             },
             labelWidth: {
-                type: Number
+                type: [Number, String]
             },
             prop: {
                 type: String
@@ -80,7 +86,8 @@
                 validateState: '',
                 validateMessage: '',
                 validateDisabled: false,
-                validator: {}
+                validator: {},
+                computedLabelWidth: ''
             };
         },
         watch: {
@@ -104,6 +111,9 @@
                 }
             },
         },
+        provide () {
+            return { FormItem : this };
+        },
         inject: ['FormInstance'],
         computed: {
             classes () {
@@ -116,13 +126,13 @@
                     }
                 ];
             },
-            // form() {
-            //    let parent = this.$parent;
-            //    while (parent.$options.name !== 'iForm') {
-            //        parent = parent.$parent;
-            //    }
-            //    return parent;
-            // },
+            form() {
+               let parent = this.$parent;
+               while (parent.$options.name !== 'iForm') {
+                   parent = parent.$parent;
+               }
+               return parent;
+            },
             fieldValue () {
                 const model = this.FormInstance.model;
                 if (!model || !this.prop) { return; }
@@ -139,7 +149,11 @@
                 const labelWidth = this.labelWidth === 0 || this.labelWidth ? this.labelWidth : this.FormInstance.labelWidth;
 
                 if (labelWidth || labelWidth === 0) {
-                    style.width = `${labelWidth}px`;
+                    if (/^\d+$/.test(labelWidth)) {
+                        style.width = `${labelWidth}px`;
+                    } else {
+                        style.width = labelWidth;
+                    }
                 }
                 return style;
             },
@@ -147,8 +161,18 @@
                 let style = {};
                 const labelWidth = this.labelWidth === 0 || this.labelWidth ? this.labelWidth : this.FormInstance.labelWidth;
 
-                if (labelWidth || labelWidth === 0) {
-                    style.marginLeft = `${labelWidth}px`;
+                if (labelWidth === 'auto') {
+                    if (this.labelWidth === 0 || this.labelWidth) {
+                        style.marginLeft = this.computedLabelWidth;
+                    } else {
+                        style.marginLeft = this.FormInstance.autoLabelWidth;
+                    }
+                } else if (labelWidth || labelWidth === 0) {
+                    if (/^\d+$/.test(labelWidth)) {
+                        style.marginLeft = `${labelWidth}px`;
+                    } else {
+                        style.marginLeft = labelWidth;
+                    }
                 }
                 return style;
             }
@@ -252,7 +276,10 @@
                 }
 
                 this.validate('change');
-            }
+            },
+            updateComputedLabelWidth(width) {
+                this.computedLabelWidth = width ? `${width}px` : '';
+            },
         },
         mounted () {
             if (this.prop) {

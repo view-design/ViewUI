@@ -2,8 +2,15 @@ export default {
     methods: {
         alignCls (column, row = {}) {
             let cellClassName = '';
-            if (row.cellClassName && column.key && row.cellClassName[column.key]) {
-                cellClassName = row.cellClassName[column.key];
+            // fix set cellClassName correctly with column is slot
+            if(row.cellClassName) {
+                if(column.key && row.cellClassName[column.key]) {
+                    cellClassName = row.cellClassName[column.key];
+                }
+
+                if(column.slot && row.cellClassName[column.slot]) {
+                    cellClassName = row.cellClassName[column.slot];
+                }
             }
             return [
                 `${this.prefixCls}-column-${column.__id}`,

@@ -782,22 +782,29 @@
             },
             // 4.0.0 create new item
             handleCreateItem () {
-                if (this.allowCreate && this.query !== '' && this.showCreateItem) {
-                    const query = this.query;
-                    this.$emit('on-create', query);
-                    this.query = '';
+                if (this.allowCreate && this.query !== '') {
+                    if (this.showCreateItem) {
+                        const query = this.query;
+                        this.$emit('on-create', query);
+                        this.query = '';
 
-                    const option = {
-                        value: query,
-                        label: query,
-                        tag: undefined,
-                        __create: true
-                    };
-                    if (this.multiple) {
-                        this.onOptionClick(option);
+                        const option = {
+                            value: query,
+                            label: query,
+                            tag: undefined,
+                            __create: true
+                        };
+                        if (this.multiple) {
+                            this.onOptionClick(option);
+                        } else {
+                            // 单选时如果不在 nextTick 里执行，无法赋值
+                            this.$nextTick(() => this.onOptionClick(option));
+                        }
                     } else {
-                        // 单选时如果不在 nextTick 里执行，无法赋值
-                        this.$nextTick(() => this.onOptionClick(option));
+                        const $options = findComponentsDownward(this, 'iOption');
+                        if ($options && $options.length > 0) {
+                            $options[0].$el.click()
+                        }
                     }
                 }
             }

@@ -17,6 +17,11 @@ yarn dev
 
 // 发布
 yarn publish
+
+// 使用 docker 发布
+docker run -itd -v $(pwd):/view --name node-view node:11.15.0
+docker exec -it -w /view node-view /bin/bash
+yarn publish
 ```
 
 ## 注意

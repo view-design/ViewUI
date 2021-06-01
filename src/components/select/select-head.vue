@@ -227,7 +227,6 @@
             onInputBlur () {
                 if (this.allowCreate && this.query !== '') {
                     this.handleInputEnter();
-                    this.query = '';
                     return;
                 }
                 if (this.showCreateItem) return;

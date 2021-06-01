@@ -817,7 +817,10 @@
                     } else {
                         const $options = findComponentsDownward(this, 'iOption');
                         if ($options && $options.length > 0) {
-                            $options[0].$el.click()
+                            const option = $options.find(({optionLabel}) => optionLabel === this.query);
+                            if (option && option.value != this.value) {
+                                option.$el.click();
+                            }
                         }
                     }
                 }

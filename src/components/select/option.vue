@@ -39,6 +39,10 @@
             // 4.0.0
             tag: {
                 type: [String, Number]
+            },
+            // 4.0.0
+            avatar: {
+                type: String
             }
         },
         data () {
@@ -72,12 +76,14 @@
                 this.dispatch('iSelect', 'on-select-selected', {
                     value: this.value,
                     label: this.optionLabel,
-                    tag: this.tag
+                    tag: this.tag,
+                    avatar: this.avatar,
                 });
                 this.$emit('on-select-selected', {
                     value: this.value,
                     label: this.optionLabel,
-                    tag: this.tag
+                    tag: this.tag,
+                    avatar: this.avatar,
                 });
             },
         },

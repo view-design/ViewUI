@@ -9,7 +9,7 @@
             class="ivu-tag ivu-tag-checked"
             v-for="(item, index) in selectedMultiple"
             v-if="maxTagCount === undefined || index < maxTagCount">
-            <span class="ivu-tag-text" :class="{ 'ivu-select-multiple-tag-hidden': item.disabled, 'ivu-select-multiple-tag-create': item.__create }">{{ item.tag !== undefined ? item.tag : item.label }}</span>
+            <span class="ivu-tag-text" :class="{ 'ivu-select-multiple-tag-hidden': item.disabled, 'ivu-select-multiple-tag-create': item.__create }"><Avatar v-if="item.avatar !== undefined" class="tag-ivu-avatar" :src="item.avatar"/>{{ item.tag !== undefined ? item.tag : item.label }}</span>
             <Icon type="ios-close" v-if="!item.disabled" @click.native.stop="removeTag(item)"></Icon>
         </div><div class="ivu-tag ivu-tag-checked" v-if="maxTagCount !== undefined && selectedMultiple.length > maxTagCount">
             <span class="ivu-tag-text ivu-select-max-tag">

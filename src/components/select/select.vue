@@ -523,10 +523,14 @@
                 if (!option) return null;
                 const label = getOptionLabel(option);
                 // 修复多选时，选项有disabled属性，选中项仍然能删除的 bug
+                const tag = option.componentOptions.propsData.tag;
+                const avatar = option.componentOptions.propsData.avatar;
                 const disabled = option.componentOptions.propsData.disabled;
                 return {
                     value: value,
                     label: label,
+                    tag: tag,
+                    avatar: avatar,
                     disabled: disabled
                 };
             },

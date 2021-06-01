@@ -40,7 +40,7 @@
             tag: {
                 type: [String, Number]
             },
-            // 4.0.0
+            // 4.5.0-5
             avatar: {
                 type: String
             }

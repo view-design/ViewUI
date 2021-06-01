@@ -290,6 +290,12 @@
             filterByLabel: {
                 type: Boolean,
                 default: false
+            },
+            // 4.5.0-6
+            // on-set-default-options事件返回值保持对象
+            defaultEventObject: {
+                type: Boolean,
+                default: false
             }
         },
         mounted(){
@@ -316,7 +322,11 @@
                             label: this.defaultLabel[index]
                         };
                     });
-                    this.$emit('on-set-default-options', JSON.parse(JSON.stringify(values)));
+                    if (this.defaultEventObject === true) {
+                        this.$emit('on-set-default-options', values);
+                    } else {
+                        this.$emit('on-set-default-options', JSON.parse(JSON.stringify(values)));
+                    }
                     setTimeout(() => {
                         this.values = values;
                     });

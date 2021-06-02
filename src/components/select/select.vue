@@ -192,6 +192,10 @@
                 type: Boolean,
                 default: false
             },
+            // 4.5.0-8
+            multipleMax: {
+                type: Number
+            },
             disabled: {
                 type: Boolean,
                 default: false
@@ -839,6 +843,10 @@
                 }
             },
             values(now, before){
+                if (this.multiple && this.multipleMax !== undefined && now.length > this.multipleMax) {
+                    this.values = now.slice(this.multipleMax * -1);
+                    return;
+                }
                 const newValue = JSON.stringify(now);
                 const oldValue = JSON.stringify(before);
                 // v-model is always just the value, event with labelInValue === true

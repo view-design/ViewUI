@@ -64,7 +64,7 @@
                 :transfer="transfer"
                 v-transfer-dom
             >
-                <ul v-if="multipleMax && multipleMaxText" :class="[prefixCls + '-not-found']" style="line-height:20px;padding-bottom:5px">{{ multipleMaxText }}</ul>
+                <slot name="drop-prepend"></slot>
 
                 <ul v-show="showNotFoundLabel && !allowCreate" :class="[prefixCls + '-not-found']"><li>{{ localeNotFoundText }}</li></ul>
 
@@ -86,6 +86,8 @@
                         <Icon type="md-return-left" :class="prefixCls + '-item-enter'" />
                     </li>
                 </ul>
+
+                <slot name="drop-append"></slot>
 
                 <ul v-show="loading" :class="[prefixCls + '-loading']">{{ localeLoadingText }}</ul>
             </Drop>
@@ -197,10 +199,6 @@
             // 4.5.0-8
             multipleMax: {
                 type: Number
-            },
-            // 4.5.0-9
-            multipleMaxText: {
-                type: String
             },
             disabled: {
                 type: Boolean,

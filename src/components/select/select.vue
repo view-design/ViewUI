@@ -64,6 +64,8 @@
                 :transfer="transfer"
                 v-transfer-dom
             >
+                <ul v-if="multipleMax && multipleMaxText" :class="[prefixCls + '-not-found']" style="line-height:20px;padding-bottom:5px">{{ multipleMaxText }}</ul>
+
                 <ul v-show="showNotFoundLabel && !allowCreate" :class="[prefixCls + '-not-found']"><li>{{ localeNotFoundText }}</li></ul>
 
                 <functional-options
@@ -195,6 +197,10 @@
             // 4.5.0-8
             multipleMax: {
                 type: Number
+            },
+            // 4.5.0-9
+            multipleMaxText: {
+                type: String
             },
             disabled: {
                 type: Boolean,

@@ -30,6 +30,7 @@
                 <select-head
                     :filterable="filterable"
                     :multiple="multiple"
+                    :multipleUncancelable="multipleUncancelable"
                     :values="values"
                     :clearable="canBeCleared"
                     :prefix="prefix"
@@ -199,6 +200,13 @@
             // 4.5.0-8
             multipleMax: {
                 type: Number
+            },
+            // 4.5.0-11
+            multipleUncancelable: {
+                type: Array,
+                default: () => {
+                    return [];
+                }
             },
             disabled: {
                 type: Boolean,
@@ -517,6 +525,12 @@
             }
         },
         methods: {
+            inUncancelable(value) {
+                if (this.multipleUncancelable.length === 0) {
+                    return false;
+                }
+                return this.multipleUncancelable.includes(value);
+            },
             setQuery(query){ // PUBLIC API
                 if (query) {
                     this.onQueryChange(query);
@@ -739,6 +753,7 @@
 
                     const valueIsSelected = this.values.find(({value}) => value === option.value);
                     if (valueIsSelected){
+                        if (this.inUncancelable(option.value)) return;
                         this.values = this.values.filter(({value}) => value !== option.value);
                     } else {
                         this.values = this.values.concat(option);

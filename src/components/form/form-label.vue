@@ -15,12 +15,16 @@ export default {
         const slots = this.$slots.default;
         if (!slots) return null;
         if (this.isAutoWidth) {
-            const autoLabelWidth = this.FormInstance.autoLabelWidth;
+            const {autoLabelWidth, labelPosition} = this.FormInstance;
             const style = {};
             if (autoLabelWidth && autoLabelWidth !== 'auto') {
                 const marginLeft = parseInt(autoLabelWidth, 10) - this.computedWidth;
                 if (marginLeft) {
-                    style.marginLeft = marginLeft + 'px';
+                    if (labelPosition === 'left') {
+                        style.marginRight = marginLeft + 'px';
+                    } else {
+                        style.marginLeft = marginLeft + 'px';
+                    }
                 }
             }
             const className = prefixCls + '-label-wrap'

@@ -19100,12 +19100,19 @@ exports.default = {
         var slots = this.$slots.default;
         if (!slots) return null;
         if (this.isAutoWidth) {
-            var autoLabelWidth = this.FormInstance.autoLabelWidth;
+            var _FormInstance = this.FormInstance,
+                autoLabelWidth = _FormInstance.autoLabelWidth,
+                labelPosition = _FormInstance.labelPosition;
+
             var style = {};
             if (autoLabelWidth && autoLabelWidth !== 'auto') {
                 var marginLeft = parseInt(autoLabelWidth, 10) - this.computedWidth;
                 if (marginLeft) {
-                    style.marginLeft = marginLeft + 'px';
+                    if (labelPosition === 'left') {
+                        style.marginRight = marginLeft + 'px';
+                    } else {
+                        style.marginLeft = marginLeft + 'px';
+                    }
                 }
             }
             var className = prefixCls + '-label-wrap';
@@ -30891,7 +30898,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 var API = (0, _extends3.default)({
-    version: '4.5.0-11',
+    version: '4.5.0-12',
     locale: _index2.default.use,
     i18n: _index2.default.i18n,
     install: install,

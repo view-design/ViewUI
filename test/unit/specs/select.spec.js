@@ -60,6 +60,36 @@ describe('Select.vue', () => {
               done();
           }
       );
+
+      vm = createVue({
+        template: `
+            <Select :value="value">
+              <Option v-for="item in options" :value="item.value" :key="item.value">{{ item.label }}</Option>
+            </Select>
+         `,
+        data() {
+            return {
+                value: '',
+                options: [{value: '', label: 'Empty string'}, {value: 1, label: 'Foo'}, {value: 2, label: 'Bar'}]
+            };
+        }
+      });
+      waitForIt(
+          () => {
+              const selectedValueSpan = vm.$el.querySelector('.ivu-select-selected-value');
+              return selectedValueSpan && selectedValueSpan.textContent === 'Empty string';
+          },
+          () => {
+              const selectedValueSpan = vm.$el.querySelector('.ivu-select-selected-value');
+              const {label, value} = vm.$children[0].values[0];
+
+              expect(selectedValueSpan.textContent).to.equal('Empty string');
+              expect(selectedValueSpan.style.display).to.not.equal('none');
+              expect(label).to.equal('Empty string');
+              expect(value).to.equal('');
+              done();
+          }
+      );
     });
 
     it('should accept normal characters', done => {
@@ -335,6 +365,82 @@ describe('Select.vue', () => {
               done();
           });
       });
+
+      it('should only call once on-change', done => {
+          const options = [
+              {value: '', label: 'Empty string'},
+              {value: 0, label: 'Number zero'},
+              {value: 'beijing', label: 'Beijing'},
+              {value: 'stockholm', label: 'Stockholm'},
+              {value: 'lisboa', label: 'Lisboa'}
+          ];
+          let count = 0, selected = null;
+
+          vm = createVue({
+              template: `
+                <Select v-model="value" @on-change="handleChange">
+                    <Option v-for="item in options" :value="item.value" :key="item.value">{{ item.label }}</Option>
+                </Select>
+              `,
+              data() {
+                  return {
+                      value: 'beijing',
+                      options: options,
+                  }
+              },
+              methods: {
+                handleChange(value) {
+                    console.log(value)
+                    count ++
+                    selected = value
+                }
+              }
+          })
+
+          const Select = vm.$children[0];
+          Select.toggleMenu(null, true);
+
+          new Promise(resolve => {
+            const condition = function() {
+                const options = Select.$el.querySelectorAll('.ivu-select-item');
+                return options.length > 0;
+            };
+            waitForIt(condition, resolve);
+          })
+          .then(() => {
+            // click first option
+            const options = Select.$el.querySelectorAll('.ivu-select-item');
+            options[0].click();
+            return promissedTick(Select);
+          })
+          .then(() => {
+            expect(vm.value).to.equal(options[0].value);
+            expect(selected).to.equal(options[0].value);
+            expect(count).to.equal(1);
+
+            Select.toggleMenu(null, true);
+
+            return new Promise(resolve => {
+                const condition = function() {
+                    const options = Select.$el.querySelectorAll('.ivu-select-item');
+                    return options.length > 0;
+                };
+                waitForIt(condition, resolve);
+            });
+          })
+          .then(() => {
+            // click second option
+            const options = Select.$el.querySelectorAll('.ivu-select-item');
+            options[1].click();
+            return promissedTick(Select);
+          })
+          .then(() => {
+            expect(vm.value).to.equal(options[1].value);
+            expect(selected).to.equal(options[1].value);
+            expect(count).to.equal(2);
+            done();
+          })
+      })
   });
 
   describe('Public API', () => {

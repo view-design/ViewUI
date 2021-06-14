@@ -94,6 +94,12 @@
         <Select v-model="model34" filterable allow-create multiple size="large" style="width:200px">
             <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
         </Select>
+        <Divider></Divider>
+        <Select v-model="model37" filterable style="width:400px" prefix="ios-albums">
+            <OptionGroup label="Hot Cities">
+                <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+            </OptionGroup>
+        </Select>
     </div>
 </template>
 <script>
@@ -135,7 +141,8 @@
                 model33: '',
                 model34: [],
                 model35: [],
-                model36: []
+                model36: [],
+                model37: '',
             }
         },
         methods: {

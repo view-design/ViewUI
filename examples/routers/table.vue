@@ -39,7 +39,7 @@
         <br>
         <Table border :columns="columns5" :data="data11" show-summary></Table>
         <br>
-        <Table border :columns="columns8" :data="data11" show-summary></Table>
+        <Table border :columns="columns8" :data="data11" show-summary :summary-method="handleSummary"></Table>
         <br>
         <Table border :columns="columns5" :data="data11" show-summary :height="200"></Table>
         <Divider>合并单元格</Divider>
@@ -947,6 +947,45 @@
                     _disabled: true,
                     level: 0
                 })
+            },
+            handleSummary ({ columns, data }) {
+                const sums = {};
+                const avgs = {};
+                columns.forEach((column, index) => {
+                    const key = column.key;
+                    if (index === 0) {
+                        sums[key] = {
+                            key,
+                            value: '总数'
+                        };
+                        avgs[key] = {
+                            key,
+                            value: '平均数'
+                        };
+                        return;
+                    }
+                    const values = data.map(item => Number(item[key]));
+                    if (!values.every(value => isNaN(value))) {
+                        const v = values.reduce((prev, curr) => {
+                            const value = Number(curr);
+                            if (!isNaN(value)) {
+                                return prev + curr;
+                            } else {
+                                return prev;
+                            }
+                        }, 0);
+                        sums[key] = {
+                            key,
+                            value: v
+                        };
+                        avgs[key] = {
+                            key,
+                            value: v / values.length
+                        };
+                    }
+                });
+
+                return [avgs, sums];
             }
         }
     }

@@ -206,12 +206,17 @@
                 }
 
                 const before = this.beforeClose();
+                if (!before) { // sync function returned falsy, don't close
+                    return;
+                }
 
-                if (before && before.then) {
-                    before.then(() => {
-                        this.handleClose();
+                if (before.then) {  // promise
+                    before.then((result) => {
+                        if (result) {   // promise resolved truthy
+                            this.handleClose();
+                        }
                     });
-                } else {
+                } else { // sync returned truthy
                     this.handleClose();
                 }
             },

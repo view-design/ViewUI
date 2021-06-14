@@ -216,10 +216,10 @@
                         title: '关闭确认',
                         content: '您确认要关闭抽屉吗？',
                         onOk: () => {
-                            resolve();
+                            resolve(true);
                         },
                         onCancel: () => {
-                            reject();
+                            resolve(false);
                         }
                     });
                 });

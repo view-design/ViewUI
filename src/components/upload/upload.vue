@@ -250,6 +250,7 @@
                 let formData = new FormData();
                 formData.append(this.name, file);
 
+                var xhrObj = {xhr:null};
                 ajax({
                     headers: this.headers,
                     withCredentials: this.withCredentials,
@@ -257,6 +258,7 @@
                     data: this.data,
                     filename: this.name,
                     action: this.action,
+                    xhrObj : xhrObj,
                     onProgress: e => {
                         this.handleProgress(e, file);
                     },
@@ -267,6 +269,11 @@
                         this.handleError(err, response, file);
                     }
                 });
+                if( null !== xhrObj.xhr )
+                {
+                    const _file = this.getFile(file);
+                    _file.xhr = xhrObj.xhr; // 将 xhr 对象填到原始file对象中
+                }
             },
             handleStart (file) {
                 file.uid = Date.now() + this.tempIndex++;
@@ -292,6 +299,7 @@
             },
             handleProgress (e, file) {
                 const _file = this.getFile(file);
+                if(null === _file)return; // 防止filelist被修改从而没有找到对应文件
                 this.onProgress(e, _file, this.fileList);
                 _file.percentage = e.percent || 0;
             },

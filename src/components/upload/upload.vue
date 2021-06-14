@@ -246,11 +246,11 @@
                     }
                 }
 
-                this.handleStart(file);
+                const _file = this.handleStart(file);
                 let formData = new FormData();
                 formData.append(this.name, file);
 
-                ajax({
+                _file.xhr = ajax({
                     headers: this.headers,
                     withCredentials: this.withCredentials,
                     file: file,
@@ -280,6 +280,8 @@
                 };
 
                 this.fileList.push(_file);
+
+                return _file;
             },
             getFile (file) {
                 const fileList = this.fileList;
@@ -322,6 +324,7 @@
             },
             handleRemove(file) {
                 const fileList = this.fileList;
+                file.xhr.abort();
                 fileList.splice(fileList.indexOf(file), 1);
                 this.onRemove(file, fileList);
             },
@@ -331,6 +334,9 @@
                 }
             },
             clearFiles() {
+                this.fileList.forEach(file => {
+                    file.xhr.abort();
+                });
                 this.fileList = [];
             }
         },

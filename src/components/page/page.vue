@@ -93,12 +93,14 @@
             },
             pageSize: {
                 type: Number,
-                default: 10
+                default () {
+                    return this.$IVIEW.page.pageSize || 10;
+                }
             },
             pageSizeOpts: {
                 type: Array,
                 default () {
-                    return [10, 20, 30, 40];
+                    return this.$IVIEW.page.pageSizeOpts || [10, 20, 30, 40];
                 }
             },
             placement: {
@@ -142,11 +144,15 @@
             },
             prevText: {
                 type: String,
-                default: ''
+                default () {
+                    return this.$IVIEW.page.prevText || '';
+                }
             },
             nextText: {
                 type: String,
-                default: ''
+                default () {
+                    return this.$IVIEW.page.nextText || '';
+                }
             },
             disabled: {
                 type: Boolean,

@@ -43,7 +43,7 @@ export declare class Table extends Vue {
     /**
      * 表格最大高度，单位 px，设置后，如果表格内容大于此值，会固定表头
      */
-    'max-height'?: number | string;
+    "max-height"?: number | string;
     /**
      * 表格是否加载中
      * @default false
@@ -69,11 +69,6 @@ export declare class Table extends Vue {
      * 表格尺寸，可选值为 large、small、default 或者不填
      */
     size?: string;
-    /**
-     * 数据为空时显示的提示内容
-     * @default 暂无数据
-     */
-    "no-data-text"?: string;
     /**
      * 筛选数据为空时显示的提示内容
      * @default 暂无筛选结果
@@ -207,6 +202,11 @@ export declare class Table extends Vue {
          * 加载中
          */
         loading: VNode[];
+        /**
+         * 数据为空时显示的提示内容
+         * @default 暂无数据
+         */
+        "no-data": VNode[];
     };
 }
 
@@ -267,10 +267,7 @@ export declare class TableColumn {
      * @param h Render函数
      * @param params 对象，包含 row、column 和 index
      */
-    render?: (
-        h?: CreateElement,
-        params?: TableColumnRenderParams
-    ) => VNode;
+    render?: (h?: CreateElement, params?: TableColumnRenderParams) => VNode;
     /**
      * 自定义列头显示内容，传入参数有两个，column 和 index，分别为当前列数据和当前列索引，不支持渲染自定义组件
      * @param h Render函数

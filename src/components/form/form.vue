@@ -127,23 +127,19 @@
                 field.validate('', cb);
             },
             getLabelWidthIndex(width) {
-                const index = this.potentialLabelWidthArr.indexOf(width);
-                if (index === -1) {
-                    throw new Error('[iForm]unpected width ' + width);
-                }
-                return index;
+                return this.potentialLabelWidthArr.indexOf(width);
             },
             registerLabelWidth(val, oldVal) {
                 if (val && oldVal) {
                     const index = this.getLabelWidthIndex(oldVal);
-                    this.potentialLabelWidthArr.splice(index, 1, val);
+                    if (index > -1) this.potentialLabelWidthArr.splice(index, 1, val);
                 } else if (val) {
                     this.potentialLabelWidthArr.push(val);
                 }
             },
             deregisterLabelWidth(val) {
                 const index = this.getLabelWidthIndex(val);
-                this.potentialLabelWidthArr.splice(index, 1);
+                if (index > -1) this.potentialLabelWidthArr.splice(index, 1);
             }
         },
         watch: {

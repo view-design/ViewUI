@@ -38,11 +38,20 @@
     import ScrollbarMixins from './mixins-scrollbar';
 
     import { on, off } from '../../utils/dom';
-    import { findComponentsDownward } from '../../utils/assist';
+    import { findComponentsDownward, deepCopy } from '../../utils/assist';
 
     import { transferIndex as modalIndex, transferIncrease as modalIncrease, lastVisibleIndex, lastVisibleIncrease } from '../../utils/transfer-queue';
 
     const prefixCls = 'ivu-modal';
+
+    const dragData = {
+        x: null,
+        y: null,
+        dragX: null,
+        dragY: null,
+        dragging: false,
+        rect: null
+    };
 
     export default {
         name: 'Modal',
@@ -123,10 +132,25 @@
                 type: Boolean,
                 default: false
             },
+            // 4.6.0
+            sticky: {
+                type: Boolean,
+                default: false
+            },
+            // 4.6.0
+            stickyDistance: {
+                type: Number,
+                default: 10
+            },
+            // 4.6.0
+            resetDragPosition: {
+                type: Boolean,
+                default: false
+            },
             zIndex: {
                 type: Number,
                 default: 1000
-            },
+            }
         },
         data () {
             return {
@@ -135,13 +159,7 @@
                 showHead: true,
                 buttonLoading: false,
                 visible: this.value,
-                dragData: {
-                    x: null,
-                    y: null,
-                    dragX: null,
-                    dragY: null,
-                    dragging: false
-                },
+                dragData: deepCopy(dragData),
                 modalIndex: this.handleGetModalIndex(),  // for Esc close the top modal
                 isMouseTriggerIn: false, // #5800
             };
@@ -236,7 +254,7 @@
                 }
             },
             showMask () {
-                return this.draggable ? false : this.mask;
+                return this.mask;
             }
         },
         methods: {
@@ -297,6 +315,8 @@
 
                 const $content = this.$refs.content;
                 const rect = $content.getBoundingClientRect();
+
+                this.dragData.rect = rect;
                 this.dragData.x = rect.x || rect.left;
                 this.dragData.y = rect.y || rect.top;
 
@@ -326,8 +346,29 @@
                     y: distance.y - this.dragData.dragY
                 };
 
-                this.dragData.x += diff_distance.x;
-                this.dragData.y += diff_distance.y;
+                if (this.sticky) {
+                    const clientWidth = document.documentElement.clientWidth;
+                    const clientHeight = document.documentElement.clientHeight;
+
+                    if ((this.dragData.x + diff_distance.x <= this.stickyDistance) && diff_distance.x < 0) {
+                        this.dragData.x = 0;
+                    } else if ((this.dragData.x + this.dragData.rect.width - clientWidth > -this.stickyDistance) && diff_distance.x > 0) {
+                        this.dragData.x = clientWidth - this.dragData.rect.width;
+                    } else {
+                        this.dragData.x += diff_distance.x;
+                    }
+
+                    if ((this.dragData.y + diff_distance.y <= this.stickyDistance) && diff_distance.y < 0) {
+                        this.dragData.y = 0;
+                    } else if ((this.dragData.y + this.dragData.rect.height - clientHeight > -this.stickyDistance) && diff_distance.y > 0) {
+                        this.dragData.y = clientHeight - this.dragData.rect.height;
+                    } else {
+                        this.dragData.y += diff_distance.y;
+                    }
+                } else {
+                    this.dragData.x += diff_distance.x;
+                    this.dragData.y += diff_distance.y;
+                }
 
                 this.dragData.dragX = distance.x;
                 this.dragData.dragY = distance.y;
@@ -399,6 +440,9 @@
                 this.$emit('on-visible-change', val);
                 this.lastVisible = val;
                 this.lastVisibleIndex = lastVisibleIndex;
+                if (val && this.resetDragPosition) {
+                    this.dragData = deepCopy(dragData);
+                }
             },
             loading (val) {
                 if (!val) {

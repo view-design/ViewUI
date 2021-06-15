@@ -22,3 +22,4 @@ test/unit/coverage
 .vscode
 package-lock.json
 yarn.lock
+package-lock.json~upstream_master

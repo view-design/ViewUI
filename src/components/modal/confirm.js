@@ -29,7 +29,7 @@ Modal.newInstance = properties => {
         }),
         render (h) {
             let footerVNodes = [];
-            if (!footerHide) {                
+            if (!this.footerHide) {                
                 if (this.showCancel) {
                     footerVNodes.push(h(Button, {
                         props: {

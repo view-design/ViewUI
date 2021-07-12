@@ -24,29 +24,32 @@ Modal.newInstance = properties => {
             buttonLoading: false,
             scrollable: false,
             closable: false,
-            closing: false // 关闭有动画，期间使用此属性避免重复点击
+            closing: false, // 关闭有动画，期间使用此属性避免重复点击
+            footerHide: false
         }),
         render (h) {
             let footerVNodes = [];
-            if (this.showCancel) {
+            if (!footerHide) {                
+                if (this.showCancel) {
+                    footerVNodes.push(h(Button, {
+                        props: {
+                            type: 'text'
+                        },
+                        on: {
+                            click: this.cancel
+                        }
+                    }, this.localeCancelText));
+                }
                 footerVNodes.push(h(Button, {
                     props: {
-                        type: 'text'
+                        type: 'primary',
+                        loading: this.buttonLoading
                     },
                     on: {
-                        click: this.cancel
+                        click: this.ok
                     }
-                }, this.localeCancelText));
+                }, this.localeOkText));
             }
-            footerVNodes.push(h(Button, {
-                props: {
-                    type: 'primary',
-                    loading: this.buttonLoading
-                },
-                on: {
-                    click: this.ok
-                }
-            }, this.localeOkText));
 
             // render content
             let body_render;

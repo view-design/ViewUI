@@ -28,8 +28,8 @@ export default {
             this.resetView();
             this.$emit('on-pick-success');
         },
-        handlePickClick () {
-            this.$emit('on-pick-click');
+        handlePickClick (e) {
+            this.$emit('on-pick-click', e);
         },
         resetView(){
             setTimeout(

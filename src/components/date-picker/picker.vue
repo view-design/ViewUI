@@ -67,7 +67,7 @@
                         @on-pick="onPick"
                         @on-pick-clear="handleClear"
                         @on-pick-success="onPickSuccess"
-                        @on-pick-click="disableClickOutSide = true"
+                        @on-pick-click="onPickClick"
                         @on-selection-mode-change="onSelectionModeChange"
                     ></component>
                 </div>
@@ -375,6 +375,10 @@
             }
         },
         methods: {
+            onPickClick(e) {
+                this.disableClickOutSide = true
+                this.$emit('on-pick-click', e)
+            },
             onSelectionModeChange(type){
                 if (type.match(/^date/)) type = 'date';
                 this.selectionMode = oneOf(type, ['year', 'month', 'date', 'time']) && type;

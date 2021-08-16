@@ -48,7 +48,7 @@
                     @on-input-focus="isFocused = true"
                     @on-input-blur="isFocused = false"
                     @on-clear="clearSingleSelect"
-                    @on-enter="handleCreateItem"
+                    @on-enter="onEnter"
                 >
                     <slot name="prefix" slot="prefix"></slot>
                 </select-head>
@@ -807,6 +807,10 @@
                         this.$nextTick(() => this.onOptionClick(option));
                     }
                 }
+            },
+            onEnter() {
+                this.$emit('on-enter');
+                this.handleCreateItem();
             }
         },
         watch: {

@@ -10,6 +10,7 @@
                     :column-rows="columnRows"
                     :obj-data="objData"
                     :columns-width="columnsWidth"
+                    :removeSortNormal="removeSortNormal"
                     :data="rebuildData"></table-head>
             </div>
             <div :class="[prefixCls + '-body']" :style="bodyStyle" ref="body" @scroll="handleBodyScroll"
@@ -293,6 +294,10 @@
             },
             // 4.2.0
             showContextMenu: {
+                type: Boolean,
+                default: false
+            },
+            removeSortNormal: {
                 type: Boolean,
                 default: false
             }

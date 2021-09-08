@@ -100,7 +100,11 @@
                 default: false
             },
             columnRows: Array,
-            fixedColumnRows: Array
+            fixedColumnRows: Array,
+            removeSortNormal: {
+                type: Boolean,
+                default: false
+            }
         },
         data () {
             return {
@@ -226,12 +230,20 @@
                 const column = this.columns.find(item => item._index === index);
                 if (column.sortable) {
                     const type = column._sortType;
-                    if (type === 'normal') {
-                        this.handleSort(index, 'asc');
-                    } else if (type === 'asc') {
-                        this.handleSort(index, 'desc');
+                    if (this.removeSortNormal) {
+                        if (type === "asc") {
+                            this.handleSort(index, "desc");
+                        } else {
+                            this.handleSort(index, "asc");
+                        }
                     } else {
-                        this.handleSort(index, 'normal');
+                        if (type === "normal") {
+                            this.handleSort(index, "asc");
+                        } else if (type === "asc") {
+                            this.handleSort(index, "desc");
+                        } else {
+                            this.handleSort(index, "normal");
+                        }
                     }
                 }
             },

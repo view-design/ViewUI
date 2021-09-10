@@ -338,12 +338,13 @@
             defaultFileList: {
                 immediate: true,
                 handler(fileList) {
-                    this.fileList = fileList.map(item => {
+                    this.fileList.length = 0
+                    this.fileList = this.fileList.push(...fileList.map(item => {
                         item.status = 'finished';
                         item.percentage = 100;
                         item.uid = Date.now() + this.tempIndex++;
                         return item;
-                    });
+                    }));
                 }
             }
         },

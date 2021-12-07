@@ -21,6 +21,11 @@
             },
             transfer: {
                 type: Boolean
+            },
+            // 4.6.0
+            eventsEnabled: {
+                type: Boolean,
+                default: false
             }
         },
         data () {
@@ -44,14 +49,13 @@
         methods: {
             update () {
                 if (isServer) return;
-                if (this.popper) {
-                    this.$nextTick(() => {
+                this.$nextTick(() => {
+                    if (this.popper) {
                         this.popper.update();
                         this.popperStatus = true;
-                    });
-                } else {
-                    this.$nextTick(() => {
+                    } else {
                         this.popper = new Popper(this.$parent.$refs.reference, this.$el, {
+                            eventsEnabled: this.eventsEnabled,
                             placement: this.placement,
                             modifiers: {
                                 computeStyle:{
@@ -69,18 +73,20 @@
                                 this.resetTransformOrigin();
                             }
                         });
-                    });
-                }
-                // set a height for parent is Modal and Select's width is 100%
-                if (this.$parent.$options.name === 'iSelect') {
-                    this.width = parseInt(getStyle(this.$parent.$el, 'width'));
-                }
-                this.tIndex = this.handleGetIndex();
+                    }
+                    // set a height for parent is Modal and Select's width is 100%
+                    if (this.$parent.$options.name === 'iSelect') {
+                        this.width = parseInt(getStyle(this.$parent.$el, 'width'));
+                    }
+                    this.tIndex = this.handleGetIndex();
+                });
             },
             destroy () {
                 if (this.popper) {
                     setTimeout(() => {
                         if (this.popper && !this.popperStatus) {
+                            //fix:#910
+                            this.popper.popper.style.display = 'none';
                             this.popper.destroy();
                             this.popper = null;
                         }
@@ -110,8 +116,11 @@
             this.$on('on-destroy-popper', this.destroy);
         },
         beforeDestroy () {
+            this.$off('on-update-popper', this.update);
+            this.$off('on-destroy-popper', this.destroy);
             if (this.popper) {
                 this.popper.destroy();
+                this.popper = null;
             }
         }
     };

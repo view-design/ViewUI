@@ -1,6 +1,6 @@
 <template>
     <span :class="classes" :style="styles">
-        <img :src="src" v-if="src" @error="handleError">
+        <img :src="src" :alt="alt" v-if="src" @error="handleError">
         <Icon :type="icon" :custom="customIcon" v-else-if="icon || customIcon"></Icon>
         <span ref="children" :class="[prefixCls + '-string']" :style="childrenStyle" v-else><slot></slot></span>
     </span>
@@ -32,6 +32,7 @@
             src: {
                 type: String
             },
+            alt: String,
             icon: {
                 type: String
             },

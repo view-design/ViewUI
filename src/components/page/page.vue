@@ -191,6 +191,7 @@
                 return [
                     `${prefixCls}`,
                     `${prefixCls}-simple`,
+                    'notranslate',
                     {
                         [`${this.className}`]: !!this.className
                     }
@@ -202,6 +203,7 @@
             wrapClasses () {
                 return [
                     `${prefixCls}`,
+                    'notranslate',
                     {
                         [`${this.className}`]: !!this.className,
                         [`${prefixCls}-with-disabled`]: this.disabled,

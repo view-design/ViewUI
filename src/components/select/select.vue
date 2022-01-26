@@ -563,13 +563,13 @@
                     disabled: typeof disabled === 'undefined' ? false : disabled !== false,
                 };
 
-                return {
+                return Object.assign(Object.create(option.__proto__), {
                     ...option,
                     componentOptions: {
                         ...option.componentOptions,
                         propsData: propsData
                     }
-                };
+                });
             },
 
             validateOption({children, elm, propsData}){

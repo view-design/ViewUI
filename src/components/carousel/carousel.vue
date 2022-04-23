@@ -8,6 +8,9 @@
                 <slot></slot>
             </div>
             <div :class="[prefixCls + '-track', showCopyTrack ? 'higher' : '']" :style="copyTrackStyles" ref="copyTrack" v-if="loop" @click="handleClick('copyTrackIndex')">
+              <template v-if="showSlot">
+                <slot></slot>
+              </template>
             </div>
         </div>
         <button type="button" :class="arrowClasses" class="right" @click="arrowEvent(1)">
@@ -96,6 +99,7 @@
                 trackOffset: 0,
                 trackCopyOffset: 0,
                 showCopyTrack: false,
+                showSlot: false,
                 slides: [],
                 slideInstances: [],
                 timer: null,
@@ -172,7 +176,7 @@
             // copy trackDom
             initCopyTrackDom () {
                 this.$nextTick(() => {
-                    this.$refs.copyTrack.innerHTML = this.$refs.originTrack.innerHTML;
+                    this.showSlot = true;
                 });
             },
             updateSlides (init) {

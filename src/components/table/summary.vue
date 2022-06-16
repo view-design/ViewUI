@@ -8,7 +8,8 @@
                 <tr class="ivu-table-row">
                     <td v-for="(column, index) in columns" :class="alignCls(column)">
                         <div class="ivu-table-cell" :class="cellCls(column)">
-                            <span>{{ data[column.key].value }}</span>
+                            <span v-if="!data[column.key].render">{{ data[column.key].value }}</span>
+                            <render-cell v-else :render="data[column.key].render"></render-cell>
                         </div>
                     </td>
                 </tr>
@@ -18,9 +19,13 @@
 </template>
 <script>
     import Mixin from './mixin';
+    import RenderCell from '../base/render';
 
     export default {
         name: 'TableSummary',
+        components:{
+            RenderCell
+        },
         mixins: [ Mixin ],
         props: {
             prefixCls: String,

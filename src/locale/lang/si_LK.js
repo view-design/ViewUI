@@ -10,7 +10,7 @@ const lang = {
         },
         table: {
             noDataText: 'දත්ත නැත',
-            noFilteredDataText: 'පෙරහන් දත්ත නොමැත',
+            noFilteredDataText: 'පෙරහන් දත්ත නැත',
             confirmFilter: 'තහවුරු කරන්න',
             resetFilter: 'යළි පිහිටුවන්න',
             clearFilter: 'සියල්ල',
@@ -69,7 +69,7 @@ const lang = {
                 target: 'ඉලක්කය'
             },
             filterPlaceholder: 'මෙතැන සොයන්න',
-            notFoundText: 'සොයා ගත  නොහැක'
+            notFoundText: 'හමු නොවිණි'
         },
         modal: {
             okText: 'හරි',

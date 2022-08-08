@@ -39,7 +39,8 @@
                 ];
             },
             rowClsName (_index) {
-                return this.$parent.$parent.rowClassName(this.objData[_index], _index);
+                const objData = this.isChildren ? this.$parent.$parent.getDataByRowKey(this.row._rowKey) : this.objData[_index];
+                return this.$parent.$parent.rowClassName(objData, _index);
             },
         }
     };

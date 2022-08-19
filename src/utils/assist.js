@@ -212,8 +212,12 @@ export function findComponentDownward (context, componentName) {
 }
 
 // Find components downward
-export function findComponentsDownward (context, componentName) {
+export function findComponentsDownward(context, componentName, filterName) {
     return context.$children.reduce((components, child) => {
+        if (!child.$options.name) return components;
+        if (typeof filterName === 'function') {
+            if (filterName(child, components)) return components;
+        } else if (child.$options.name === filterName) return components;
         if (child.$options.name === componentName) components.push(child);
         const foundChilds = findComponentsDownward(child, componentName);
         return components.concat(foundChilds);

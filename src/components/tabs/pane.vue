@@ -16,7 +16,8 @@
                 default: ''
             },
             icon: {
-                type: String
+                type: String,
+                default: ''
             },
             disabled: {
                 type: Boolean,

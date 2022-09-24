@@ -144,8 +144,22 @@
                 if (node.checked == parent.checked && node.indeterminate == parent.indeterminate) return; // no need to update upwards
 
                 if (node.checked == true) {
-                    this.$set(parent, 'checked', parent[this.childrenKey].every(node => node.checked));
-                    this.$set(parent, 'indeterminate', !parent.checked);
+                    const checkObj = parent[this.childrenKey].reduce((prev, next) => {
+                        if(next.disabled) {
+                            return prev
+                        } else {
+                            return {
+                                checkedStatus: prev.checkedStatus && next.checked,
+                                noCheckedStatus: prev.noCheckedStatus && !next.checked
+                            }
+                        }
+                    }, {
+                        checkedStatus: true,
+                        noCheckedStatus: true
+                    })
+                    this.$set(parent, 'checked', checkObj.checkedStatus);
+                    const indeterminateStatus = !checkObj.noCheckedStatus && !checkObj.checkedStatus ? true : checkObj.noCheckedStatus && checkObj.checkedStatus
+                    this.$set(parent, 'indeterminate', indeterminateStatus)
                 } else {
                     this.$set(parent, 'checked', false);
                     this.$set(parent, 'indeterminate', parent[this.childrenKey].some(node => node.checked || node.indeterminate));
@@ -187,7 +201,9 @@
                 }
                 if (node[this.childrenKey]) {
                     node[this.childrenKey].forEach(child => {
-                        this.updateTreeDown(child, changes);
+                        if(!child.disabled) {
+                            this.updateTreeDown(child, changes);
+                        }
                     });
                 }
             },

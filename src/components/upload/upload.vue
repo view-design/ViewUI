@@ -147,7 +147,11 @@
             webkitdirectory: {
                 type: Boolean,
                 default: false
-            }
+            },
+            httpRequest: {
+                type: Function,
+                default: ajax
+            },
         },
         data () {
             return {
@@ -250,7 +254,7 @@
                 let formData = new FormData();
                 formData.append(this.name, file);
 
-                ajax({
+                const options = {
                     headers: this.headers,
                     withCredentials: this.withCredentials,
                     file: file,
@@ -266,7 +270,11 @@
                     onError: (err, response) => {
                         this.handleError(err, response, file);
                     }
-                });
+                };
+                const req = this.httpRequest(options);
+                if (req && req.then) {
+                    req.then(options.onSuccess, options.onError);
+                }
             },
             handleStart (file) {
                 file.uid = Date.now() + this.tempIndex++;

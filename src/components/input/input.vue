@@ -325,7 +325,9 @@
             },
             handleInput (event) {
                 if (this.isOnComposition) return;
-
+                if(this.type === 'number' && event.target.value.length > this.maxlength){
+                    event.target.value = event.target.value.slice(0,this.maxlength);
+                }
                 let value = event.target.value;
                 if (this.number && value !== '') value = Number.isNaN(Number(value)) ? value : Number(value);
                 this.$emit('input', value);

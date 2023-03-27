@@ -48,7 +48,7 @@
                     @on-input-focus="isFocused = true"
                     @on-input-blur="isFocused = false"
                     @on-clear="clearSingleSelect"
-                    @on-enter="handleCreateItem"
+                    @on-enter="onEnter"
                 >
                     <slot name="prefix" slot="prefix"></slot>
                 </select-head>
@@ -804,6 +804,10 @@
                     // 单选（和多选，#926）时如果不在 nextTick 里执行，无法赋值
                     this.$nextTick(() => this.onOptionClick(option));
                 }
+            },
+            onEnter() {
+                this.$emit('on-enter');
+                this.handleCreateItem();
             }
         },
         watch: {

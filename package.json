@@ -1,6 +1,6 @@
 {
     "name": "@solfkwolf/view-design",
-    "version": "4.7.1",
+    "version": "4.7.2",
     "title": "ViewUI",
     "description": "A high quality UI components Library with Vue.js",
     "homepage": "http://www.iviewui.com",
@@ -37,12 +37,12 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/view-design/ViewUI"
+        "url": "https://github.com/solfKwolf/ViewUI"
     },
     "author": "Aresn",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/view-design/ViewUI/issues"
+        "url": "https://github.com/solfKwolf/ViewUI/issues"
     },
     "dependencies": {
         "async-validator": "^3.3.0",

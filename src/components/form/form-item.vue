@@ -241,6 +241,11 @@
                     this.validateDisabled = true;
                     prop.o[prop.k] = this.initialValue;
                 }
+
+                // reset validateDisabled after onFieldChange triggered
+                this.$nextTick(() => {
+                    this.validateDisabled = false;
+                });
             },
             onFieldBlur() {
                 this.validate('blur');

@@ -167,6 +167,7 @@
         },
         watch: {
             value (val) {
+                if(this.disabled || this.itemDisabled) return;
                 if (val === this.trueValue || val === this.falseValue) {
                     this.updateModel();
                 } else {

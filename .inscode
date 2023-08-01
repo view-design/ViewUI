@@ -1,0 +1,6 @@
+run = "npm i && npm run dev"
+
+[env]
+PATH = "/root/${PROJECT_DIR}/.config/npm/node_global/bin:/root/${PROJECT_DIR}/node_modules/.bin:${PATH}"
+XDG_CONFIG_HOME = "/root/.config"
+npm_config_prefix = "/root/${PROJECT_DIR}/.config/npm/node_global"

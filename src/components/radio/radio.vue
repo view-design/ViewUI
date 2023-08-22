@@ -10,7 +10,9 @@
                 :name="groupName"
                 @change="change"
                 @focus="onFocus"
-                @blur="onBlur">
+                @blur="onBlur"
+                @click="handleClick"
+                >
         </span><slot>{{ label }}</slot>
     </label>
 </template>
@@ -128,27 +130,27 @@
         },
         methods: {
             change (event) {
-                if (this.itemDisabled) {
+                if (this.itemDisabled || !this.group) {
                     return false;
                 }
 
                 const checked = event.target.checked;
                 this.currentValue = checked;
-
                 const value = checked ? this.trueValue : this.falseValue;
                 this.$emit('input', value);
-
-                if (this.group) {
-                    if (this.label !== undefined) {
-                        this.parent.change({
-                            value: this.label,
-                            checked: this.value
-                        });
-                    }
-                } else {
-                    this.$emit('on-change', value);
-                    this.dispatch('FormItem', 'on-form-change', value);
+                if (this.label !== undefined) {
+                    this.parent.change({
+                        value: this.label,
+                        checked: this.value
+                    });
                 }
+            },
+            handleClick () {
+                const { group, currentValue, disabled } = this;
+                if (group || disabled) return;
+                this.currentValue = !currentValue;
+                this.$emit('input', this.currentValue);
+                this.dispatch('FormItem', 'on-form-change', this.currentValue);
             },
             updateValue () {
                 this.currentValue = this.value === this.trueValue;

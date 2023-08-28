@@ -116,10 +116,6 @@
                 default: false
             },
             beforeRemove: Function,
-            // Tabs 嵌套时，用 name 区分层级
-            name: {
-                type: String
-            },
             // 4.3.0
             draggable: {
                 type: Boolean,
@@ -144,7 +140,8 @@
                 contextMenuStyles: {
                     top: 0,
                     left: 0
-                }
+                },
+                isRepeat: false //记录label是否重复
             };
         },
         computed: {
@@ -239,42 +236,39 @@
         methods: {
             getTabs () {
                 // return this.$children.filter(item => item.$options.name === 'TabPane');
-                const AllTabPanes = findComponentsDownward(this, 'TabPane');
-                const TabPanes = [];
-
-                AllTabPanes.forEach(item => {
-                    if (item.tab && this.name) {
-                        if (item.tab === this.name) {
-                            TabPanes.push(item);
-                        }
-                    } else {
-                        TabPanes.push(item);
+                const repeat = {};
+                let isRepeat = false;
+                const AllTabPanes = findComponentsDownward(this, 'TabPane', (child) => {
+                    if (!isRepeat) {
+                        if (repeat[child.name]) isRepeat = true;
+                        else repeat[child.name] = true;
                     }
+                    if (child.$options.name === 'Tabs') return true;
                 });
 
                 // 在 TabPane 使用 v-if 时，并不会按照预先的顺序渲染，这时可设置 index，并从小到大排序
-                TabPanes.sort((a, b) => {
+                AllTabPanes.sort((a, b) => {
                     if (a.index && b.index) {
                         return a.index > b.index ? 1 : -1;
                     }
                 });
-                return TabPanes;
+                return AllTabPanes;
             },
             updateNav () {
-                this.navList = [];
+                //label无重时,pane.currentName无值时的默认值优先采用pane.label
+                if (!pane.currentName) pane.currentName = this.isRepeat ? index : pane.label;
                 this.getTabs().forEach((pane, index) => {
                     this.navList.push({
                         labelType: typeof pane.label,
                         label: pane.label,
-                        icon: pane.icon || '',
-                        name: pane.currentName || index,
+                        icon: pane.icon,
+                        name: pane.currentName,
                         disabled: pane.disabled,
                         closable: pane.closable,
                         contextMenu: pane.contextMenu
                     });
-                    if (!pane.currentName) pane.currentName = index;
                     if (index === 0) {
-                        if (!this.activeKey) this.activeKey = pane.currentName || index;
+                        if (!this.activeKey) this.activeKey = pane.currentName;
                     }
                 });
                 this.updateStatus();

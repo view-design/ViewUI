@@ -10,7 +10,7 @@ const lang = {
         },
         table: {
             noDataText: 'දත්ත නැත',
-            noFilteredDataText: 'පෙරහන් දත්ත නොමැත',
+            noFilteredDataText: 'පෙරහන් දත්ත නැත',
             confirmFilter: 'තහවුරු කරන්න',
             resetFilter: 'යළි පිහිටුවන්න',
             clearFilter: 'සියල්ල',
@@ -54,7 +54,7 @@ const lang = {
                 m3: 'මැදින්',
                 m4: 'බක්',
                 m5: 'වෙසක්',
-                m6: 'පෙසොන්',
+                m6: 'පොසොන්',
                 m7: 'ඇසළ',
                 m8: 'නිකිණි',
                 m9: 'බිනර',
@@ -69,7 +69,7 @@ const lang = {
                 target: 'ඉලක්කය'
             },
             filterPlaceholder: 'මෙතැන සොයන්න',
-            notFoundText: 'සොයා ගත  නොහැක'
+            notFoundText: 'හමු නොවිණි'
         },
         modal: {
             okText: 'හරි',
@@ -88,7 +88,7 @@ const lang = {
             prev5: 'පෙර පිටු 5',
             next5: 'ඊළඟ පිටු 5',
             page: '/පිටුව',
-            goto: 'ට යන්න',
+            goto: 'වෙත යන්න',
             p: ''
         },
         rate: {

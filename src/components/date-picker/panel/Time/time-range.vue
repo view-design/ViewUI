@@ -141,7 +141,7 @@
                 });
 
                 // judge endTime > startTime?
-                if (dateEnd < dateStart) dateEnd = dateStart;
+                // if (dateEnd < dateStart) dateEnd = dateStart;
 
                 if (emit) this.$emit('on-pick', [dateStart, dateEnd], 'time');
             },

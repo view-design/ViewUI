@@ -47,7 +47,7 @@ export default {
             const newDate = new Date(clearHours(cell.date));
 
             this.$emit('on-pick', newDate);
-            this.$emit('on-pick-click');
+            this.$emit('on-pick-click', newDate);
         },
         handleMouseMove (cell) {
             if (!this.rangeState.selecting) return;

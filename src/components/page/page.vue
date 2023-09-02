@@ -170,6 +170,8 @@
                 let maxPage = Math.ceil(val / this.currentPageSize);
                 if (maxPage < this.currentPage ) {
                     this.currentPage = (maxPage === 0 ? 1 : maxPage);
+                    this.$emit('update:current', this.currentPage);
+                    this.$emit('on-change', this.currentPage);
                 }
             },
             current (val) {

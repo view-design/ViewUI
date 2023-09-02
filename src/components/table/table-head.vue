@@ -302,8 +302,35 @@
 
                             const finalLeft = parseInt(resizeProxy.style.left, 10);
                             const columnWidth = finalLeft - startColumnLeft;
+                            let _column, rightColumn;
+                            
+                            const findDragColumn = (list) => {
+                                list.forEach(item => {
+                                    if(item.__id === column.__id) {
+                                        _column = item
+                                    } else if (item.children && item.children.length) {
+                                        findDragColumn(item.children);
+                                    }
+                                })
+                            }
 
-                            const _column = table.columns.find(item => item.__id === column.__id);
+                            findDragColumn(table.columns);
+
+                            const findRightColumn = (item) => {
+                                if(item.children && item.children.length) {
+                                    const childLength = item.children.length;
+                                    findRightColumn(item.children[childLength - 1])
+                                } else {
+                                    rightColumn = item;
+                                }
+                            }
+                            
+                            if(_column && _column.children && _column.children.length) {
+                                findRightColumn(_column.children[_column.children.length - 1])
+                                rightColumn.width = rightColumn.width + columnWidth - startLeft + startColumnLeft
+                            }
+
+
                             if (_column) _column.width = columnWidth;
                             table.$emit('on-column-width-resize', _column.width, startLeft - startColumnLeft, column, event);
 

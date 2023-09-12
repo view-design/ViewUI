@@ -908,9 +908,10 @@
             selectOptions(){
                 if (this.hasExpectedValue && this.selectOptions.length > 0){
                     if (this.values.length === 0) {
-                        this.values = this.getInitialValue();
+                      this.values = this.getInitialValue().map(this.getOptionData).filter(Boolean);
+                    } else {
+                      this.values = this.values.map(({ value }) => value).map(this.getOptionData).filter(Boolean);
                     }
-                    this.values = this.values.map(this.getOptionData).filter(Boolean);
                     this.hasExpectedValue = false;
                 }
 

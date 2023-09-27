@@ -18,7 +18,8 @@
                     <template v-else>{{ data.title }}</template>
                 </span>
                 <Tree-node
-                        v-if="data.expand"
+                        v-if="childNodeRendered"
+                        v-show="data.expand"
                         :appear="appearByClickArrow"
                         v-for="(item, i) in children"
                         :key="i"
@@ -73,8 +74,22 @@
         data () {
             return {
                 prefixCls: prefixCls,
-                appearByClickArrow: false
+                appearByClickArrow: false,
+                childNodeRendered: false
             };
+        },
+        watch:{
+            'data.expand':{
+                immediate: true,
+                handler(val) {
+                    if (val) {
+                        this.childNodeRendered = true;
+                        this.$nextTick(()=>{
+                            this.appearByClickArrow = true;
+                        })
+                    }
+                }
+            }
         },
         computed: {
             classes () {

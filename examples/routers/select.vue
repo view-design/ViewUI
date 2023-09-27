@@ -94,6 +94,10 @@
         <Select v-model="model34" filterable allow-create multiple size="large" style="width:200px">
             <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
         </Select>
+        <Select v-model="model11" style="width:200px" @on-change="handleChange">
+            <Option value="">不限</Option>
+            <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+        </Select>
     </div>
 </template>
 <script>
@@ -128,6 +132,7 @@
                 ],
                 model1: '',
                 model10: [],
+                model11: '',
                 model12: [],
                 model13: '',
                 model31: '',
@@ -148,6 +153,9 @@
                     value: val,
                     label: val
                 });
+            },
+            handleChange (val) {
+                console.log(val)
             }
         }
     }

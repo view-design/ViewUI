@@ -24,7 +24,10 @@ export default {
                 }
             }
             if (parent) {
-                parent.$emit.apply(parent, [eventName].concat(params));
+                this.$nextTick(() => {
+                    parent.$emit.apply(parent, [eventName].concat(params));         
+                })
+
             }
         },
         broadcast(componentName, eventName, params) {

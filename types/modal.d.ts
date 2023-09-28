@@ -4,6 +4,8 @@
 // Definitions: https://github.com/yangdan8/iview.git
 import Vue, { VNode, CreateElement } from "vue";
 
+type ButtonType = '' | 'default' | 'primary' | 'dashed' | 'text' | 'info' | 'success' | 'warning' | 'error';
+
 export declare class Modal extends Vue {
     /**
      * 对话框是否显示，可使用 v-model 双向绑定数据。
@@ -185,10 +187,20 @@ export declare class ModalConfig {
      */
     okText?: string;
     /**
+     * 确认按钮的类型
+     * @default primary
+     */
+    okType?: ButtonType;
+    /**
      * 取消按钮的文字，只在Modal.confirm()下有效
      * @default 取消
      */
     cancelText?: string;
+    /**
+     * 取消按钮的类型
+     * @default text
+     */
+    cancelType?: ButtonType;
     /**
      * 点击确定按钮时，确定按钮是否显示 loading 状态，开启则需手动调用Modal.remove()来关闭对话框
      * @default false

@@ -18,7 +18,9 @@ Modal.newInstance = properties => {
             iconType: '',
             iconName: '',
             okText: undefined,
+            okType: 'primary',
             cancelText: undefined,
+            cancelType: 'text',
             showCancel: false,
             loading: false,
             buttonLoading: false,
@@ -31,7 +33,7 @@ Modal.newInstance = properties => {
             if (this.showCancel) {
                 footerVNodes.push(h(Button, {
                     props: {
-                        type: 'text'
+                        type: this.cancelType,
                     },
                     on: {
                         click: this.cancel
@@ -40,7 +42,7 @@ Modal.newInstance = properties => {
             }
             footerVNodes.push(h(Button, {
                 props: {
-                    type: 'primary',
+                    type: this.okType,
                     loading: this.buttonLoading
                 },
                 on: {
@@ -238,8 +240,16 @@ Modal.newInstance = properties => {
                 modal.$parent.okText = props.okText;
             }
 
+            if ('okType' in props) {
+                modal.$parent.okType = props.okType;
+            }
+
             if ('cancelText' in props) {
                 modal.$parent.cancelText = props.cancelText;
+            }
+
+            if ('cancelType' in props) {
+                modal.$parent.cancelType = prps.cancelType;
             }
 
             if ('onCancel' in props) {

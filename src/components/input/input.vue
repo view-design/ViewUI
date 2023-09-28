@@ -199,7 +199,6 @@
         },
         data () {
             return {
-                currentValue: this.value,
                 prefixCls: prefixCls,
                 slotReady: false,
                 textareaStyles: {},
@@ -209,6 +208,9 @@
             };
         },
         computed: {
+            currentValue () {
+                return this.value === null || this.value === undefined ? '' : String(this.value);
+            },
             currentType () {
                 let type = this.type;
                 if (type === 'password' && this.password && this.showPassword) type = 'text';
@@ -329,20 +331,34 @@
                 let value = event.target.value;
                 if (this.number && value !== '') value = Number.isNaN(Number(value)) ? value : Number(value);
                 this.$emit('input', value);
-                this.setCurrentValue(value);
+                this.$nextTick(this.setNativeInputValue);
                 this.$emit('on-change', event);
             },
             handleChange (event) {
                 this.$emit('on-input-change', event);
             },
             setCurrentValue (value) {
-                if (value === this.currentValue) return;
+                this.setNativeInputValue();
                 this.$nextTick(() => {
                     this.resizeTextarea();
                 });
-                this.currentValue = value;
                 if (!findComponentUpward(this, ['DatePicker', 'TimePicker', 'Cascader', 'Search'])) {
                     this.dispatch('FormItem', 'on-form-change', value);
+                }
+            },
+            getInputRef () {
+                if (this.type === 'textarea') {
+                    return this.$refs.textarea;
+                }
+                return this.$refs.input;
+            },
+            setNativeInputValue () {
+                const input = this.getInputRef();
+                if (!input) {
+                    return;
+                }
+                if (input.value !== this.currentValue) {
+                    input.value = this.value;
                 }
             },
             resizeTextarea () {

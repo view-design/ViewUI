@@ -174,6 +174,12 @@ const install = function(Vue, opts = {}) {
         size: opts.size || '',
         transfer: 'transfer' in opts ? opts.transfer : '',
         capture: 'capture' in opts ? opts.capture : true,
+        page: {
+            pageSize: opts.page ? opts.page.pageSize ? opts.page.pageSize : '' : '',
+            pageSizeOpts: opts.page ? opts.page.pageSizeOpts ? opts.page.pageSizeOpts : '' : '',
+            prevText: opts.page ? opts.page.prevText ? opts.page.prevText : '' : '',
+            nextText: opts.page ? opts.page.nextText ? opts.page.nextText : '' : ''
+        },
         select: {
             arrow: opts.select ? opts.select.arrow ? opts.select.arrow : '' : '',
             customArrow: opts.select ? opts.select.customArrow ? opts.select.customArrow : '' : '',

@@ -13,7 +13,7 @@
                     :data="rebuildData"></table-head>
             </div>
             <div :class="[prefixCls + '-body']" :style="bodyStyle" ref="body" @scroll="handleBodyScroll"
-                v-show="!((!!localeNoDataText && (!data || data.length === 0)) || (!!localeNoFilteredDataText && (!rebuildData || rebuildData.length === 0)))">
+                v-show="!((!data || data.length === 0) || (!!localeNoFilteredDataText && (!rebuildData || rebuildData.length === 0)))">
                 <table-body
                     ref="tbody"
                     :draggable="draggable"
@@ -36,12 +36,14 @@
             />
             <div
                 :class="[prefixCls + '-tip']" :style="bodyStyle" @scroll="handleBodyScroll"
-                v-show="((!!localeNoDataText && (!data || data.length === 0)) || (!!localeNoFilteredDataText && (!rebuildData || rebuildData.length === 0)))">
+                v-show="((!data || data.length === 0) || (!!localeNoFilteredDataText && (!rebuildData || rebuildData.length === 0)))">
                 <table cellspacing="0" cellpadding="0" border="0">
                     <tbody>
                         <tr>
                             <td :style="{'height':bodyStyle.height,'width':`${this.headerWidth}px`}">
-                                <span v-html="localeNoDataText" v-if="!data || data.length === 0"></span>
+                                <span v-if="!data || data.length === 0">
+                                    <slot name="no-data">{{localeNoDataText}}</slot>
+                                </span>
                                 <span v-html="localeNoFilteredDataText" v-else></span>
                             </td>
                         </tr>
@@ -221,9 +223,6 @@
             context: {
                 type: Object
             },
-            noDataText: {
-                type: String
-            },
             noFilteredDataText: {
                 type: String
             },
@@ -341,11 +340,7 @@
         },
         computed: {
             localeNoDataText () {
-                if (this.noDataText === undefined) {
-                    return this.t('i.table.noDataText');
-                } else {
-                    return this.noDataText;
-                }
+                return this.t('i.table.noDataText');
             },
             localeNoFilteredDataText () {
                 if (this.noFilteredDataText === undefined) {

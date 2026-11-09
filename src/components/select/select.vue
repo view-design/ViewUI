@@ -718,6 +718,8 @@
                 this.focusIndex = index;
             },
             onOptionClick(option) {
+                if (this.itemDisabled) return;
+
                 if (this.multiple){
 
                     // keep the query for remote select

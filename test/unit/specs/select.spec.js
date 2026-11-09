@@ -6,6 +6,47 @@ describe('Select.vue', () => {
     destroyVM(vm);
   });
 
+  it('does not select an option after becoming disabled while open', () => {
+    vm = createVue({
+      template: `
+        <Select ref="select" v-model="value" :disabled="disabled" @on-select="selections.push($event.value)">
+          <Option value="Apple">Apple</Option>
+          <Option value="Orange">Orange</Option>
+        </Select>
+      `,
+      data() {
+        return { value: 'Apple', disabled: false, selections: [] };
+      }
+    }, true);
+
+    const findOrange = () => Array.from(vm.$el.querySelectorAll('.ivu-select-item'))
+      .find((item) => item.textContent.trim() === 'Orange');
+    return promissedTick(vm).then(() => {
+      vm.$refs.select.toggleMenu(null, true);
+      return promissedTick(vm);
+    }).then(() => {
+      const menu = vm.$el.querySelector('.ivu-select-dropdown');
+      expect(menu.style.display).to.not.equal('none');
+      vm.disabled = true;
+      return promissedTick(vm);
+    }).then(() => {
+      expect(vm.$el.classList.contains('ivu-select-disabled')).to.be.true;
+      findOrange().click();
+      return promissedTick(vm);
+    }).then(() => {
+      expect(vm.selections).to.deep.equal([]);
+      expect(vm.value).to.equal('Apple');
+      vm.disabled = false;
+      return promissedTick(vm);
+    }).then(() => {
+      findOrange().click();
+      return promissedTick(vm);
+    }).then(() => {
+      expect(vm.selections).to.deep.equal(['Orange']);
+      expect(vm.value).to.equal('Orange');
+    });
+  });
+
   describe('Props tests', () => {
     it('should create a Select component with passed placeholder', done => {
       const placeholder = 'Hi! Select something!';

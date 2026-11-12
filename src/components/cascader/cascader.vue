@@ -346,6 +346,7 @@
                 this.query = event.target.value;
             },
             handleSelectItem (index) {
+                if (this.itemDisabled) return;
                 const item = this.querySelections[index];
 
                 if (item.item.disabled) return false;
@@ -392,6 +393,7 @@
                 const lastValue = params.lastValue;
                 const changeOnSelect = params.changeOnSelect;
                 const fromInit = params.fromInit;
+                if (!fromInit && this.itemDisabled) return;
 
                 if (lastValue || changeOnSelect) {
                     const oldVal = JSON.stringify(this.currentValue);
@@ -417,6 +419,9 @@
             this.updateSelected(true);
         },
         watch: {
+            itemDisabled (disabled) {
+                if (disabled) this.visible = false;
+            },
             visible (val) {
                 if (val) {
                     if (this.currentValue.length) {

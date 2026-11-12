@@ -282,7 +282,7 @@
                 return Array.isArray(publicVModelValue) ? publicVModelValue.map(formatDate) : formatDate(publicVModelValue);
             },
             opened () {
-                return this.open === null ? this.visible : this.open;
+                return !this.itemDisabled && (this.open === null ? this.visible : this.open);
             },
             transition () {
                 const bottomPlaced = this.placement.match(/^bottom/);
@@ -747,6 +747,7 @@
                 }
             },
             onPick(dates, visible = false, type) {
+                if (this.itemDisabled) return;
                 if (this.multiple){
                     const pickedTimeStamp = dates.getTime();
                     const indexOfPickedDate = this.internalValue.findIndex(date => date && date.getTime() === pickedTimeStamp);
@@ -769,6 +770,7 @@
                 this.emitChange(type);
             },
             onPickSuccess(){
+                if (this.itemDisabled) return;
                 this.visible = false;
                 this.$emit('on-ok');
                 this.focus();
@@ -782,6 +784,9 @@
             }
         },
         watch: {
+            itemDisabled (disabled) {
+                if (disabled) this.visible = false;
+            },
             visible (state) {
                 if (state === false){
                     this.$refs.drop.destroy();
